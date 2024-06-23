@@ -1,9 +1,7 @@
 <template>
     <v-app>
-        <nav>
-            <RouterLink to="/">Go to Home</RouterLink>
-        </nav>
         <v-main>
+            <RouterView name="AppLayout" />
             <RouterView />
         </v-main>
     </v-app>
