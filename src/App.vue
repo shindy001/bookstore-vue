@@ -1,19 +1,19 @@
 <template>
-    <v-app>
-        <v-main>
-            <component :is="layout">
-                <RouterView />
-            </component>
-        </v-main>
-    </v-app>
+    <AppBar />
+    <main>
+        <component :is="layout">
+            <RouterView />
+        </component>
+    </main>
 </template>
 
 <script setup lang="ts">
     import { computed } from 'vue';
     import { useRoute } from 'vue-router';
+    import AppBar from '@/components/AppBar.vue'
 
     const route = useRoute();
-    
+
     /**
     * Sets layout according to passed layout name in route.meta.layout property
     * Falls back to default layout "AppLayout" when meta property is not specified

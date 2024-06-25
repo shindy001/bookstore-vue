@@ -1,13 +1,15 @@
 /**
  * main.ts
  *
- * Bootstraps Vuetify and other plugins then mounts the App`
+ * Bootstraps plugins, layouts and then mounts the App`
  */
 
 // Plugins
 import { registerPlugins } from '@/plugins'
 import { registerLayouts } from '@/views/layouts/register';
 
+// css
+import "./style.css";
 
 // Components
 import App from './App.vue';
