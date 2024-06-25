@@ -6,15 +6,16 @@
 
 // Plugins
 import { registerPlugins } from '@/plugins'
+import { registerLayouts } from '@/views/layouts/register';
+
 
 // Components
-import App from './App.vue'
+import App from './App.vue';
+import { createApp } from 'vue';
 
-// Composables
-import { createApp } from 'vue'
+const app = createApp(App);
 
-const app = createApp(App)
-
-registerPlugins(app)
+registerPlugins(app);
+registerLayouts(app);
 
 app.mount('#app')
