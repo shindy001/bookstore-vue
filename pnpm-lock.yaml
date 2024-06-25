@@ -20,6 +20,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      lucide-vue-next:
+        specifier: ^0.396.0
+        version: 0.396.0(vue@3.4.30(typescript@5.5.2))
       radix-vue:
         specifier: ^1.8.5
         version: 1.8.5(vue@3.4.30(typescript@5.5.2))
@@ -716,6 +719,11 @@ packages:
   lru-cache@10.2.2:
     resolution: {integrity: sha512-9hp3Vp2/hFQUiIwKo8XCeFVnrg8Pk3TYNPIR7tJADKi5YfcF7vEaK7avFHTlSy3kOKYaJQaalfEo6YuXdceBOQ==}
     engines: {node: 14 || >=16.14}
+
+  lucide-vue-next@0.396.0:
+    resolution: {integrity: sha512-fY2FbKWVlAH6KyGHLWQvjPmDAbAh5UH6eqakDYB815UG5wPLtDQmhSYQlZvDLvhkahLdUZt5f+IWKwSANaS0Zw==}
+    peerDependencies:
+      vue: '>=3.0.1'
 
   magic-string@0.30.10:
     resolution: {integrity: sha512-iIRwTIf0QKV3UAnYK4PU8uiEc4SRh5jX0mwpIwETPpHdhVM4f53RSwS/vXvN1JhGX+Cs7B8qIq3d6AH49O5fAQ==}
@@ -1660,6 +1668,10 @@ snapshots:
   lines-and-columns@1.2.4: {}
 
   lru-cache@10.2.2: {}
+
+  lucide-vue-next@0.396.0(vue@3.4.30(typescript@5.5.2)):
+    dependencies:
+      vue: 3.4.30(typescript@5.5.2)
 
   magic-string@0.30.10:
     dependencies:
