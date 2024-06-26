@@ -10,7 +10,7 @@
 <script setup lang="ts">
     import { computed } from 'vue';
     import { useRoute } from 'vue-router';
-    import AppBar from '@/components/AppBar.vue'
+    import AppBar from '@/components/AppBar.vue';
 
     const route = useRoute();
 
@@ -26,7 +26,7 @@
         let layoutName = route?.meta?.layout;
 
         if (!layoutName) {
-            layoutName = "AppLayout";
+            layoutName = 'AppLayout';
         }
 
         return layoutName;
