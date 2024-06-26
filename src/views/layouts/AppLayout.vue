@@ -1,10 +1,13 @@
 <template>
-    <nav>
-        <RouterLink to="/">Go to Home</RouterLink>
-    </nav>
-    <slot></slot>
+    <div class="h-full flex flex-col justify-between">
+        <slot></slot>
+
+        <Footer />
+    </div>
 </template>
 
 <script setup lang="ts">
-    import { RouterLink } from 'vue-router'
+    console.debug('Obligatory script line, otherwise layout auto import wont work.');
+
+    import Footer from '@/views/components/Footer.vue';
 </script>

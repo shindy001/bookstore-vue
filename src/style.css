@@ -55,6 +55,11 @@
   margin: 0;
 }
 
+html, body{ 
+  min-height: 100vh;
+  overflow: auto;
+}
+
 html, body, main {
   background-color: #fcf9f5;
 }

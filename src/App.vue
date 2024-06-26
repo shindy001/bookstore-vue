@@ -1,10 +1,10 @@
 <template>
     <AppBar />
-    <main>
+    <div class="h-[calc(100vh-64px)]">
         <component :is="layout">
             <RouterView />
         </component>
-    </main>
+    </div>
 </template>
 
 <script setup lang="ts">
