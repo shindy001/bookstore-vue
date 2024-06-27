@@ -24,6 +24,7 @@
         "@types/node": "^20.11.25",
         "@vitejs/plugin-vue": "^5.0.4",
         "autoprefixer": "^10.4.19",
+        "daisyui": "^4.12.10",
         "postcss": "^8.4.38",
         "prettier": "3.3.2",
         "sass": "^1.71.1",
