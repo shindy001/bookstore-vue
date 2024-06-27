@@ -1,83 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
- 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
- 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
- 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
- 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
- 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
- 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
- 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
- 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
- 
-    --ring: 222.2 84% 4.9%;
- 
-    --radius: 0.5rem;
-  }
-}
- 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
 
 /**** CSS reset ****/
 *, *::before, *::after {
-  box-sizing: border-box;
-}
+	box-sizing: border-box;
+  }
+  
+  * {
+	margin: 0;
+	padding: 0;
+  }
 
-* {
-  margin: 0;
-}
-
-html, body{ 
-  min-height: 100vh;
-  overflow: auto;
-}
-
-html, body, main {
-  background-color: #fcf9f5;
-}
-
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
-
-input, button, textarea, select {
-  font: inherit;
-}
-
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
+  body {
+	margin: 0;
+	padding: 0;
+	font-size: 16;
+	line-height: 1.5;
+	color: #000;
+	background-color: #fcf9f5;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+  }
+  
+  img, picture, video, canvas, svg {
+	display: block;
+	max-width: 100%;
+  }
+  
+  input, button, textarea, select {
+	font: inherit;
+  }
+  
+  p, h1, h2, h3, h4, h5, h6 {
+	overflow-wrap: break-word;
+  }
