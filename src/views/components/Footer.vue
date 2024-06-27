@@ -1,15 +1,13 @@
 <template>
     <footer class="bg-black text-white shadow">
-        <div class="mx-auto w-full p-4 md:flex md:items-center md:justify-between">
-            <span class="text-sm sm:text-center"
-                >© 2024 <a href="#" class="hover:underline">BookStore™</a>. All Rights Reserved.
-            </span>
-            <ul class="mt-3 flex flex-wrap items-center text-sm font-medium sm:mt-0">
+        <div class="mx-auto flex justify-between p-4 max-w-screen-xl">
+            <span>© 2024 <a href="#" class="hover:underline">BookStore™</a>. All Rights Reserved.</span>
+            <ul class="flex flex-wrap items-center font-medium">
                 <li>
-                    <a href="#" class="me-4 hover:underline md:me-6">About</a>
+                    <a href="#" class="me-4 hover:underline">About</a>
                 </li>
                 <li>
-                    <a href="#" class="me-4 hover:underline md:me-6">Privacy Policy</a>
+                    <a href="#" class="me-4 hover:underline">Privacy Policy</a>
                 </li>
                 <li>
                     <a href="#" class="hover:underline">Contact</a>
