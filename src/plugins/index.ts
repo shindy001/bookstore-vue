@@ -5,11 +5,13 @@
  */
 
 // Plugins
-import router from './router'
+import { registerPrimeVue } from "./primevue";
+import router from './router';
 
 // Types
-import type { App } from 'vue'
+import type { App } from 'vue';
 
 export function registerPlugins(app: App) {
-    app.use(router)
+    app.use(router);
+    registerPrimeVue(app);
 }

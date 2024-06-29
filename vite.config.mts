@@ -1,12 +1,11 @@
-// Plugins
-import Vue from '@vitejs/plugin-vue'
-import ViteFonts from 'unplugin-fonts/vite'
-
-// Utilities
-import { defineConfig } from 'vite'
-import { fileURLToPath, URL } from 'node:url'
-import tailwind from 'tailwindcss'
-import autoprefixer from 'autoprefixer'
+import Vue from '@vitejs/plugin-vue';
+import ViteFonts from 'unplugin-fonts/vite';
+import { defineConfig } from 'vite';
+import { fileURLToPath, URL } from 'node:url';
+import tailwind from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
+import Components from 'unplugin-vue-components/vite';
+import {PrimeVueResolver} from '@primevue/auto-import-resolver';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,6 +16,11 @@ export default defineConfig({
     },
     plugins: [
         Vue(),
+        Components({
+            resolvers: [
+                PrimeVueResolver()
+            ]
+        }),
         ViteFonts({
             google: {
                 families: [

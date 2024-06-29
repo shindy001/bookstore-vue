@@ -51,22 +51,22 @@
                     Games
                 </button>
             </div>
-            <div v-if="menuIndex == 1" class="absolute left-0 w-full h-[400px] bg-red-400">
+            <div v-if="menuIndex == 1" class="absolute z-10 left-0 w-full h-[400px] bg-red-400">
                 <div class="mx-auto w-full h-full max-w-screen-xl bg-red-200">Books menu</div>
             </div>
-            <div v-if="menuIndex == 2" class="absolute left-0 w-full h-[400px] bg-green-400">
+            <div v-if="menuIndex == 2" class="absolute z-10 left-0 w-full h-[400px] bg-green-400">
                 <div class="mx-auto w-full h-full max-w-screen-xl bg-green-200">E-books menu</div>
             </div>
-            <div v-if="menuIndex == 3" class="absolute left-0 w-full h-[400px] bg-blue-200">
+            <div v-if="menuIndex == 3" class="absolute z-10 left-0 w-full h-[400px] bg-blue-200">
                 <div class="mx-auto w-full h-full max-w-screen-xl bg-blue-200">Auditobooks menu</div>
             </div>
-            <div v-if="menuIndex == 4" class="absolute left-0 w-full h-[400px] bg-amber-200">
+            <div v-if="menuIndex == 4" class="absolute z-10 left-0 w-full h-[400px] bg-amber-200">
                 <div class="mx-auto w-full h-full max-w-screen-xl bg-amber-200">Textbooks menu</div>
             </div>
-            <div v-if="menuIndex == 5" class="absolute left-0 w-full h-[400px] bg-purple-200">
+            <div v-if="menuIndex == 5" class="absolute z-10 left-0 w-full h-[400px] bg-purple-400">
                 <div class="mx-auto w-full h-full max-w-screen-xl bg-purple-200">Stationery menu</div>
             </div>
-            <div v-if="menuIndex == 6" class="absolute left-0 w-full h-[400px] bg-indigo-400">
+            <div v-if="menuIndex == 6" class="absolute z-10 left-0 w-full h-[400px] bg-indigo-400">
                 <div class="mx-auto w-full h-full max-w-screen-xl bg-indigo-200">Games menu</div>
             </div>
         </div>
