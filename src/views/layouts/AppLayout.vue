@@ -1,11 +1,23 @@
 <template>
-    <div class="w-full">
-        <div class="mx-auto max-w-screen-xl px-2">
-            <slot></slot>
+    <div class="min-h-screen flex flex-col justify-between">
+        <div>
+            <header>
+                <AppBar />
+                <Menu />
+            </header>
+
+            <div>
+                <div class="mx-auto max-w-screen-xl px-2">
+                    <slot></slot>
+                </div>
+            </div>
         </div>
+        <Footer />
     </div>
 </template>
 
 <script setup lang="ts">
-    console.debug('Obligatory script line, otherwise layout auto import wont work.');
+    import AppBar from '../components/AppBar.vue';
+    import Menu from '../components/Menu.vue';
+    import Footer from '../components/Footer.vue';
 </script>

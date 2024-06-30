@@ -1,25 +1,12 @@
 <template>
-    <div class="min-h-screen flex flex-col justify-between">
-        <div>
-            <header>
-                <AppBar />
-                <Menu />
-            </header>
-
-            <component :is="layout">
-                <RouterView />
-            </component>
-        </div>
-        <Footer />
-    </div>
+    <component :is="layout">
+        <RouterView />
+    </component>
 </template>
 
 <script setup lang="ts">
     import { computed } from 'vue';
     import { useRoute } from 'vue-router';
-    import AppBar from '@/components/AppBar.vue';
-    import Menu from '@/components/Menu.vue';
-    import Footer from '@/views/components/Footer.vue';
 
     const route = useRoute();
 
