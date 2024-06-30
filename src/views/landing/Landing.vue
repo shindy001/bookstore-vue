@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="card">
-            <Carousel
+            <PrimeCarousel
                 :show-indicators="false"
                 :value="products"
                 :numVisible="3"
@@ -19,7 +19,7 @@
                                     :alt="slotProps.data.name"
                                     class="w-full rounded"
                                 />
-                                <Tag
+                                <PrimeTag
                                     :value="slotProps.data.inventoryStatus"
                                     :severity="getSeverity(slotProps.data.inventoryStatus)"
                                     class="absolute"
@@ -31,13 +31,13 @@
                         <div class="flex justify-between items-center">
                             <div class="mt-0 font-semibold text-xl">${{ slotProps.data.price }}</div>
                             <span>
-                                <Button icon="pi pi-heart" severity="secondary" outlined />
-                                <Button icon="pi pi-shopping-cart" class="ml-2" />
+                                <PrimeButton icon="pi pi-heart" severity="secondary" outlined />
+                                <PrimeButton icon="pi pi-shopping-cart" class="ml-2" />
                             </span>
                         </div>
                     </div>
                 </template>
-            </Carousel>
+            </PrimeCarousel>
         </div>
     </div>
 </template>

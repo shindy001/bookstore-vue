@@ -5,7 +5,7 @@ import { fileURLToPath, URL } from 'node:url';
 import tailwind from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
 import Components from 'unplugin-vue-components/vite';
-import {PrimeVueResolver} from '@primevue/auto-import-resolver';
+import { PrimeVueResolver } from '@primevue/auto-import-resolver';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -18,7 +18,9 @@ export default defineConfig({
         Vue(),
         Components({
             resolvers: [
-                PrimeVueResolver()
+                PrimeVueResolver({
+                    components: { prefix: "Prime" }
+                })
             ]
         }),
         ViteFonts({
