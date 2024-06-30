@@ -1,8 +1,3 @@
-<script setup lang="ts">
-    import { LibraryBig, Search, CircleUser } from 'lucide-vue-next';
-    import { RouterLink } from 'vue-router';
-</script>
-
 <template>
     <div class="w-full bg-black text-white">
         <div class="mx-auto w-full max-w-screen-xl flex justify-between p-2 px-4 items-center">
@@ -25,10 +20,14 @@
                 </div>
             </div>
 
-            <RouterLink to="#" class="flex items-center gap-2 rounded p-2 hover:bg-white hover:text-black">
-                <CircleUser :size="28" class="inline mr-1" />
+            <RouterLink to="#" class="rounded p-2 hover:bg-white hover:text-black">
                 <span>Sign in</span>
             </RouterLink>
         </div>
     </div>
 </template>
+
+<script setup lang="ts">
+    import { LibraryBig, Search } from 'lucide-vue-next';
+    import { RouterLink } from 'vue-router';
+</script>
