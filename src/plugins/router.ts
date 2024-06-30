@@ -5,10 +5,7 @@ import Landing from "@/views/landing/Landing.vue";
 const routes = [
     { 
         path: '/',
-        component: Landing,
-        meta: {
-            layout: "EmptyLayout"
-        }
+        component: Landing
     }
 ]
 
