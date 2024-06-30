@@ -8,7 +8,10 @@ export function registerPrimeVue(app: App) {
         theme: {
             preset: Noir,
             options: {
-                darkModeSelector: '.dark'
+                darkModeSelector: '.dark',
+                cssLayer: {
+                    name: 'primevue',
+                }
             }
         }
     });
