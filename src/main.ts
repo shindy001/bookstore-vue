@@ -4,16 +4,11 @@
  * Bootstraps plugins, layouts and then mounts the App`
  */
 
-// Plugins
 import { registerPlugins } from '@/plugins'
 import { registerLayouts } from '@/views/layouts/register';
-
-// css
-import "./style.css";
-
-// Components
-import App from './App.vue';
 import { createApp } from 'vue';
+import App from './App.vue';
+import "./style.css";
 
 const app = createApp(App);
 

@@ -1,3 +1,19 @@
+<template>
+    <div class="min-h-screen flex flex-col justify-between">
+        <div>
+            <header>
+                <AppBar />
+                <Menu />
+            </header>
+
+            <component :is="layout">
+                <RouterView />
+            </component>
+        </div>
+        <Footer />
+    </div>
+</template>
+
 <script setup lang="ts">
     import { computed } from 'vue';
     import { useRoute } from 'vue-router';
@@ -25,19 +41,3 @@
         return layoutName;
     });
 </script>
-
-<template>
-    <div class="min-h-screen flex flex-col justify-between">
-        <div>
-            <header>
-                <AppBar />
-                <Menu />
-            </header>
-
-            <component :is="layout">
-                <RouterView />
-            </component>
-        </div>
-        <Footer />
-    </div>
-</template>

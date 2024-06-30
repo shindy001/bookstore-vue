@@ -1,9 +1,3 @@
-<script setup lang="ts">
-    import { ref } from 'vue';
-
-    const menuIndex = ref(0);
-</script>
-
 <template>
     <div class="relative border-b-[1px] border-gray-200">
         <div class="mx-auto max-w-screen-xl" @mouseleave="menuIndex = 0">
@@ -72,3 +66,9 @@
         </div>
     </div>
 </template>
+
+<script setup lang="ts">
+    import { ref } from 'vue';
+
+    const menuIndex = ref(0);
+</script>
