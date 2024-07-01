@@ -19,28 +19,28 @@
                 <button
                     @mouseenter="menuIndex = 3"
                     :class="[menuIndex === 3 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
-                    class="p-6 rounded-none border-x-[1px] border-gray-200 join-item"
+                    class="p-6 rounded-none border-r-[1px] border-gray-200 join-item"
                 >
                     Auditbooks
                 </button>
                 <button
                     @mouseenter="menuIndex = 4"
                     :class="[menuIndex === 4 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
-                    class="p-6 rounded-none border-x-[1px] border-gray-200 join-item"
+                    class="p-6 rounded-none border-r-[1px] border-gray-200 join-item"
                 >
                     Textbooks
                 </button>
                 <button
                     @mouseenter="menuIndex = 5"
                     :class="[menuIndex === 5 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
-                    class="p-6 rounded-none border-x-[1px] border-gray-200 join-item"
+                    class="p-6 rounded-none border-r-[1px] border-gray-200 join-item"
                 >
                     Stationery
                 </button>
                 <button
                     @mouseenter="menuIndex = 6"
                     :class="[menuIndex === 6 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
-                    class="p-6 rounded-none border-l-[1px] border-gray-200 join-item"
+                    class="p-6 rounded-none border-gray-200 join-item"
                 >
                     Games
                 </button>
