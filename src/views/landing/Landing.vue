@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col gap-8">
+    <div class="flex flex-col gap-8 mx-auto max-w-screen-xl px-2">
         <div class="card">
             <PrimeCarousel
                 :show-indicators="false"
@@ -120,28 +120,28 @@
                 </template>
             </PrimeCarousel>
         </div>
+    </div>
 
-        <div class="p-4 w-full flex content-center justify-center bg-ochr-100 gap-4">
-            <div class="flex flex-col gap-2 p-4 items-center">
-                <Warehouse :size="32" />
-                <p class="text-xl font-bold">Free pickup</p>
-                <p>Shipping from $2.99</p>
-            </div>
-            <div class="flex flex-col gap-2 p-4 items-center">
-                <Library :size="32" />
-                <p class="text-xl font-bold">Wide variety</p>
-                <p>More than 150k titles</p>
-            </div>
-            <div class="flex flex-col gap-2 p-4 items-center">
-                <Truck :size="32" />
-                <p class="text-xl font-bold">Shop on every corner</p>
-                <p>We have more than 37 shops</p>
-            </div>
-            <div class="flex flex-col gap-2 p-4 items-center">
-                <MessageSquareHeart :size="32" />
-                <p class="text-xl font-bold">We love books</p>
-                <p>Check out our recommandations</p>
-            </div>
+    <div class="p-4 mt-8 w-full flex content-center justify-center bg-ochr-100 gap-4">
+        <div class="flex flex-col gap-2 p-4 items-center">
+            <Warehouse :size="32" />
+            <p class="text-xl font-bold">Free pickup</p>
+            <p>Shipping from $2.99</p>
+        </div>
+        <div class="flex flex-col gap-2 p-4 items-center">
+            <Library :size="32" />
+            <p class="text-xl font-bold">Wide variety</p>
+            <p>More than 150k titles</p>
+        </div>
+        <div class="flex flex-col gap-2 p-4 items-center">
+            <Truck :size="32" />
+            <p class="text-xl font-bold">Shop on every corner</p>
+            <p>We have more than 37 shops</p>
+        </div>
+        <div class="flex flex-col gap-2 p-4 items-center">
+            <MessageSquareHeart :size="32" />
+            <p class="text-xl font-bold">We love books</p>
+            <p>Check out our recommandations</p>
         </div>
     </div>
 </template>
