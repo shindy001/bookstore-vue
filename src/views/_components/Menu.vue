@@ -1,48 +1,66 @@
 <template>
-    <div class="relative border-b-[1px] border-gray-200">
-        <div class="mx-auto max-w-screen-xl" @mouseleave="menuIndex = 0">
-            <div class="px-4 flex content-center justify-center join">
+    <div class="relative border-b-[1px] border-gray-200 h-24">
+        <div class="mx-auto max-w-screen-xl h-full" @mouseleave="menuIndex = 0">
+            <div class="px-4 flex content-center justify-center join h-full">
                 <button
                     @mouseenter="menuIndex = 1"
                     :class="[menuIndex === 1 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
                     class="p-6 rounded-none join-item"
                 >
-                    Books
+                    <div class="flex items-center content-center justify-center">
+                        <Book class="inline h-full w-full mr-2" :stroke-width="1" :size="32" />
+                        <div class="h-full w-full">Books</div>
+                    </div>
                 </button>
                 <button
                     @mouseenter="menuIndex = 2"
                     :class="[menuIndex === 2 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
                     class="p-6 rounded-none border-x-[1px] border-gray-200 join-item"
                 >
-                    E-books
+                    <div class="flex items-center content-center justify-center">
+                        <Tablet class="inline h-full w-full mr-2" :stroke-width="1" :size="32" />
+                        <div class="h-full w-full">Ebooks</div>
+                    </div>
                 </button>
                 <button
                     @mouseenter="menuIndex = 3"
                     :class="[menuIndex === 3 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
                     class="p-6 rounded-none border-r-[1px] border-gray-200 join-item"
                 >
-                    Auditbooks
+                    <div class="flex items-center content-center justify-center">
+                        <BookAudio class="inline h-full w-full mr-2" :stroke-width="1" :size="32" />
+                        <div class="h-full w-full">Audiobooks</div>
+                    </div>
                 </button>
                 <button
                     @mouseenter="menuIndex = 4"
                     :class="[menuIndex === 4 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
                     class="p-6 rounded-none border-r-[1px] border-gray-200 join-item"
                 >
-                    Textbooks
+                    <div class="flex items-center content-center justify-center">
+                        <School class="inline h-full w-full mr-2" :stroke-width="1" :size="32" />
+                        <div class="h-full w-full">Textbooks</div>
+                    </div>
                 </button>
                 <button
                     @mouseenter="menuIndex = 5"
                     :class="[menuIndex === 5 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
                     class="p-6 rounded-none border-r-[1px] border-gray-200 join-item"
                 >
-                    Stationery
+                    <div class="flex items-center content-center justify-center">
+                        <Pencil class="inline h-full w-full mr-2" :stroke-width="1" :size="32" />
+                        <div class="h-full w-full">Stationery</div>
+                    </div>
                 </button>
                 <button
                     @mouseenter="menuIndex = 6"
                     :class="[menuIndex === 6 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
                     class="p-6 rounded-none border-gray-200 join-item"
                 >
-                    Games
+                    <div class="flex items-center content-center justify-center">
+                        <Gamepad class="inline h-full w-full mr-2" :stroke-width="1" :size="32" />
+                        <div class="h-full w-full">Games</div>
+                    </div>
                 </button>
             </div>
             <div v-if="menuIndex == 1" class="absolute z-10 left-0 w-full h-[400px] bg-red-400">
@@ -69,6 +87,7 @@
 
 <script setup lang="ts">
     import { ref } from 'vue';
+    import { Book, Tablet, BookAudio, School, Pencil, Gamepad } from 'lucide-vue-next';
 
     const menuIndex = ref(0);
 </script>
