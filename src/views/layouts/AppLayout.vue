@@ -12,7 +12,9 @@
                 </div>
             </div>
         </div>
-        <Footer />
+        <div class="mt-12">
+            <Footer />
+        </div>
     </div>
 </template>
 
