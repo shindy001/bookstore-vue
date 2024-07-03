@@ -1,26 +1,9 @@
 <template>
-    <div class="flex flex-col gap-8 mx-auto max-w-screen-xl px-2">
-        <div class="card">
-            <PrimeCarousel
-                :show-indicators="false"
-                :value="products"
-                :numVisible="1"
-                :numScroll="1"
-                circular
-                :autoplayInterval="4000"
-            >
-                <template #item="slotProps">
-                    <div class="p-4 flex justify-center">
-                        <img
-                            :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image"
-                            :alt="slotProps.data.name"
-                            class="w-[620px] rounded"
-                        />
-                    </div>
-                </template>
-            </PrimeCarousel>
-        </div>
+    <div class="mt-6 mb-12 h-[220px] md:h-[420px]">
+        <NewsCarousel />
+    </div>
 
+    <div class="flex flex-col gap-8 mx-auto max-w-screen-xl px-2">
         <div class="card p-4 bg-ochr-100 rounded-lg">
             <h2 class="text-xl font-bold p-4">New Releases</h2>
             <PrimeCarousel
@@ -148,6 +131,8 @@
 
 <script setup lang="ts">
     import { Warehouse, Library, Truck, MessageSquareHeart } from 'lucide-vue-next';
+    import NewsCarousel from '@/views/landing/NewsCarousel.vue';
+
     const bookCarouselResponsiveOptions = [
         {
             breakpoint: '1700px',
