@@ -11,17 +11,24 @@ import { PrimeVueResolver } from '@primevue/auto-import-resolver';
 export default defineConfig({
     css: {
         postcss: {
-          plugins: [tailwind(), autoprefixer()],
+            plugins: [tailwind(), autoprefixer()],
         },
     },
     plugins: [
-        Vue(),
+        Vue({
+            template: {
+                compilerOptions: {
+                    // treat all tags that start with a 'swiper' as custom (web) elements
+                    isCustomElement: (tag) => tag.startsWith('swiper'),
+                },
+            },
+        }),
         Components({
             resolvers: [
                 PrimeVueResolver({
-                    components: { prefix: "Prime" }
-                })
-            ]
+                    components: { prefix: 'Prime' },
+                }),
+            ],
         }),
         ViteFonts({
             google: {
@@ -47,4 +54,4 @@ export default defineConfig({
     server: {
         port: 5201,
     },
-})
+});
