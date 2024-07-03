@@ -5,15 +5,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx,vue}",
   ],
   theme: {
-    screens: {
-      'xl': '1440px',
-    },
     extend: {
       colors: {
         'ochr': {
           100: '#fcf9f5',
           500: '#cc7722',
         }
+      },
+      screens: {
+        'xl': '1440px',
       },
     }
   },
