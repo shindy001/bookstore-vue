@@ -1,9 +1,8 @@
 <template>
     <swiper-container
-        id="news-swiper"
         slides-per-view="auto"
         centered-slides="true"
-        space-between="30"
+        space-between="20"
         autoplay-delay="3000"
         loop="true"
         navigation="true"
@@ -47,11 +46,6 @@
             background-color: #3c3c3c;
             color: white;
         }
-    }
-
-    :deep(.swiper-button-prev:after),
-    .swiper-button-next:after {
-        --swiper-navigation-size: 15px;
     }
 
     @media (max-width: 768px) {
