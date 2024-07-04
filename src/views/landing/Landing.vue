@@ -6,102 +6,82 @@
     <div class="flex flex-col gap-8 mx-auto max-w-screen-xl px-2">
         <div class="card p-4 bg-ochr-100 rounded-lg">
             <h2 class="text-xl font-bold p-4">New Releases</h2>
-            <PrimeCarousel
-                :show-indicators="false"
-                :value="products"
-                circular
-                :numVisible="6"
-                :numScroll="6"
-                :responsiveOptions="bookCarouselResponsiveOptions"
-            >
-                <template #item="slotProps">
-                    <div class="p-2 flex justify-center">
-                        <div class="w-[200px] h-[350px] flex flex-col items-center bg-green-300 p-4 gap-2">
-                            <div class="w-[160px] h-[220px] bg-red-200">Book image</div>
-                            <div class="w-full flex flex-col items-center">
-                                <p class="text-lg">{{ slotProps.data.name }} Book name</p>
-                                <p class="text-sm underline">Book author link</p>
-                                <p><span class="line-through mr-2">$21.99</span><span class="text-xl">$14.99</span></p>
-                            </div>
-                        </div>
-                    </div>
+            <BookCarousel>
+                <template v-slot:swiper-slides>
+                    <swiper-slide>Slide 1</swiper-slide>
+                    <swiper-slide>Slide 2</swiper-slide>
+                    <swiper-slide>Slide 3</swiper-slide>
+                    <swiper-slide>Slide 4</swiper-slide>
+                    <swiper-slide>Slide 5</swiper-slide>
+                    <swiper-slide>Slide 6</swiper-slide>
+                    <swiper-slide>Slide 7</swiper-slide>
+                    <swiper-slide>Slide 8</swiper-slide>
+                    <swiper-slide>Slide 9</swiper-slide>
+                    <swiper-slide>Slide 10</swiper-slide>
+                    <swiper-slide>Slide 11</swiper-slide>
+                    <swiper-slide>Slide 12</swiper-slide>
                 </template>
-            </PrimeCarousel>
+            </BookCarousel>
         </div>
 
         <div class="card p-4 bg-ochr-100 rounded-lg">
             <h2 class="text-xl font-bold p-4">Comming soon</h2>
-            <PrimeCarousel
-                :show-indicators="false"
-                :value="products"
-                circular
-                :numVisible="6"
-                :numScroll="6"
-                :responsiveOptions="bookCarouselResponsiveOptions"
-            >
-                <template #item="slotProps">
-                    <div class="p-2 flex justify-center">
-                        <div class="w-[200px] h-[350px] flex flex-col items-center bg-green-300 p-4 gap-2">
-                            <div class="w-[160px] h-[220px] bg-red-200">Book image</div>
-                            <div class="w-full flex flex-col items-center">
-                                <p class="text-lg">{{ slotProps.data.name }} Book name</p>
-                                <p class="text-sm underline">Book author link</p>
-                                <p><span class="line-through mr-2">$21.99</span><span class="text-xl">$14.99</span></p>
-                            </div>
-                        </div>
-                    </div>
+            <BookCarousel>
+                <template v-slot:swiper-slides>
+                    <swiper-slide>Slide 1</swiper-slide>
+                    <swiper-slide>Slide 2</swiper-slide>
+                    <swiper-slide>Slide 3</swiper-slide>
+                    <swiper-slide>Slide 4</swiper-slide>
+                    <swiper-slide>Slide 5</swiper-slide>
+                    <swiper-slide>Slide 6</swiper-slide>
+                    <swiper-slide>Slide 7</swiper-slide>
+                    <swiper-slide>Slide 8</swiper-slide>
+                    <swiper-slide>Slide 9</swiper-slide>
+                    <swiper-slide>Slide 10</swiper-slide>
+                    <swiper-slide>Slide 11</swiper-slide>
+                    <swiper-slide>Slide 12</swiper-slide>
                 </template>
-            </PrimeCarousel>
+            </BookCarousel>
         </div>
 
         <div class="card p-4 bg-ochr-100 rounded-lg">
             <h2 class="text-xl font-bold p-4">Bestsellers</h2>
-            <PrimeCarousel
-                :show-indicators="false"
-                :value="products"
-                circular
-                :numVisible="6"
-                :numScroll="6"
-                :responsiveOptions="bookCarouselResponsiveOptions"
-            >
-                <template #item="slotProps">
-                    <div class="p-2 flex justify-center">
-                        <div class="w-[200px] h-[350px] flex flex-col items-center bg-green-300 p-4 gap-2">
-                            <div class="w-[160px] h-[220px] bg-red-200">Book image</div>
-                            <div class="w-full flex flex-col items-center">
-                                <p class="text-lg">{{ slotProps.data.name }} Book name</p>
-                                <p class="text-sm underline">Book author link</p>
-                                <p><span class="line-through mr-2">$21.99</span><span class="text-xl">$14.99</span></p>
-                            </div>
-                        </div>
-                    </div>
+            <BookCarousel>
+                <template v-slot:swiper-slides>
+                    <swiper-slide>Slide 1</swiper-slide>
+                    <swiper-slide>Slide 2</swiper-slide>
+                    <swiper-slide>Slide 3</swiper-slide>
+                    <swiper-slide>Slide 4</swiper-slide>
+                    <swiper-slide>Slide 5</swiper-slide>
+                    <swiper-slide>Slide 6</swiper-slide>
+                    <swiper-slide>Slide 7</swiper-slide>
+                    <swiper-slide>Slide 8</swiper-slide>
+                    <swiper-slide>Slide 9</swiper-slide>
+                    <swiper-slide>Slide 10</swiper-slide>
+                    <swiper-slide>Slide 11</swiper-slide>
+                    <swiper-slide>Slide 12</swiper-slide>
                 </template>
-            </PrimeCarousel>
+            </BookCarousel>
         </div>
 
         <div class="card p-4 bg-ochr-100 rounded-lg">
             <h2 class="text-xl font-bold p-4">Just For the Summer</h2>
-            <PrimeCarousel
-                :show-indicators="false"
-                :value="products"
-                circular
-                :numVisible="6"
-                :numScroll="6"
-                :responsiveOptions="bookCarouselResponsiveOptions"
-            >
-                <template #item="slotProps">
-                    <div class="p-2 flex justify-center">
-                        <div class="w-[200px] h-[350px] flex flex-col items-center bg-green-300 p-4 gap-2">
-                            <div class="w-[160px] h-[220px] bg-red-200">Book image</div>
-                            <div class="w-full flex flex-col items-center">
-                                <p class="text-lg">{{ slotProps.data.name }} Book name</p>
-                                <p class="text-sm underline">Book author link</p>
-                                <p><span class="line-through mr-2">$21.99</span><span class="text-xl">$14.99</span></p>
-                            </div>
-                        </div>
-                    </div>
+            <BookCarousel>
+                <template v-slot:swiper-slides>
+                    <swiper-slide>Slide 1</swiper-slide>
+                    <swiper-slide>Slide 2</swiper-slide>
+                    <swiper-slide>Slide 3</swiper-slide>
+                    <swiper-slide>Slide 4</swiper-slide>
+                    <swiper-slide>Slide 5</swiper-slide>
+                    <swiper-slide>Slide 6</swiper-slide>
+                    <swiper-slide>Slide 7</swiper-slide>
+                    <swiper-slide>Slide 8</swiper-slide>
+                    <swiper-slide>Slide 9</swiper-slide>
+                    <swiper-slide>Slide 10</swiper-slide>
+                    <swiper-slide>Slide 11</swiper-slide>
+                    <swiper-slide>Slide 12</swiper-slide>
                 </template>
-            </PrimeCarousel>
+            </BookCarousel>
         </div>
     </div>
 
@@ -132,48 +112,5 @@
 <script setup lang="ts">
     import { Warehouse, Library, Truck, MessageSquareHeart } from 'lucide-vue-next';
     import NewsCarousel from '@/views/landing/NewsCarousel.vue';
-
-    const bookCarouselResponsiveOptions = [
-        {
-            breakpoint: '1700px',
-            numVisible: 6,
-            numScroll: 6,
-        },
-        {
-            breakpoint: '1400px',
-            numVisible: 4,
-            numScroll: 4,
-        },
-        {
-            breakpoint: '1000px',
-            numVisible: 3,
-            numScroll: 3,
-        },
-    ];
-    const products = [
-        {
-            id: '1000',
-            image: 'bamboo-watch.jpg',
-        },
-        {
-            id: '1001',
-            image: 'bamboo-watch.jpg',
-        },
-        {
-            id: '1002',
-            image: 'bamboo-watch.jpg',
-        },
-        {
-            id: '1003',
-            image: 'bamboo-watch.jpg',
-        },
-        {
-            id: '1004',
-            image: 'bamboo-watch.jpg',
-        },
-        {
-            id: '1005',
-            image: 'bamboo-watch.jpg',
-        },
-    ];
+    import BookCarousel from '@/views/landing/BookCarousel.vue';
 </script>
