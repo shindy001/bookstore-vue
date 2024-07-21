@@ -5,12 +5,13 @@
         "dev": "vite",
         "build": "vue-tsc --noEmit && vite build",
         "preview": "vite preview",
-        "generate-devbook-client": "openapi-generator-cli generate -i ./src/api/devbook.api.yaml -o ./src/api/devbookClient -g typescript-fetch --additional-properties=supportsES6=true --ignore-file-override ./src/api/devbookClient/.openapi-generator-ignore"
+        "generate-devbook-client": "openapi-generator-cli generate -i ./src/api/devbook.api.yaml -o ./src/api/devbookClient -g typescript-axios --additional-properties=supportsES6=true --ignore-file-override ./src/api/devbookClient/.openapi-generator-ignore"
     },
     "dependencies": {
         "@mdi/font": "6.2.95",
         "@primevue/themes": "4.0.0-rc.3",
         "@vueuse/core": "^10.11.0",
+        "axios": "^1.7.2",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.1.1",
         "lucide-vue-next": "^0.396.0",
