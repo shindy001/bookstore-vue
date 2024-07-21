@@ -4,7 +4,8 @@
     "scripts": {
         "dev": "vite",
         "build": "vue-tsc --noEmit && vite build",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "generate-devbook-client": "openapi-generator-cli generate -i ./src/api/devbook.api.yaml -o ./src/api/devbookClient -g typescript-fetch --additional-properties=supportsES6=true --ignore-file-override ./src/api/devbookClient/.openapi-generator-ignore"
     },
     "dependencies": {
         "@mdi/font": "6.2.95",
@@ -26,6 +27,7 @@
     },
     "devDependencies": {
         "@babel/types": "^7.24.7",
+        "@openapitools/openapi-generator-cli": "^2.13.4",
         "@primevue/auto-import-resolver": "4.0.0-beta.5",
         "@types/node": "^20.14.9",
         "@types/uuid": "^10.0.0",
