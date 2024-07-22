@@ -6,10 +6,20 @@
             </RouterLink>
             <h1 class="text-2xl">Sign in to BookStore</h1>
             <div class="w-[400px] flex flex-col gap-4">
-                <form v-on:submit.prevent="signin" class="flex flex-col rounded-lg border border-gray-200 bg-white p-6 gap-4">
+                <form
+                    v-on:submit.prevent="signin"
+                    class="flex flex-col rounded-lg border border-gray-200 bg-white p-6 gap-4"
+                >
                     <div>
                         <label class="block mb-2 text-sm font-medium" for="email">Email</label>
-                        <PrimeInputText id="email" class="w-full" type="email" v-model="email" placeholder="name@example.com" required />
+                        <PrimeInputText
+                            id="email"
+                            class="w-full"
+                            type="email"
+                            v-model="email"
+                            placeholder="name@example.com"
+                            required
+                        />
                     </div>
                     <div>
                         <label class="block mb-2 text-sm font-medium" for="password">Password</label>
@@ -26,7 +36,11 @@
                     </div>
                     <p v-if="error" class="text-red-600">{{ error }}</p>
                     <div>
-                        <PrimeButton class="w-full bg-amber-700 hover:bg-amber-900 border-none" label="Sign in" type="submit" />
+                        <PrimeButton
+                            class="w-full bg-amber-700 hover:bg-amber-900 border-none"
+                            label="Sign in"
+                            type="submit"
+                        />
                     </div>
                 </form>
                 <div class="rounded-lg bg-white p-6 border border-gray-200">
@@ -44,25 +58,18 @@
 <script setup lang="ts">
     import { LibraryBig } from 'lucide-vue-next';
     import { ref } from 'vue';
-    import { getIdentityApi, AuthTokenLocalStorageKey } from '@/plugins/devbookApiClient';
-    import { AxiosError } from 'axios';
     import { useRouter } from 'vue-router';
+    import { createSignInCommand } from '@/commands/signInCommand';
 
     const router = useRouter();
-    const identityApi = getIdentityApi();
+    const signInCommand = createSignInCommand((errorMessage) => (error.value = errorMessage));
     const email = ref();
     const password = ref();
     const error = ref();
 
     async function signin(): Promise<void> {
-        try {
-            const response = (await identityApi.identityLoginPOST(undefined, undefined, { email: email.value, password: password.value })).data;
-            localStorage.setItem(AuthTokenLocalStorageKey, response.accessToken!);
-            router.push("/");
-
-        } catch(apiError: AxiosError | unknown) {
-            const axiosApiError = apiError as AxiosError;
-            error.value = axiosApiError.response?.status === 401 ? "Invalid Credentials" : "Sorry, there was an error, try again later.";
+        if (await signInCommand(email.value, password.value)) {
+            router.push('/');
         }
     }
 </script>
