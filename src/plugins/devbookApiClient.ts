@@ -45,6 +45,17 @@ axios.interceptors.response.use(
     },
 );
 
+// Redirect to forbidden page on 403
+axios.interceptors.response.use(
+    (response) => response,
+    async (error) => {
+        if (error.response.status === 403) {
+            window.location.href = '/forbidden';
+        }
+        return Promise.reject(error);
+    },
+);
+
 const configuration = new Configuration({ basePath: baseUrl });
 let identityApi: IdentityApi;
 let authorsApi: BookStoreModuleAuthorEndpointsApi;
