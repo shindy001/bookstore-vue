@@ -57,25 +57,25 @@ export interface AccessTokenResponse {
 /**
  * 
  * @export
- * @interface Author
+ * @interface AuthorDto
  */
-export interface Author {
+export interface AuthorDto {
     /**
      * 
      * @type {string}
-     * @memberof Author
+     * @memberof AuthorDto
      */
-    'id'?: string;
+    'id': string;
     /**
      * 
      * @type {string}
-     * @memberof Author
+     * @memberof AuthorDto
      */
-    'name': string | null;
+    'name': string;
     /**
      * 
      * @type {string}
-     * @memberof Author
+     * @memberof AuthorDto
      */
     'description'?: string | null;
 }
@@ -101,67 +101,67 @@ export interface BoardDataDto {
 /**
  * 
  * @export
- * @interface Book
+ * @interface BookDto
  */
-export interface Book {
+export interface BookDto {
     /**
      * 
      * @type {string}
-     * @memberof Book
+     * @memberof BookDto
      */
-    'id'?: string;
+    'id': string;
     /**
      * 
      * @type {string}
-     * @memberof Book
+     * @memberof BookDto
      */
-    'name': string | null;
+    'name': string;
     /**
      * 
      * @type {ProductType}
-     * @memberof Book
+     * @memberof BookDto
      */
     'productType': ProductType;
     /**
      * 
      * @type {number}
-     * @memberof Book
+     * @memberof BookDto
      */
     'retailPrice': number;
     /**
      * 
      * @type {number}
-     * @memberof Book
+     * @memberof BookDto
      */
     'price': number;
     /**
      * 
      * @type {number}
-     * @memberof Book
+     * @memberof BookDto
      */
     'discountAmmount': number;
     /**
      * 
      * @type {string}
-     * @memberof Book
+     * @memberof BookDto
      */
     'description'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof Book
+     * @memberof BookDto
      */
     'coverImageUrl'?: string | null;
     /**
      * 
      * @type {Array<string>}
-     * @memberof Book
+     * @memberof BookDto
      */
     'productCategoryIds'?: Array<string> | null;
     /**
      * 
      * @type {string}
-     * @memberof Book
+     * @memberof BookDto
      */
     'authorId': string;
 }
@@ -624,85 +624,85 @@ export interface PatchWorkTaskCommandDto {
 /**
  * 
  * @export
- * @interface Product
+ * @interface ProductCategoryDto
  */
-export interface Product {
+export interface ProductCategoryDto {
     /**
      * 
      * @type {string}
-     * @memberof Product
+     * @memberof ProductCategoryDto
      */
-    'id'?: string;
+    'id': string;
     /**
      * 
      * @type {string}
-     * @memberof Product
+     * @memberof ProductCategoryDto
      */
-    'name': string | null;
+    'name': string;
+}
+/**
+ * 
+ * @export
+ * @interface ProductDto
+ */
+export interface ProductDto {
+    /**
+     * 
+     * @type {string}
+     * @memberof ProductDto
+     */
+    'id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ProductDto
+     */
+    'name': string;
     /**
      * 
      * @type {ProductType}
-     * @memberof Product
+     * @memberof ProductDto
      */
     'productType': ProductType;
     /**
      * 
      * @type {number}
-     * @memberof Product
+     * @memberof ProductDto
      */
     'retailPrice': number;
     /**
      * 
      * @type {number}
-     * @memberof Product
+     * @memberof ProductDto
      */
     'price': number;
     /**
      * 
      * @type {number}
-     * @memberof Product
+     * @memberof ProductDto
      */
     'discountAmmount': number;
     /**
      * 
      * @type {string}
-     * @memberof Product
+     * @memberof ProductDto
      */
     'description'?: string | null;
     /**
      * 
      * @type {string}
-     * @memberof Product
+     * @memberof ProductDto
      */
     'coverImageUrl'?: string | null;
     /**
      * 
      * @type {Array<string>}
-     * @memberof Product
+     * @memberof ProductDto
      */
     'productCategoryIds'?: Array<string> | null;
 }
 
 
-/**
- * 
- * @export
- * @interface ProductCategory
- */
-export interface ProductCategory {
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductCategory
-     */
-    'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ProductCategory
-     */
-    'name': string | null;
-}
 /**
  * 
  * @export
@@ -720,7 +720,7 @@ export type ProductType = typeof ProductType[keyof typeof ProductType];
  * @type ProductsGetAll200ResponseInner
  * @export
  */
-export type ProductsGetAll200ResponseInner = Book;
+export type ProductsGetAll200ResponseInner = BookDto;
 
 /**
  * 
@@ -1459,7 +1459,7 @@ export const BookStoreModuleAuthorEndpointsApiFp = function(configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async authorsGetAll(pageSize?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Author>>> {
+        async authorsGetAll(pageSize?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuthorDto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.authorsGetAll(pageSize, offset, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['BookStoreModuleAuthorEndpointsApi.authorsGetAll']?.[localVarOperationServerIndex]?.url;
@@ -1471,7 +1471,7 @@ export const BookStoreModuleAuthorEndpointsApiFp = function(configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async authorsGetById(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Author>> {
+        async authorsGetById(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorDto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.authorsGetById(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['BookStoreModuleAuthorEndpointsApi.authorsGetById']?.[localVarOperationServerIndex]?.url;
@@ -1538,7 +1538,7 @@ export const BookStoreModuleAuthorEndpointsApiFactory = function (configuration?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        authorsGetAll(pageSize?: number, offset?: number, options?: any): AxiosPromise<Array<Author>> {
+        authorsGetAll(pageSize?: number, offset?: number, options?: any): AxiosPromise<Array<AuthorDto>> {
             return localVarFp.authorsGetAll(pageSize, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -1547,7 +1547,7 @@ export const BookStoreModuleAuthorEndpointsApiFactory = function (configuration?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        authorsGetById(id: string, options?: any): AxiosPromise<Author> {
+        authorsGetById(id: string, options?: any): AxiosPromise<AuthorDto> {
             return localVarFp.authorsGetById(id, options).then((request) => request(axios, basePath));
         },
         /**
@@ -2164,7 +2164,7 @@ export const BookStoreModuleProductCategoryEndpointsApiFp = function(configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async productCategoriesGetAll(pageSize?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductCategory>>> {
+        async productCategoriesGetAll(pageSize?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductCategoryDto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.productCategoriesGetAll(pageSize, offset, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['BookStoreModuleProductCategoryEndpointsApi.productCategoriesGetAll']?.[localVarOperationServerIndex]?.url;
@@ -2176,7 +2176,7 @@ export const BookStoreModuleProductCategoryEndpointsApiFp = function(configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async productCategoriesGetById(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductCategory>> {
+        async productCategoriesGetById(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductCategoryDto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.productCategoriesGetById(id, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['BookStoreModuleProductCategoryEndpointsApi.productCategoriesGetById']?.[localVarOperationServerIndex]?.url;
@@ -2230,7 +2230,7 @@ export const BookStoreModuleProductCategoryEndpointsApiFactory = function (confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productCategoriesGetAll(pageSize?: number, offset?: number, options?: any): AxiosPromise<Array<ProductCategory>> {
+        productCategoriesGetAll(pageSize?: number, offset?: number, options?: any): AxiosPromise<Array<ProductCategoryDto>> {
             return localVarFp.productCategoriesGetAll(pageSize, offset, options).then((request) => request(axios, basePath));
         },
         /**
@@ -2239,7 +2239,7 @@ export const BookStoreModuleProductCategoryEndpointsApiFactory = function (confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productCategoriesGetById(id: string, options?: any): AxiosPromise<ProductCategory> {
+        productCategoriesGetById(id: string, options?: any): AxiosPromise<ProductCategoryDto> {
             return localVarFp.productCategoriesGetById(id, options).then((request) => request(axios, basePath));
         },
         /**
