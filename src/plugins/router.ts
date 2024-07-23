@@ -5,6 +5,8 @@ import SignIn from '@/views/account/SignIn.vue';
 import EmptyLayout from '@/views/layouts/EmptyLayout.vue';
 import Register from '@/views/account/Register.vue';
 import LandingLayout from '@/views/layouts/LandingLayout.vue';
+import { getIdentityApi } from '@/plugins/devbookApiClient';
+import { tryExecute } from '@/commands/utils';
 
 const routes = [
     {
@@ -30,7 +32,22 @@ const routes = [
     },
 ];
 
-export default createRouter({
+const router = createRouter({
     history: createWebHistory(),
     routes,
 });
+
+router.beforeEach(async (to, _, next) => {
+    if (to.meta.requireAuth) {
+        const result = await tryExecute(() => getIdentityApi().identityManageInfoGET());
+        if (result.success) {
+            next();
+        } else {
+            next('/signin');
+        }
+    } else {
+        next();
+    }
+});
+
+export default router;
