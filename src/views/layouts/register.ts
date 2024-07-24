@@ -6,9 +6,10 @@ import { App } from 'vue';
  * @param {App<Element>} app
  */
 export function registerLayouts(app: App<Element>) {
-  const layouts: Record<string, { default: { __name: string } }> = import.meta.glob('./*.vue', { eager: true });
+    const layouts: any = import.meta.glob('./*.vue', { eager: false });
 
-  Object.entries(layouts).forEach(([, layout]) => {
-    app.component(layout?.default?.__name, layout?.default);
-  });
+    Object.entries(layouts).forEach(([_, layout]) => {
+        const layoutValue = layout as any;
+        app.component(layoutValue?.default?.__name, layoutValue?.default);
+    });
 }
