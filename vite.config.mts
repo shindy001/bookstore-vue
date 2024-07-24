@@ -49,6 +49,7 @@ export default defineConfig({
             '@/plugins': fileURLToPath(new URL('./src/plugins', import.meta.url)),
             '@/components': fileURLToPath(new URL('./src/views/_components', import.meta.url)),
             '@/commands': fileURLToPath(new URL('./src/commands', import.meta.url)),
+            '@/stores': fileURLToPath(new URL('./src/stores', import.meta.url)),
         },
         extensions: ['.js', '.json', '.jsx', '.mjs', '.ts', '.tsx', '.vue'],
     },
