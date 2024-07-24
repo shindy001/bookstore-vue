@@ -20,7 +20,11 @@
                 </div>
             </div>
 
-            <RouterLink to="/signin" class="rounded p-2 hover:bg-white hover:text-black">Sign in</RouterLink>
+            <div v-if="userStore.email" class="flex gap-4 items-center">
+                <span>{{ userStore.email }}</span>
+                <button class="rounded p-2 hover:bg-white hover:text-black" @click="() => signOut()">Sign out</button>
+            </div>
+            <RouterLink v-else to="/signin" class="rounded p-2 hover:bg-white hover:text-black">Sign in</RouterLink>
         </div>
     </div>
 </template>
@@ -28,4 +32,24 @@
 <script setup lang="ts">
     import { LibraryBig, Search } from 'lucide-vue-next';
     import { RouterLink } from 'vue-router';
+    import { createGetUserInfoCommand } from '@/commands/getUserInfoCommand';
+    import { createSignOutCommand } from '@/commands/signOutCommand';
+    import { useUserInfoStore } from '@/stores/userInfoStore';
+
+    const getUserInfoCommand = createGetUserInfoCommand();
+    const signOutCommand = createSignOutCommand();
+    const userStore = useUserInfoStore();
+
+    if (!userStore.email) {
+        getUserInfo();
+    }
+
+    async function getUserInfo() {
+        const infoResponse = await getUserInfoCommand();
+        userStore.setEmail(infoResponse?.email ?? '');
+    }
+
+    async function signOut() {
+        await signOutCommand();
+    }
 </script>
