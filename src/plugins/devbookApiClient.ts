@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-    IdentityApi,
+    AccountModuleIdentityEndpointsApi,
     BookStoreModuleAuthorEndpointsApi,
     BookStoreModuleBookEndpointsApi,
     BookStoreModuleProductEndpointsApi,
@@ -30,7 +30,7 @@ axios.interceptors.response.use(
             try {
                 const refreshToken = localStorage.getItem(RefreshTokenLocalStorageKey);
                 if (refreshToken) {
-                    const tokenResponse = (await identityApi.identityRefreshPOST({ refreshToken: refreshToken })).data;
+                    const tokenResponse = (await identityApi.identityRefresh({ refreshToken: refreshToken })).data;
                     localStorage.setItem(AuthTokenLocalStorageKey, tokenResponse.accessToken!);
                     localStorage.setItem(RefreshTokenLocalStorageKey, tokenResponse.refreshToken!);
                     axios.defaults.headers.common['Authorization'] = `Bearer ${tokenResponse.accessToken}`;
@@ -63,7 +63,7 @@ axios.interceptors.response.use(
 );
 
 const configuration = new Configuration({ basePath: baseUrl });
-let identityApi: IdentityApi;
+let identityApi: AccountModuleIdentityEndpointsApi;
 let authorsApi: BookStoreModuleAuthorEndpointsApi;
 let booksApi: BookStoreModuleBookEndpointsApi;
 let productsApi: BookStoreModuleProductEndpointsApi;
@@ -73,14 +73,14 @@ export const AuthTokenLocalStorageKey: string = 'AUTH_TOKEN';
 export const RefreshTokenLocalStorageKey: string = 'REFRESH_TOKEN';
 
 export function initializeDevbookClientApis() {
-    identityApi = new IdentityApi(configuration);
+    identityApi = new AccountModuleIdentityEndpointsApi(configuration);
     authorsApi = new BookStoreModuleAuthorEndpointsApi(configuration);
     booksApi = new BookStoreModuleBookEndpointsApi(configuration);
     productsApi = new BookStoreModuleProductEndpointsApi(configuration);
     productCategoriesApi = new BookStoreModuleProductCategoryEndpointsApi(configuration);
 }
 
-export function getIdentityApi(): IdentityApi {
+export function getIdentityApi(): AccountModuleIdentityEndpointsApi {
     return identityApi;
 }
 

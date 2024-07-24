@@ -337,19 +337,6 @@ export interface CreateWorkTaskInput {
 /**
  * 
  * @export
- * @interface ForgotPasswordRequest
- */
-export interface ForgotPasswordRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ForgotPasswordRequest
-     */
-    'email': string | null;
-}
-/**
- * 
- * @export
  * @interface HttpValidationProblemDetails
  */
 export interface HttpValidationProblemDetails {
@@ -395,31 +382,6 @@ export interface HttpValidationProblemDetails {
 /**
  * 
  * @export
- * @interface InfoRequest
- */
-export interface InfoRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof InfoRequest
-     */
-    'newEmail'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof InfoRequest
-     */
-    'newPassword'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof InfoRequest
-     */
-    'oldPassword'?: string | null;
-}
-/**
- * 
- * @export
  * @interface InfoResponse
  */
 export interface InfoResponse {
@@ -428,13 +390,13 @@ export interface InfoResponse {
      * @type {string}
      * @memberof InfoResponse
      */
-    'email': string | null;
+    'email': string;
     /**
      * 
-     * @type {boolean}
+     * @type {Array<string>}
      * @memberof InfoResponse
      */
-    'isEmailConfirmed': boolean;
+    'roles': Array<string>;
 }
 /**
  * 
@@ -447,25 +409,13 @@ export interface LoginRequest {
      * @type {string}
      * @memberof LoginRequest
      */
-    'email': string | null;
+    'email': string;
     /**
      * 
      * @type {string}
      * @memberof LoginRequest
      */
-    'password': string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof LoginRequest
-     */
-    'twoFactorCode'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof LoginRequest
-     */
-    'twoFactorRecoveryCode'?: string | null;
+    'password': string;
 }
 /**
  * 
@@ -800,44 +750,6 @@ export interface RegisterRequest {
 /**
  * 
  * @export
- * @interface ResendConfirmationEmailRequest
- */
-export interface ResendConfirmationEmailRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ResendConfirmationEmailRequest
-     */
-    'email': string | null;
-}
-/**
- * 
- * @export
- * @interface ResetPasswordRequest
- */
-export interface ResetPasswordRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof ResetPasswordRequest
-     */
-    'email': string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ResetPasswordRequest
-     */
-    'resetCode': string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof ResetPasswordRequest
-     */
-    'newPassword': string | null;
-}
-/**
- * 
- * @export
  * @interface StartWorkTaskInput
  */
 export interface StartWorkTaskInput {
@@ -859,80 +771,6 @@ export interface StartWorkTaskInput {
      * @memberof StartWorkTaskInput
      */
     'start': string;
-}
-/**
- * 
- * @export
- * @interface TwoFactorRequest
- */
-export interface TwoFactorRequest {
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TwoFactorRequest
-     */
-    'enable'?: boolean | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof TwoFactorRequest
-     */
-    'twoFactorCode'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TwoFactorRequest
-     */
-    'resetSharedKey'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TwoFactorRequest
-     */
-    'resetRecoveryCodes'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TwoFactorRequest
-     */
-    'forgetMachine'?: boolean;
-}
-/**
- * 
- * @export
- * @interface TwoFactorResponse
- */
-export interface TwoFactorResponse {
-    /**
-     * 
-     * @type {string}
-     * @memberof TwoFactorResponse
-     */
-    'sharedKey': string | null;
-    /**
-     * 
-     * @type {number}
-     * @memberof TwoFactorResponse
-     */
-    'recoveryCodesLeft': number;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof TwoFactorResponse
-     */
-    'recoveryCodes'?: Array<string> | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TwoFactorResponse
-     */
-    'isTwoFactorEnabled': boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof TwoFactorResponse
-     */
-    'isMachineRemembered': boolean;
 }
 /**
  * 
@@ -1169,6 +1007,320 @@ export interface WorkTaskListResponse {
      */
     'workTasksInDay'?: { [key: string]: Array<WorkTaskDto>; } | null;
 }
+
+/**
+ * AccountModuleIdentityEndpointsApi - axios parameter creator
+ * @export
+ */
+export const AccountModuleIdentityEndpointsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        identityInfo: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/identity/info`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {LoginRequest} loginRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        identityLogin: async (loginRequest: LoginRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'loginRequest' is not null or undefined
+            assertParamExists('identityLogin', 'loginRequest', loginRequest)
+            const localVarPath = `/identity/login`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(loginRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {RefreshRequest} refreshRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        identityRefresh: async (refreshRequest: RefreshRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'refreshRequest' is not null or undefined
+            assertParamExists('identityRefresh', 'refreshRequest', refreshRequest)
+            const localVarPath = `/identity/refresh`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(refreshRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {RegisterRequest} registerRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        identityRegister: async (registerRequest: RegisterRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'registerRequest' is not null or undefined
+            assertParamExists('identityRegister', 'registerRequest', registerRequest)
+            const localVarPath = `/identity/register`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(registerRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * AccountModuleIdentityEndpointsApi - functional programming interface
+ * @export
+ */
+export const AccountModuleIdentityEndpointsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = AccountModuleIdentityEndpointsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async identityInfo(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InfoResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.identityInfo(options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccountModuleIdentityEndpointsApi.identityInfo']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {LoginRequest} loginRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async identityLogin(loginRequest: LoginRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessTokenResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.identityLogin(loginRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccountModuleIdentityEndpointsApi.identityLogin']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {RefreshRequest} refreshRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async identityRefresh(refreshRequest: RefreshRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessTokenResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.identityRefresh(refreshRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccountModuleIdentityEndpointsApi.identityRefresh']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {RegisterRequest} registerRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async identityRegister(registerRequest: RegisterRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.identityRegister(registerRequest, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['AccountModuleIdentityEndpointsApi.identityRegister']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+    }
+};
+
+/**
+ * AccountModuleIdentityEndpointsApi - factory interface
+ * @export
+ */
+export const AccountModuleIdentityEndpointsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = AccountModuleIdentityEndpointsApiFp(configuration)
+    return {
+        /**
+         * 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        identityInfo(options?: any): AxiosPromise<InfoResponse> {
+            return localVarFp.identityInfo(options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {LoginRequest} loginRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        identityLogin(loginRequest: LoginRequest, options?: any): AxiosPromise<AccessTokenResponse> {
+            return localVarFp.identityLogin(loginRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {RefreshRequest} refreshRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        identityRefresh(refreshRequest: RefreshRequest, options?: any): AxiosPromise<AccessTokenResponse> {
+            return localVarFp.identityRefresh(refreshRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {RegisterRequest} registerRequest 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        identityRegister(registerRequest: RegisterRequest, options?: any): AxiosPromise<void> {
+            return localVarFp.identityRegister(registerRequest, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * AccountModuleIdentityEndpointsApi - object-oriented interface
+ * @export
+ * @class AccountModuleIdentityEndpointsApi
+ * @extends {BaseAPI}
+ */
+export class AccountModuleIdentityEndpointsApi extends BaseAPI {
+    /**
+     * 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccountModuleIdentityEndpointsApi
+     */
+    public identityInfo(options?: RawAxiosRequestConfig) {
+        return AccountModuleIdentityEndpointsApiFp(this.configuration).identityInfo(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {LoginRequest} loginRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccountModuleIdentityEndpointsApi
+     */
+    public identityLogin(loginRequest: LoginRequest, options?: RawAxiosRequestConfig) {
+        return AccountModuleIdentityEndpointsApiFp(this.configuration).identityLogin(loginRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {RefreshRequest} refreshRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccountModuleIdentityEndpointsApi
+     */
+    public identityRefresh(refreshRequest: RefreshRequest, options?: RawAxiosRequestConfig) {
+        return AccountModuleIdentityEndpointsApiFp(this.configuration).identityRefresh(refreshRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {RegisterRequest} registerRequest 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccountModuleIdentityEndpointsApi
+     */
+    public identityRegister(registerRequest: RegisterRequest, options?: RawAxiosRequestConfig) {
+        return AccountModuleIdentityEndpointsApiFp(this.configuration).identityRegister(registerRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
 
 /**
  * BookStoreModuleAuthorEndpointsApi - axios parameter creator
@@ -2580,761 +2732,6 @@ export class BookStoreModuleProductEndpointsApi extends BaseAPI {
      */
     public productsGetById(id: string, options?: RawAxiosRequestConfig) {
         return BookStoreModuleProductEndpointsApiFp(this.configuration).productsGetById(id, options).then((request) => request(this.axios, this.basePath));
-    }
-}
-
-
-
-/**
- * IdentityApi - axios parameter creator
- * @export
- */
-export const IdentityApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * 
-         * @param {string} [userId] 
-         * @param {string} [code] 
-         * @param {string} [changedEmail] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        identityConfirmEmailGET: async (userId?: string, code?: string, changedEmail?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/identity/confirmEmail`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Bearer required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (userId !== undefined) {
-                localVarQueryParameter['userId'] = userId;
-            }
-
-            if (code !== undefined) {
-                localVarQueryParameter['code'] = code;
-            }
-
-            if (changedEmail !== undefined) {
-                localVarQueryParameter['changedEmail'] = changedEmail;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {ForgotPasswordRequest} [forgotPasswordRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        identityForgotPasswordPOST: async (forgotPasswordRequest?: ForgotPasswordRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/identity/forgotPassword`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Bearer required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(forgotPasswordRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {boolean} [useCookies] 
-         * @param {boolean} [useSessionCookies] 
-         * @param {LoginRequest} [loginRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        identityLoginPOST: async (useCookies?: boolean, useSessionCookies?: boolean, loginRequest?: LoginRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/identity/login`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Bearer required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (useCookies !== undefined) {
-                localVarQueryParameter['useCookies'] = useCookies;
-            }
-
-            if (useSessionCookies !== undefined) {
-                localVarQueryParameter['useSessionCookies'] = useSessionCookies;
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(loginRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {TwoFactorRequest} [twoFactorRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        identityManage2faPOST: async (twoFactorRequest?: TwoFactorRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/identity/manage/2fa`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Bearer required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(twoFactorRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        identityManageInfoGET: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/identity/manage/info`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Bearer required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {InfoRequest} [infoRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        identityManageInfoPOST: async (infoRequest?: InfoRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/identity/manage/info`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Bearer required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(infoRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {RefreshRequest} [refreshRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        identityRefreshPOST: async (refreshRequest?: RefreshRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/identity/refresh`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Bearer required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(refreshRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {RegisterRequest} [registerRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        identityRegisterPOST: async (registerRequest?: RegisterRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/identity/register`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Bearer required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(registerRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {ResendConfirmationEmailRequest} [resendConfirmationEmailRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        identityResendConfirmationEmailPOST: async (resendConfirmationEmailRequest?: ResendConfirmationEmailRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/identity/resendConfirmationEmail`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Bearer required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(resendConfirmationEmailRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {ResetPasswordRequest} [resetPasswordRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        identityResetPasswordPOST: async (resetPasswordRequest?: ResetPasswordRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/identity/resetPassword`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Bearer required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(resetPasswordRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * IdentityApi - functional programming interface
- * @export
- */
-export const IdentityApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = IdentityApiAxiosParamCreator(configuration)
-    return {
-        /**
-         * 
-         * @param {string} [userId] 
-         * @param {string} [code] 
-         * @param {string} [changedEmail] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async identityConfirmEmailGET(userId?: string, code?: string, changedEmail?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.identityConfirmEmailGET(userId, code, changedEmail, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityApi.identityConfirmEmailGET']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @param {ForgotPasswordRequest} [forgotPasswordRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async identityForgotPasswordPOST(forgotPasswordRequest?: ForgotPasswordRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.identityForgotPasswordPOST(forgotPasswordRequest, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityApi.identityForgotPasswordPOST']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @param {boolean} [useCookies] 
-         * @param {boolean} [useSessionCookies] 
-         * @param {LoginRequest} [loginRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async identityLoginPOST(useCookies?: boolean, useSessionCookies?: boolean, loginRequest?: LoginRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessTokenResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.identityLoginPOST(useCookies, useSessionCookies, loginRequest, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityApi.identityLoginPOST']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @param {TwoFactorRequest} [twoFactorRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async identityManage2faPOST(twoFactorRequest?: TwoFactorRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TwoFactorResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.identityManage2faPOST(twoFactorRequest, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityApi.identityManage2faPOST']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async identityManageInfoGET(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InfoResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.identityManageInfoGET(options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityApi.identityManageInfoGET']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @param {InfoRequest} [infoRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async identityManageInfoPOST(infoRequest?: InfoRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InfoResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.identityManageInfoPOST(infoRequest, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityApi.identityManageInfoPOST']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @param {RefreshRequest} [refreshRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async identityRefreshPOST(refreshRequest?: RefreshRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessTokenResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.identityRefreshPOST(refreshRequest, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityApi.identityRefreshPOST']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @param {RegisterRequest} [registerRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async identityRegisterPOST(registerRequest?: RegisterRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.identityRegisterPOST(registerRequest, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityApi.identityRegisterPOST']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @param {ResendConfirmationEmailRequest} [resendConfirmationEmailRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async identityResendConfirmationEmailPOST(resendConfirmationEmailRequest?: ResendConfirmationEmailRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.identityResendConfirmationEmailPOST(resendConfirmationEmailRequest, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityApi.identityResendConfirmationEmailPOST']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @param {ResetPasswordRequest} [resetPasswordRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async identityResetPasswordPOST(resetPasswordRequest?: ResetPasswordRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.identityResetPasswordPOST(resetPasswordRequest, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['IdentityApi.identityResetPasswordPOST']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-    }
-};
-
-/**
- * IdentityApi - factory interface
- * @export
- */
-export const IdentityApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = IdentityApiFp(configuration)
-    return {
-        /**
-         * 
-         * @param {string} [userId] 
-         * @param {string} [code] 
-         * @param {string} [changedEmail] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        identityConfirmEmailGET(userId?: string, code?: string, changedEmail?: string, options?: any): AxiosPromise<void> {
-            return localVarFp.identityConfirmEmailGET(userId, code, changedEmail, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {ForgotPasswordRequest} [forgotPasswordRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        identityForgotPasswordPOST(forgotPasswordRequest?: ForgotPasswordRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.identityForgotPasswordPOST(forgotPasswordRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {boolean} [useCookies] 
-         * @param {boolean} [useSessionCookies] 
-         * @param {LoginRequest} [loginRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        identityLoginPOST(useCookies?: boolean, useSessionCookies?: boolean, loginRequest?: LoginRequest, options?: any): AxiosPromise<AccessTokenResponse> {
-            return localVarFp.identityLoginPOST(useCookies, useSessionCookies, loginRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {TwoFactorRequest} [twoFactorRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        identityManage2faPOST(twoFactorRequest?: TwoFactorRequest, options?: any): AxiosPromise<TwoFactorResponse> {
-            return localVarFp.identityManage2faPOST(twoFactorRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        identityManageInfoGET(options?: any): AxiosPromise<InfoResponse> {
-            return localVarFp.identityManageInfoGET(options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {InfoRequest} [infoRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        identityManageInfoPOST(infoRequest?: InfoRequest, options?: any): AxiosPromise<InfoResponse> {
-            return localVarFp.identityManageInfoPOST(infoRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {RefreshRequest} [refreshRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        identityRefreshPOST(refreshRequest?: RefreshRequest, options?: any): AxiosPromise<AccessTokenResponse> {
-            return localVarFp.identityRefreshPOST(refreshRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {RegisterRequest} [registerRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        identityRegisterPOST(registerRequest?: RegisterRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.identityRegisterPOST(registerRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {ResendConfirmationEmailRequest} [resendConfirmationEmailRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        identityResendConfirmationEmailPOST(resendConfirmationEmailRequest?: ResendConfirmationEmailRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.identityResendConfirmationEmailPOST(resendConfirmationEmailRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {ResetPasswordRequest} [resetPasswordRequest] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        identityResetPasswordPOST(resetPasswordRequest?: ResetPasswordRequest, options?: any): AxiosPromise<void> {
-            return localVarFp.identityResetPasswordPOST(resetPasswordRequest, options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * IdentityApi - object-oriented interface
- * @export
- * @class IdentityApi
- * @extends {BaseAPI}
- */
-export class IdentityApi extends BaseAPI {
-    /**
-     * 
-     * @param {string} [userId] 
-     * @param {string} [code] 
-     * @param {string} [changedEmail] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof IdentityApi
-     */
-    public identityConfirmEmailGET(userId?: string, code?: string, changedEmail?: string, options?: RawAxiosRequestConfig) {
-        return IdentityApiFp(this.configuration).identityConfirmEmailGET(userId, code, changedEmail, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {ForgotPasswordRequest} [forgotPasswordRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof IdentityApi
-     */
-    public identityForgotPasswordPOST(forgotPasswordRequest?: ForgotPasswordRequest, options?: RawAxiosRequestConfig) {
-        return IdentityApiFp(this.configuration).identityForgotPasswordPOST(forgotPasswordRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {boolean} [useCookies] 
-     * @param {boolean} [useSessionCookies] 
-     * @param {LoginRequest} [loginRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof IdentityApi
-     */
-    public identityLoginPOST(useCookies?: boolean, useSessionCookies?: boolean, loginRequest?: LoginRequest, options?: RawAxiosRequestConfig) {
-        return IdentityApiFp(this.configuration).identityLoginPOST(useCookies, useSessionCookies, loginRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {TwoFactorRequest} [twoFactorRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof IdentityApi
-     */
-    public identityManage2faPOST(twoFactorRequest?: TwoFactorRequest, options?: RawAxiosRequestConfig) {
-        return IdentityApiFp(this.configuration).identityManage2faPOST(twoFactorRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof IdentityApi
-     */
-    public identityManageInfoGET(options?: RawAxiosRequestConfig) {
-        return IdentityApiFp(this.configuration).identityManageInfoGET(options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {InfoRequest} [infoRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof IdentityApi
-     */
-    public identityManageInfoPOST(infoRequest?: InfoRequest, options?: RawAxiosRequestConfig) {
-        return IdentityApiFp(this.configuration).identityManageInfoPOST(infoRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {RefreshRequest} [refreshRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof IdentityApi
-     */
-    public identityRefreshPOST(refreshRequest?: RefreshRequest, options?: RawAxiosRequestConfig) {
-        return IdentityApiFp(this.configuration).identityRefreshPOST(refreshRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {RegisterRequest} [registerRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof IdentityApi
-     */
-    public identityRegisterPOST(registerRequest?: RegisterRequest, options?: RawAxiosRequestConfig) {
-        return IdentityApiFp(this.configuration).identityRegisterPOST(registerRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {ResendConfirmationEmailRequest} [resendConfirmationEmailRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof IdentityApi
-     */
-    public identityResendConfirmationEmailPOST(resendConfirmationEmailRequest?: ResendConfirmationEmailRequest, options?: RawAxiosRequestConfig) {
-        return IdentityApiFp(this.configuration).identityResendConfirmationEmailPOST(resendConfirmationEmailRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {ResetPasswordRequest} [resetPasswordRequest] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof IdentityApi
-     */
-    public identityResetPasswordPOST(resetPasswordRequest?: ResetPasswordRequest, options?: RawAxiosRequestConfig) {
-        return IdentityApiFp(this.configuration).identityResetPasswordPOST(resetPasswordRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

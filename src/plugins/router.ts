@@ -47,7 +47,7 @@ const router = createRouter({
 
 router.beforeEach(async (to, _, next) => {
     if (to.meta.requireAuth) {
-        const result = await tryExecute(() => getIdentityApi().identityManageInfoGET());
+        const result = await tryExecute(() => getIdentityApi().identityInfo());
         if (result.success) {
             next();
         } else {
