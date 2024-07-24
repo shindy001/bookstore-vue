@@ -7,8 +7,11 @@ import {
     BookStoreModuleProductCategoryEndpointsApi,
     Configuration,
 } from '../api/devbookClient/index';
+import { createSignOutCommand } from '@/commands/signOutCommand';
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
+const signOutCommand = createSignOutCommand;
+let refreshingToken = false;
 
 // Set Bearer token for api calls
 axios.interceptors.request.use(function (config) {
@@ -22,22 +25,25 @@ axios.interceptors.response.use(
     (response) => response,
     async (error) => {
         const originalRequest = error.config;
-        if (error.response.status === 401 && !originalRequest._retry) {
-            originalRequest._retry = true;
+        if (error.response.status === 401 && !refreshingToken) {
+            refreshingToken = true;
             try {
                 const refreshToken = localStorage.getItem(RefreshTokenLocalStorageKey);
-                const tokenResponse = (await identityApi.identityRefreshPOST({ refreshToken: refreshToken })).data;
-                if (tokenResponse.accessToken && tokenResponse.refreshToken) {
-                    localStorage.setItem(AuthTokenLocalStorageKey, tokenResponse.accessToken);
-                    localStorage.setItem(RefreshTokenLocalStorageKey, tokenResponse.refreshToken);
+                if (refreshToken) {
+                    const tokenResponse = (await identityApi.identityRefreshPOST({ refreshToken: refreshToken })).data;
+                    localStorage.setItem(AuthTokenLocalStorageKey, tokenResponse.accessToken!);
+                    localStorage.setItem(RefreshTokenLocalStorageKey, tokenResponse.refreshToken!);
                     axios.defaults.headers.common['Authorization'] = `Bearer ${tokenResponse.accessToken}`;
                     return axios(originalRequest);
+                } else {
+                    signOutCommand();
+                    refreshingToken = false;
+                    return Promise.reject(error);
                 }
             } catch (refreshError) {
                 console.error('Token refresh failed:', (refreshError as Error).message);
-                localStorage.removeItem(AuthTokenLocalStorageKey);
-                localStorage.removeItem(RefreshTokenLocalStorageKey);
-                window.location.href = '/signin';
+                signOutCommand();
+                refreshingToken = false;
                 return Promise.reject(refreshError);
             }
         }
