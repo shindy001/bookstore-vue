@@ -34,6 +34,15 @@ const routes = [
         },
     },
     {
+        path: '/administration',
+        component: Administration,
+        meta: {
+            layout: EmptyLayout,
+            requireAuth: true,
+            requiredRole: 'Admin',
+        },
+    },
+    {
         path: '/forbidden',
         component: Forbidden,
         meta: {
