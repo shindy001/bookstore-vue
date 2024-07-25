@@ -22,6 +22,12 @@
 
             <div v-if="userStore.email" class="flex gap-4 items-center">
                 <span>{{ userStore.email }}</span>
+                <RouterLink
+                    v-if="userStore.isAdmin"
+                    to="/administration"
+                    class="rounded p-2 hover:bg-white hover:text-black"
+                    >Administration</RouterLink
+                >
                 <button class="rounded p-2 hover:bg-white hover:text-black" @click="() => signOut()">Sign out</button>
             </div>
             <RouterLink v-else to="/signin" class="rounded p-2 hover:bg-white hover:text-black">Sign in</RouterLink>
@@ -46,7 +52,7 @@
 
     async function getUserInfo() {
         const infoResponse = await getUserInfoCommand();
-        userStore.setEmail(infoResponse?.email ?? '');
+        userStore.setUser(infoResponse?.email ?? '', infoResponse?.roles ?? []);
     }
 
     async function signOut() {
