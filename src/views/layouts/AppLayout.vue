@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-    import AppBar from '@/components/AppBar.vue';
-    import Menu from '@/components/Menu.vue';
-    import Footer from '@/components/Footer.vue';
+    import AppBar from '@/shared_components/AppBar.vue';
+    import Menu from '@/shared_components/Menu.vue';
+    import Footer from '@/shared_components/Footer.vue';
 </script>

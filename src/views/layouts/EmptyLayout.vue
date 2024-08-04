@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-    import Footer from '@/components/Footer.vue';
+    import Footer from '@/shared_components/Footer.vue';
 
     console.debug('Obligatory script line, otherwise layout auto import wont work.');
 </script>
