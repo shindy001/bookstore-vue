@@ -253,6 +253,18 @@ export interface CreateProductCategoryCommand {
      * @memberof CreateProductCategoryCommand
      */
     'name': string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CreateProductCategoryCommand
+     */
+    'isTopLevelCategory'?: boolean | null;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof CreateProductCategoryCommand
+     */
+    'subcategories'?: Array<string> | null;
 }
 /**
  * 
@@ -589,6 +601,18 @@ export interface ProductCategoryDto {
      * @memberof ProductCategoryDto
      */
     'name': string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ProductCategoryDto
+     */
+    'isTopLevelCategory'?: boolean;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ProductCategoryDto
+     */
+    'subcategories'?: Array<string> | null;
 }
 /**
  * 
@@ -858,6 +882,18 @@ export interface UpdateProductCategoryCommandDto {
      * @memberof UpdateProductCategoryCommandDto
      */
     'name': string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UpdateProductCategoryCommandDto
+     */
+    'isTopLevelCategory': boolean;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof UpdateProductCategoryCommandDto
+     */
+    'subcategories': Array<string> | null;
 }
 /**
  * 
