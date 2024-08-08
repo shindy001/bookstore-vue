@@ -1,6 +1,6 @@
 <template>
     <div class="flex h-full">
-        <div class="bg-[#2f49d1] min-w-[300px] h-full text-[#8192e2] flex flex-col gap-2">
+        <div class="bg-blue-700 min-w-[300px] h-full text-[#8192e2] flex flex-col gap-2">
             <RouterLink to="/" class="my-4 h-16 text-white flex items-center justify-center">
                 <LibraryBig :size="32" class="inline mr-2" />
                 <span class="text-2xl font-semibold">BookStore</span>
@@ -8,7 +8,7 @@
 
             <Sidenav @page-selected="(page: Page) => setActivePage(page)" />
         </div>
-        <div class="p-4 bg-[#f4f5f7] w-full">
+        <div class="p-4 bg-gray-100 w-full">
             <component :is="pageComponentMap[activePage]" />
         </div>
     </div>
