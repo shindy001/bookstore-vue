@@ -1,4 +1,4 @@
-import { tryExecute } from './utils';
+import { tryExecute } from '../utils';
 import { getIdentityApi } from '@/plugins/devbookApiClient';
 
 export function createGetUserInfoCommand(onError?: (message: string) => void) {

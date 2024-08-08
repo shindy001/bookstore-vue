@@ -59,7 +59,7 @@
     import { LibraryBig } from 'lucide-vue-next';
     import { ref } from 'vue';
     import { useRouter } from 'vue-router';
-    import { createSignInCommand } from '@/commands/signInCommand';
+    import { createSignInCommand } from '@/commands/account/signInCommand';
 
     const router = useRouter();
     const signInCommand = createSignInCommand((errorMessage) => (error.value = errorMessage));
@@ -73,3 +73,4 @@
         }
     }
 </script>
+@/commands/account/signInCommand

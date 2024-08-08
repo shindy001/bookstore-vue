@@ -38,8 +38,8 @@
 <script setup lang="ts">
     import { LibraryBig, Search } from 'lucide-vue-next';
     import { RouterLink } from 'vue-router';
-    import { createGetUserInfoCommand } from '@/commands/getUserInfoCommand';
-    import { createSignOutCommand } from '@/commands/signOutCommand';
+    import { createGetUserInfoCommand } from '@/commands/account/getUserInfoCommand';
+    import { createSignOutCommand } from '@/commands/account/signOutCommand';
     import { useUserInfoStore } from '@/stores/userInfoStore';
 
     const getUserInfoCommand = createGetUserInfoCommand();
@@ -59,3 +59,4 @@
         await signOutCommand();
     }
 </script>
+@/commands/account/getUserInfoCommand@/commands/account/signOutCommand

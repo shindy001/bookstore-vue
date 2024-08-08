@@ -7,7 +7,7 @@ import {
     BookStoreModuleProductCategoryEndpointsApi,
     Configuration,
 } from '../api/devbookClient/index';
-import { createSignOutCommand } from '@/commands/signOutCommand';
+import { createSignOutCommand } from '@/commands/account/signOutCommand';
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
 const signOutCommand = createSignOutCommand;

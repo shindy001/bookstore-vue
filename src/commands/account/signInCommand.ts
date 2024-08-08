@@ -1,4 +1,4 @@
-import { tryExecute } from './utils';
+import { tryExecute } from '../utils';
 import { AuthTokenLocalStorageKey, getIdentityApi, RefreshTokenLocalStorageKey } from '@/plugins/devbookApiClient';
 
 export function createSignInCommand(onError?: (message: string) => void) {
