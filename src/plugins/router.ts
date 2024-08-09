@@ -6,6 +6,7 @@ import { InfoResponse } from '@/api/devbookClient';
 import Landing from '@/views/landing/Landing.vue';
 import SignIn from '@/views/account/SignIn.vue';
 import Forbidden from '@/views/account/Forbidden.vue';
+import NotFound from '@/views/account/NotFound.vue';
 import EmptyLayout from '@/views/layouts/EmptyLayout.vue';
 import Register from '@/views/account/Register.vue';
 import LandingLayout from '@/views/layouts/LandingLayout.vue';
@@ -20,6 +21,7 @@ import { default as AdminMessages } from '@/views/administration/messages/Messag
 
 export enum AppRoute {
     Root = '/',
+    Forbidden = '/forbidden',
     SignIn = '/signin',
     Register = '/register',
     Administration = '/administration',
@@ -88,8 +90,15 @@ const routes = [
         ],
     },
     {
-        path: '/forbidden',
+        path: AppRoute.Forbidden,
         component: Forbidden,
+        meta: {
+            layout: EmptyLayout,
+        },
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        component: NotFound,
         meta: {
             layout: EmptyLayout,
         },
@@ -107,7 +116,7 @@ router.beforeEach(async (to, _, next) => {
         if (result.success) {
             verifyRoleAndContinue(to.meta.requiredRole as string, result.data, next);
         } else {
-            next('/signin');
+            next(AppRoute.SignIn);
         }
     } else {
         next();
@@ -118,7 +127,7 @@ function verifyRoleAndContinue(requiredRole: string, userInfo: InfoResponse | un
     if (requiredRole && userInfo?.roles.includes(requiredRole)) {
         next();
     } else {
-        next('/forbidden');
+        next(AppRoute.Forbidden);
     }
 }
 
