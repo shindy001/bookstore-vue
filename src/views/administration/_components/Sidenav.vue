@@ -3,8 +3,8 @@
         :item="{
             name: 'Dashboard',
             icon: 'pi-th-large',
-            isActive: () => activePage === Page.Dashboard,
-            onClick: () => setActivePage(Page.Dashboard),
+            isActive: () => isActivePage(AppRoute.AdminDashboard),
+            onClick: () => goToRoute(AppRoute.AdminDashboard),
         }"
     />
     <SidenavItem
@@ -15,13 +15,13 @@
         :submenuItems="[
             {
                 name: 'Overview',
-                isActive: () => activePage === Page.ProductOverview,
-                onClick: () => setActivePage(Page.ProductOverview),
+                isActive: () => isActivePage(AppRoute.AdminProductOverview),
+                onClick: () => goToRoute(AppRoute.AdminProductOverview),
             },
             {
                 name: 'Categories',
-                isActive: () => activePage === Page.ProductCategories,
-                onClick: () => setActivePage(Page.ProductCategories),
+                isActive: () => isActivePage(AppRoute.AdminProductCategories),
+                onClick: () => goToRoute(AppRoute.AdminProductCategories),
             },
         ]"
     />
@@ -29,33 +29,36 @@
         :item="{
             name: 'Invoices',
             icon: 'pi-receipt',
-            isActive: () => activePage === Page.Invoices,
-            onClick: () => setActivePage(Page.Invoices),
+            isActive: () => isActivePage(AppRoute.AdminInvoices),
+            onClick: () => goToRoute(AppRoute.AdminInvoices),
         }"
     />
     <SidenavItem
         :item="{
             name: 'Messages',
             icon: 'pi-comments',
-            isActive: () => activePage === Page.Messages,
-            onClick: () => setActivePage(Page.Messages),
+            isActive: () => isActivePage(AppRoute.AdminMessages),
+            onClick: () => goToRoute(AppRoute.AdminMessages),
         }"
     />
 </template>
 
 <script setup lang="ts">
     import { ref } from 'vue';
+    import { useRoute, useRouter } from 'vue-router';
     import SidenavItem from './SidenavItem.vue';
-    import { Page } from '@/views/administration/_common/types';
+    import { AppRoute } from '@/plugins/router';
 
-    const activePage = ref(Page.Dashboard);
+    const route = useRoute();
+    const router = useRouter();
+    const activePage = ref(AppRoute.AdminDashboard);
 
-    const emit = defineEmits<{
-        (e: 'page-selected', value: Page): void;
-    }>();
+    function goToRoute(appRoute: AppRoute) {
+        activePage.value = appRoute;
+        router.push(activePage.value);
+    }
 
-    function setActivePage(page: Page) {
-        activePage.value = page;
-        emit('page-selected', page);
+    function isActivePage(appRoute: AppRoute) {
+        return route.path.toLowerCase().startsWith(appRoute);
     }
 </script>
