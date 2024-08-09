@@ -56,10 +56,36 @@ const routes = [
         path: AppRoute.Administration,
         component: Administration,
         meta: {
-            layout: EmptyLayout,
+            layout: AdministrationLayout,
             requireAuth: true,
             requiredRole: 'Admin',
         },
+        children: [
+            {
+                path: '',
+                redirect: AppRoute.AdminDashboard,
+            },
+            {
+                path: AppRoute.AdminDashboard,
+                component: AdministrationDashboard,
+            },
+            {
+                path: AppRoute.AdminProductOverview,
+                component: ProductOverview,
+            },
+            {
+                path: AppRoute.AdminProductCategories,
+                component: ProductCategories,
+            },
+            {
+                path: AppRoute.AdminInvoices,
+                component: AdminInvoices,
+            },
+            {
+                path: AppRoute.AdminMessages,
+                component: AdminMessages,
+            },
+        ],
     },
     {
         path: '/forbidden',
