@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-    import { ref } from 'vue';
+    import { ref, onMounted } from 'vue';
 
     export interface SidenavItem {
         name: string;
@@ -37,6 +37,12 @@
 
     const props = defineProps<Props>();
     const dropdownIsVisible = ref(false);
+
+    onMounted(() => {
+        if (props.submenuItems?.find((x) => x.isActive?.() === true)) {
+            dropdownIsVisible.value = true;
+        }
+    });
 
     function onMainItemClick() {
         dropdownIsVisible.value = !dropdownIsVisible.value;
