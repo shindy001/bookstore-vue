@@ -14,7 +14,7 @@
                         </template>
                     </PrimeColumn>
                     <PrimeColumn field="name" header="Name" class="w-1/6"></PrimeColumn>
-                    <PrimeColumn field="description" header="Description" class="w-1/5 sm:w-1/6"></PrimeColumn>
+                    <PrimeColumn field="productType" header="ProductType" class="w-1/5 sm:w-1/6"></PrimeColumn>
                     <PrimeColumn field="price" header="Price" class="w-1/5 sm:w-1/6"></PrimeColumn>
                     <PrimeColumn field="discountAmmount" header="Discounted" class="w-1/5 sm:w-1/6">
                         <template #body="slotProps">
