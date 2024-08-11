@@ -2,7 +2,7 @@
     <PrimeCard class="shadow-none">
         <template #title>Product Overview</template>
         <template #content>
-            <PaginatedDataTable :itemsPerPage="24" :getDataFn="getDataFn">
+            <PaginatedDataTable :getDataFn="getDataFn">
                 <template #columns>
                     <PrimeColumn field="imageUrl" class="w-24">
                         <template #body="slotProps">
