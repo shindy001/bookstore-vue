@@ -42,6 +42,7 @@
 
 <script setup lang="ts">
     import { ref } from 'vue';
+    import { useToastService } from '@/views/_shared/utils/toastHelper';
 
     const props = defineProps<{
         getDataFn: (itemsPerPage: number, offset: number) => Promise<any>;
@@ -54,6 +55,7 @@
     const nextButtonDisabled = ref(false);
     const currentPage = ref(0);
     const itemsPerPage = props.itemsPerPage ?? 12;
+    const toastService = useToastService();
 
     initialize();
 
@@ -72,6 +74,7 @@
             prevButtonDisabled.value = false;
         } else {
             nextButtonDisabled.value = true;
+            toastService.showInfo('No other items found.');
         }
         loading.value = false;
     }
