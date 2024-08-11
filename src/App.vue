@@ -2,6 +2,7 @@
     <component :is="layout">
         <RouterView />
     </component>
+    <PrimeToast position="top-right" />
 </template>
 
 <script setup lang="ts">
