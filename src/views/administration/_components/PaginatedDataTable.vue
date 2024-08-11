@@ -62,6 +62,7 @@
     async function initialize() {
         loading.value = true;
         products.value = await props.getDataFn(itemsPerPage, itemsPerPage * currentPage.value);
+        nextButtonDisabled.value = products.value.length < itemsPerPage;
         loading.value = false;
     }
 
@@ -71,6 +72,7 @@
         if (result && result?.length > 0) {
             products.value = result;
             currentPage.value += 1;
+            nextButtonDisabled.value = products.value.length < itemsPerPage;
             prevButtonDisabled.value = false;
         } else {
             nextButtonDisabled.value = true;
