@@ -73,4 +73,3 @@
         }
     }
 </script>
-@/commands/account/signInCommand
