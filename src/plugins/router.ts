@@ -15,7 +15,7 @@ import AdministrationLayout from '@/views/layouts/AdministrationLayout.vue';
 import Administration from '@/views/administration/Administration.vue';
 import { default as AdministrationDashboard } from '@/views/administration/dashboard/Dashboard.vue';
 import { default as ProductOverview } from '@/views/administration/products/ProductOverview.vue';
-import { default as ProductCategories } from '@/views/administration/products/ProductCategories.vue';
+import { default as ProductCategories } from '@/views/administration/products/categories/ProductCategories.vue';
 import { default as AdminInvoices } from '@/views/administration/invoices/Invoices.vue';
 import { default as AdminMessages } from '@/views/administration/messages/Messages.vue';
 
