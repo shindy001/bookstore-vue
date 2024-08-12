@@ -11,6 +11,6 @@ export function createGetProductCategoriesCommand(onError?: (message: string) =>
             return result.data;
         }
 
-        onError?.('Uh oh, something went wrong.');
+        onError?.(result.error);
     };
 }

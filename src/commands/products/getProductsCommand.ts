@@ -11,6 +11,6 @@ export function createGetProductsCommand(onError?: (message: string) => void) {
             return result.data;
         }
 
-        onError?.('Uh oh, something went wrong.');
+        onError?.(result.error);
     };
 }
