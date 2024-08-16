@@ -57,31 +57,6 @@ export interface AccessTokenResponse {
 /**
  * 
  * @export
- * @interface AuthorDto
- */
-export interface AuthorDto {
-    /**
-     * 
-     * @type {string}
-     * @memberof AuthorDto
-     */
-    'id': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AuthorDto
-     */
-    'name': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AuthorDto
-     */
-    'description'?: string | null;
-}
-/**
- * 
- * @export
  * @interface BoardDataDto
  */
 export interface BoardDataDto {
@@ -163,29 +138,10 @@ export interface BookDto {
      * @type {string}
      * @memberof BookDto
      */
-    'authorId': string;
+    'author'?: string | null;
 }
 
 
-/**
- * 
- * @export
- * @interface CreateAuthorCommand
- */
-export interface CreateAuthorCommand {
-    /**
-     * 
-     * @type {string}
-     * @memberof CreateAuthorCommand
-     */
-    'name': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CreateAuthorCommand
-     */
-    'description'?: string | null;
-}
 /**
  * 
  * @export
@@ -198,12 +154,6 @@ export interface CreateBookCommand {
      * @memberof CreateBookCommand
      */
     'name': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CreateBookCommand
-     */
-    'authorId': string;
     /**
      * 
      * @type {number}
@@ -222,6 +172,12 @@ export interface CreateBookCommand {
      * @memberof CreateBookCommand
      */
     'discountAmmount': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof CreateBookCommand
+     */
+    'author'?: string | null;
     /**
      * 
      * @type {string}
@@ -432,25 +388,6 @@ export interface LoginRequest {
 /**
  * 
  * @export
- * @interface PatchAuthorCommandDto
- */
-export interface PatchAuthorCommandDto {
-    /**
-     * 
-     * @type {string}
-     * @memberof PatchAuthorCommandDto
-     */
-    'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PatchAuthorCommandDto
-     */
-    'description'?: string | null;
-}
-/**
- * 
- * @export
  * @interface PatchBookCommandDto
  */
 export interface PatchBookCommandDto {
@@ -460,12 +397,6 @@ export interface PatchBookCommandDto {
      * @memberof PatchBookCommandDto
      */
     'name'?: string | null;
-    /**
-     * 
-     * @type {string}
-     * @memberof PatchBookCommandDto
-     */
-    'authorId'?: string | null;
     /**
      * 
      * @type {number}
@@ -484,6 +415,12 @@ export interface PatchBookCommandDto {
      * @memberof PatchBookCommandDto
      */
     'discountAmmount'?: number | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof PatchBookCommandDto
+     */
+    'author'?: string | null;
     /**
      * 
      * @type {string}
@@ -799,25 +736,6 @@ export interface StartWorkTaskInput {
 /**
  * 
  * @export
- * @interface UpdateAuthorCommandDto
- */
-export interface UpdateAuthorCommandDto {
-    /**
-     * 
-     * @type {string}
-     * @memberof UpdateAuthorCommandDto
-     */
-    'name': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpdateAuthorCommandDto
-     */
-    'description'?: string | null;
-}
-/**
- * 
- * @export
  * @interface UpdateBookCommandDto
  */
 export interface UpdateBookCommandDto {
@@ -827,12 +745,6 @@ export interface UpdateBookCommandDto {
      * @memberof UpdateBookCommandDto
      */
     'name': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpdateBookCommandDto
-     */
-    'authorId': string;
     /**
      * 
      * @type {number}
@@ -851,6 +763,12 @@ export interface UpdateBookCommandDto {
      * @memberof UpdateBookCommandDto
      */
     'discountAmmount': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof UpdateBookCommandDto
+     */
+    'author'?: string | null;
     /**
      * 
      * @type {string}
@@ -1353,488 +1271,6 @@ export class AccountModuleIdentityEndpointsApi extends BaseAPI {
      */
     public identityRegister(registerRequest: RegisterRequest, options?: RawAxiosRequestConfig) {
         return AccountModuleIdentityEndpointsApiFp(this.configuration).identityRegister(registerRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-}
-
-
-
-/**
- * BookStoreModuleAuthorEndpointsApi - axios parameter creator
- * @export
- */
-export const BookStoreModuleAuthorEndpointsApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * 
-         * @param {CreateAuthorCommand} createAuthorCommand 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        authorsCreate: async (createAuthorCommand: CreateAuthorCommand, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'createAuthorCommand' is not null or undefined
-            assertParamExists('authorsCreate', 'createAuthorCommand', createAuthorCommand)
-            const localVarPath = `/bookstore/authors`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Bearer required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(createAuthorCommand, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        authorsDelete: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('authorsDelete', 'id', id)
-            const localVarPath = `/bookstore/authors/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Bearer required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {number} [pageSize] 
-         * @param {number} [offset] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        authorsGetAll: async (pageSize?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/bookstore/authors`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Bearer required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (pageSize !== undefined) {
-                localVarQueryParameter['PageSize'] = pageSize;
-            }
-
-            if (offset !== undefined) {
-                localVarQueryParameter['Offset'] = offset;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        authorsGetById: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('authorsGetById', 'id', id)
-            const localVarPath = `/bookstore/authors/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Bearer required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {PatchAuthorCommandDto} patchAuthorCommandDto 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        authorsPatch: async (id: string, patchAuthorCommandDto: PatchAuthorCommandDto, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('authorsPatch', 'id', id)
-            // verify required parameter 'patchAuthorCommandDto' is not null or undefined
-            assertParamExists('authorsPatch', 'patchAuthorCommandDto', patchAuthorCommandDto)
-            const localVarPath = `/bookstore/authors/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Bearer required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(patchAuthorCommandDto, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {UpdateAuthorCommandDto} updateAuthorCommandDto 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        authorsUpdate: async (id: string, updateAuthorCommandDto: UpdateAuthorCommandDto, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('authorsUpdate', 'id', id)
-            // verify required parameter 'updateAuthorCommandDto' is not null or undefined
-            assertParamExists('authorsUpdate', 'updateAuthorCommandDto', updateAuthorCommandDto)
-            const localVarPath = `/bookstore/authors/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Bearer required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(updateAuthorCommandDto, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * BookStoreModuleAuthorEndpointsApi - functional programming interface
- * @export
- */
-export const BookStoreModuleAuthorEndpointsApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = BookStoreModuleAuthorEndpointsApiAxiosParamCreator(configuration)
-    return {
-        /**
-         * 
-         * @param {CreateAuthorCommand} createAuthorCommand 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async authorsCreate(createAuthorCommand: CreateAuthorCommand, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.authorsCreate(createAuthorCommand, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['BookStoreModuleAuthorEndpointsApi.authorsCreate']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async authorsDelete(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.authorsDelete(id, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['BookStoreModuleAuthorEndpointsApi.authorsDelete']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @param {number} [pageSize] 
-         * @param {number} [offset] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async authorsGetAll(pageSize?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuthorDto>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.authorsGetAll(pageSize, offset, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['BookStoreModuleAuthorEndpointsApi.authorsGetAll']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async authorsGetById(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.authorsGetById(id, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['BookStoreModuleAuthorEndpointsApi.authorsGetById']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {PatchAuthorCommandDto} patchAuthorCommandDto 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async authorsPatch(id: string, patchAuthorCommandDto: PatchAuthorCommandDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.authorsPatch(id, patchAuthorCommandDto, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['BookStoreModuleAuthorEndpointsApi.authorsPatch']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {UpdateAuthorCommandDto} updateAuthorCommandDto 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async authorsUpdate(id: string, updateAuthorCommandDto: UpdateAuthorCommandDto, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.authorsUpdate(id, updateAuthorCommandDto, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['BookStoreModuleAuthorEndpointsApi.authorsUpdate']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-    }
-};
-
-/**
- * BookStoreModuleAuthorEndpointsApi - factory interface
- * @export
- */
-export const BookStoreModuleAuthorEndpointsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = BookStoreModuleAuthorEndpointsApiFp(configuration)
-    return {
-        /**
-         * 
-         * @param {CreateAuthorCommand} createAuthorCommand 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        authorsCreate(createAuthorCommand: CreateAuthorCommand, options?: any): AxiosPromise<void> {
-            return localVarFp.authorsCreate(createAuthorCommand, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        authorsDelete(id: string, options?: any): AxiosPromise<void> {
-            return localVarFp.authorsDelete(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {number} [pageSize] 
-         * @param {number} [offset] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        authorsGetAll(pageSize?: number, offset?: number, options?: any): AxiosPromise<Array<AuthorDto>> {
-            return localVarFp.authorsGetAll(pageSize, offset, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        authorsGetById(id: string, options?: any): AxiosPromise<AuthorDto> {
-            return localVarFp.authorsGetById(id, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {PatchAuthorCommandDto} patchAuthorCommandDto 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        authorsPatch(id: string, patchAuthorCommandDto: PatchAuthorCommandDto, options?: any): AxiosPromise<void> {
-            return localVarFp.authorsPatch(id, patchAuthorCommandDto, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @param {string} id 
-         * @param {UpdateAuthorCommandDto} updateAuthorCommandDto 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        authorsUpdate(id: string, updateAuthorCommandDto: UpdateAuthorCommandDto, options?: any): AxiosPromise<void> {
-            return localVarFp.authorsUpdate(id, updateAuthorCommandDto, options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * BookStoreModuleAuthorEndpointsApi - object-oriented interface
- * @export
- * @class BookStoreModuleAuthorEndpointsApi
- * @extends {BaseAPI}
- */
-export class BookStoreModuleAuthorEndpointsApi extends BaseAPI {
-    /**
-     * 
-     * @param {CreateAuthorCommand} createAuthorCommand 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BookStoreModuleAuthorEndpointsApi
-     */
-    public authorsCreate(createAuthorCommand: CreateAuthorCommand, options?: RawAxiosRequestConfig) {
-        return BookStoreModuleAuthorEndpointsApiFp(this.configuration).authorsCreate(createAuthorCommand, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {string} id 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BookStoreModuleAuthorEndpointsApi
-     */
-    public authorsDelete(id: string, options?: RawAxiosRequestConfig) {
-        return BookStoreModuleAuthorEndpointsApiFp(this.configuration).authorsDelete(id, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {number} [pageSize] 
-     * @param {number} [offset] 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BookStoreModuleAuthorEndpointsApi
-     */
-    public authorsGetAll(pageSize?: number, offset?: number, options?: RawAxiosRequestConfig) {
-        return BookStoreModuleAuthorEndpointsApiFp(this.configuration).authorsGetAll(pageSize, offset, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {string} id 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BookStoreModuleAuthorEndpointsApi
-     */
-    public authorsGetById(id: string, options?: RawAxiosRequestConfig) {
-        return BookStoreModuleAuthorEndpointsApiFp(this.configuration).authorsGetById(id, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {string} id 
-     * @param {PatchAuthorCommandDto} patchAuthorCommandDto 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BookStoreModuleAuthorEndpointsApi
-     */
-    public authorsPatch(id: string, patchAuthorCommandDto: PatchAuthorCommandDto, options?: RawAxiosRequestConfig) {
-        return BookStoreModuleAuthorEndpointsApiFp(this.configuration).authorsPatch(id, patchAuthorCommandDto, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @param {string} id 
-     * @param {UpdateAuthorCommandDto} updateAuthorCommandDto 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof BookStoreModuleAuthorEndpointsApi
-     */
-    public authorsUpdate(id: string, updateAuthorCommandDto: UpdateAuthorCommandDto, options?: RawAxiosRequestConfig) {
-        return BookStoreModuleAuthorEndpointsApiFp(this.configuration).authorsUpdate(id, updateAuthorCommandDto, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

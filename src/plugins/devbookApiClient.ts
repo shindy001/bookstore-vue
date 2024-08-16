@@ -1,7 +1,6 @@
 import axios from 'axios';
 import {
     AccountModuleIdentityEndpointsApi,
-    BookStoreModuleAuthorEndpointsApi,
     BookStoreModuleBookEndpointsApi,
     BookStoreModuleProductEndpointsApi,
     BookStoreModuleProductCategoryEndpointsApi,
@@ -64,7 +63,6 @@ axios.interceptors.response.use(
 
 const configuration = new Configuration({ basePath: baseUrl });
 let identityApi: AccountModuleIdentityEndpointsApi;
-let authorsApi: BookStoreModuleAuthorEndpointsApi;
 let booksApi: BookStoreModuleBookEndpointsApi;
 let productsApi: BookStoreModuleProductEndpointsApi;
 let productCategoriesApi: BookStoreModuleProductCategoryEndpointsApi;
@@ -74,7 +72,6 @@ export const RefreshTokenLocalStorageKey: string = 'REFRESH_TOKEN';
 
 export function initializeDevbookClientApis() {
     identityApi = new AccountModuleIdentityEndpointsApi(configuration);
-    authorsApi = new BookStoreModuleAuthorEndpointsApi(configuration);
     booksApi = new BookStoreModuleBookEndpointsApi(configuration);
     productsApi = new BookStoreModuleProductEndpointsApi(configuration);
     productCategoriesApi = new BookStoreModuleProductCategoryEndpointsApi(configuration);
@@ -82,10 +79,6 @@ export function initializeDevbookClientApis() {
 
 export function getIdentityApi(): AccountModuleIdentityEndpointsApi {
     return identityApi;
-}
-
-export function getAuthorsApi(): BookStoreModuleAuthorEndpointsApi {
-    return authorsApi;
 }
 
 export function getBooksApi(): BookStoreModuleBookEndpointsApi {
