@@ -621,7 +621,7 @@ export interface ProductDto {
  */
 
 export const ProductType = {
-    NUMBER_0: 0
+    Book: 'Book'
 } as const;
 
 export type ProductType = typeof ProductType[keyof typeof ProductType];
@@ -1993,11 +1993,12 @@ export const BookStoreModuleProductEndpointsApiAxiosParamCreator = function (con
          * 
          * @param {number} [pageSize] 
          * @param {number} [offset] 
+         * @param {ProductType} [productType] 
          * @param {string} [productCategoryId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productsGetAll: async (pageSize?: number, offset?: number, productCategoryId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        productsGetAll: async (pageSize?: number, offset?: number, productType?: ProductType, productCategoryId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/bookstore/products`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2020,6 +2021,10 @@ export const BookStoreModuleProductEndpointsApiAxiosParamCreator = function (con
 
             if (offset !== undefined) {
                 localVarQueryParameter['Offset'] = offset;
+            }
+
+            if (productType !== undefined) {
+                localVarQueryParameter['ProductType'] = productType;
             }
 
             if (productCategoryId !== undefined) {
@@ -2100,12 +2105,13 @@ export const BookStoreModuleProductEndpointsApiFp = function(configuration?: Con
          * 
          * @param {number} [pageSize] 
          * @param {number} [offset] 
+         * @param {ProductType} [productType] 
          * @param {string} [productCategoryId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async productsGetAll(pageSize?: number, offset?: number, productCategoryId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductsGetAll200ResponseInner>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.productsGetAll(pageSize, offset, productCategoryId, options);
+        async productsGetAll(pageSize?: number, offset?: number, productType?: ProductType, productCategoryId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductsGetAll200ResponseInner>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.productsGetAll(pageSize, offset, productType, productCategoryId, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['BookStoreModuleProductEndpointsApi.productsGetAll']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -2145,12 +2151,13 @@ export const BookStoreModuleProductEndpointsApiFactory = function (configuration
          * 
          * @param {number} [pageSize] 
          * @param {number} [offset] 
+         * @param {ProductType} [productType] 
          * @param {string} [productCategoryId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productsGetAll(pageSize?: number, offset?: number, productCategoryId?: string, options?: any): AxiosPromise<Array<ProductsGetAll200ResponseInner>> {
-            return localVarFp.productsGetAll(pageSize, offset, productCategoryId, options).then((request) => request(axios, basePath));
+        productsGetAll(pageSize?: number, offset?: number, productType?: ProductType, productCategoryId?: string, options?: any): AxiosPromise<Array<ProductsGetAll200ResponseInner>> {
+            return localVarFp.productsGetAll(pageSize, offset, productType, productCategoryId, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -2186,13 +2193,14 @@ export class BookStoreModuleProductEndpointsApi extends BaseAPI {
      * 
      * @param {number} [pageSize] 
      * @param {number} [offset] 
+     * @param {ProductType} [productType] 
      * @param {string} [productCategoryId] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BookStoreModuleProductEndpointsApi
      */
-    public productsGetAll(pageSize?: number, offset?: number, productCategoryId?: string, options?: RawAxiosRequestConfig) {
-        return BookStoreModuleProductEndpointsApiFp(this.configuration).productsGetAll(pageSize, offset, productCategoryId, options).then((request) => request(this.axios, this.basePath));
+    public productsGetAll(pageSize?: number, offset?: number, productType?: ProductType, productCategoryId?: string, options?: RawAxiosRequestConfig) {
+        return BookStoreModuleProductEndpointsApiFp(this.configuration).productsGetAll(pageSize, offset, productType, productCategoryId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
