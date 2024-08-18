@@ -35,8 +35,6 @@
     import PaginatedDataTable from '@/views/administration/_components/PaginatedDataTable.vue';
 
     const error = ref('');
-    const checkboxCheckedValue = true;
-    const checkboxUncheckedValue = false;
     const getProductsCommand = createGetProductsCommand((errorMessage) => (error.value = errorMessage));
     const getDataFn = (itemsPerPage: number, offset: number) => getProductsCommand(itemsPerPage, offset, "Book");
 </script>
