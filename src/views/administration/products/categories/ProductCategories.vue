@@ -9,13 +9,13 @@
         <template #content>
             <PaginatedDataTable :key="productCategoriesTableKey" :getDataFn="getDataFn">
                 <template #columns>
-                    <PrimeColumn field="name" header="Name" class="w-1/6"></PrimeColumn>
-                    <PrimeColumn field="isTopLevelCategory" header="IsTopLevelCategory" class="w-1/5 sm:w-1/6">
+                    <PrimeColumn field="name" header="Name"></PrimeColumn>
+                    <PrimeColumn field="isTopLevelCategory" header="IsTopLevelCategory">
                         <template #body="slotProps">
                             <PrimeCheckbox v-model="slotProps.data.isTopLevelCategory" binary disabled />
                         </template>
                     </PrimeColumn>
-                    <PrimeColumn field="subcategories" header="Subcategories" class="w-1/6" />
+                    <PrimeColumn field="subcategories" header="Subcategories" />
                 </template>
             </PaginatedDataTable>
         </template>
