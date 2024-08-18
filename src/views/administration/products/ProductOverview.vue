@@ -4,19 +4,20 @@
         <template #content>
             <PaginatedDataTable :getDataFn="getDataFn">
                 <template #columns>
-                    <PrimeColumn field="imageUrl" class="w-24">
+                    <PrimeColumn field="imageUrl" class="w-[64px]">
                         <template #body="slotProps">
                             <img
-                                :src="`https://primefaces.org/cdn/primevue/images/product/bamboo-watch.jpg`"
+                            width="64" height="64" 
+                                :src="`https://img.icons8.com/wired/64/book.png`"
                                 :alt="slotProps.data.image"
-                                class="w-[90px] rounded"
+                                class="min-w-[64px] rounded"
                             />
                         </template>
                     </PrimeColumn>
-                    <PrimeColumn field="name" header="Name" class="w-1/6"></PrimeColumn>
-                    <PrimeColumn field="productType" header="ProductType" class="w-1/5 sm:w-1/6"></PrimeColumn>
-                    <PrimeColumn field="price" header="Price" class="w-1/5 sm:w-1/6"></PrimeColumn>
-                    <PrimeColumn field="discountAmmount" header="Discounted" class="w-1/5 sm:w-1/6">
+                    <PrimeColumn field="name" header="Name" class="w-1/5"></PrimeColumn>
+                    <PrimeColumn field="productType" header="ProductType" class="w-1/5"></PrimeColumn>
+                    <PrimeColumn field="price" header="Price" class="w-1/5"></PrimeColumn>
+                    <PrimeColumn field="discountAmmount" header="Discounted" class="w-1/5">
                         <template #body="slotProps">
                             <PrimeCheckbox
                                 v-if="slotProps.data.discountAmmount > 0"
@@ -27,7 +28,7 @@
                             <PrimeCheckbox v-else v-model="checkboxUncheckedValue" binary disabled />
                         </template>
                     </PrimeColumn>
-                    <PrimeColumn header="Status" class="w-1/5 sm:w-1/6">
+                    <PrimeColumn header="Status" class="w-1/5">
                         <template #body><PrimeTag severity="info" value="In Stock" /></template>
                     </PrimeColumn>
                 </template>
