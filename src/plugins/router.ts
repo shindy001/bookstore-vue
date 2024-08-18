@@ -14,8 +14,9 @@ import LandingLayout from '@/views/layouts/LandingLayout.vue';
 import AdministrationLayout from '@/views/layouts/AdministrationLayout.vue';
 import Administration from '@/views/administration/Administration.vue';
 import { default as AdministrationDashboard } from '@/views/administration/dashboard/Dashboard.vue';
-import { default as ProductOverview } from '@/views/administration/products/ProductOverview.vue';
-import { default as ProductCategories } from '@/views/administration/products/categories/ProductCategories.vue';
+import ProductOverview from '@/views/administration/products/ProductOverview.vue';
+import ProductCategories from '@/views/administration/products/categories/ProductCategories.vue';
+import { default as ProductBooks } from '@/views/administration/products/books/Books.vue';
 import { default as AdminInvoices } from '@/views/administration/invoices/Invoices.vue';
 import { default as AdminMessages } from '@/views/administration/messages/Messages.vue';
 
@@ -28,6 +29,7 @@ export enum AppRoute {
     AdminDashboard = '/administration/dashboard',
     AdminProductOverview = '/administration/product-overview',
     AdminProductCategories = '/administration/product-categories',
+    AdminProductBooks = '/administration/product-books',
     AdminInvoices = '/administration/invoices',
     AdminMessages = '/administration/messages',
 }
@@ -78,6 +80,10 @@ const routes = [
             {
                 path: AppRoute.AdminProductCategories,
                 component: ProductCategories,
+            },
+            {
+                path: AppRoute.AdminProductBooks,
+                component: ProductBooks,
             },
             {
                 path: AppRoute.AdminInvoices,

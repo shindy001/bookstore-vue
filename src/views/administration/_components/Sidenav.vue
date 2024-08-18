@@ -23,6 +23,11 @@
                 isActive: () => isActivePage(AppRoute.AdminProductCategories),
                 onClick: () => goToRoute(AppRoute.AdminProductCategories),
             },
+            {
+                name: 'Books',
+                isActive: () => isActivePage(AppRoute.AdminProductBooks),
+                onClick: () => goToRoute(AppRoute.AdminProductBooks),
+            },
         ]"
     />
     <SidenavItem
