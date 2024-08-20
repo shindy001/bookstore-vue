@@ -54,8 +54,9 @@
     const getProductCategoriesCommand = createGetProductCategoriesCommand((errorMessage) =>
         toastService.showError(`Error while fetching categories: ${errorMessage}`),
     );
-    const createProductCategoryCommand = createCreateProductCategoryCommand((errorMessage) =>
-        toastService.showError(`Error while creating category: ${errorMessage}`),
+    const createProductCategoryCommand = createCreateProductCategoryCommand(
+        (errorMessage) => toastService.showError(`Error while creating category: ${errorMessage}`),
+        () => emit('onCreate'),
     );
 
     initialize();
@@ -70,7 +71,7 @@
             name: name.value,
             isTopLevelCategory: isTopLevelCategory.value,
             subcategories: subcategories?.value?.map((x) => x.id),
-        }).then(() => emit('onCreate'));
+        });
     }
 
     async function onCancel() {
