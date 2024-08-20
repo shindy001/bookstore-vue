@@ -73,8 +73,9 @@
         toastService.showError(`Error while fetching categories: ${errorMessage}`),
     );
 
-    const deleteProductCategoriesCommand = useDeleteProductCategoryCommand((errorMessage) =>
-        toastService.showError(`Error while deleting category: ${errorMessage}`),
+    const deleteProductCategoriesCommand = useDeleteProductCategoryCommand(
+        (errorMessage) => toastService.showError(`Error while deleting category: ${errorMessage}`),
+        () => toastService.showSuccess(`Product Category successfully deleted`),
     );
 
     const getDataFn = (itemsPerPage: number, offset: number) => getProductCategoriesCommand(itemsPerPage, offset);
@@ -91,9 +92,7 @@
     }
 
     async function onCategoryDeleteConfirmation() {
-        await deleteProductCategoriesCommand(categoryToDelete.value?.id!).then(() =>
-            toastService.showSuccess('Category deleted.'),
-        );
+        await deleteProductCategoriesCommand(categoryToDelete.value?.id!);
         showDeleteCategoryConfirmationDialog.value = false;
         refreshProductCategoriesTable();
     }
