@@ -14,7 +14,11 @@
                             <img
                                 width="64"
                                 height="64"
-                                :src="`https://img.icons8.com/wired/64/book.png`"
+                                :src="
+                                    slotProps.data.coverImageUrl
+                                        ? slotProps.data.coverImageUrl
+                                        : `https://img.icons8.com/wired/64/book.png`
+                                "
                                 :alt="slotProps.data.image"
                                 class="min-w-[64px] rounded"
                             />
@@ -64,11 +68,6 @@
     />
 </template>
 
-<!-- :src="
-                                    slotProps.data.coverImageUrl
-                                        ? slotProps.data.coverImageUrl
-                                        : `https://img.icons8.com/wired/64/book.png`
-                                " -->
 <script setup lang="ts">
     import { ref } from 'vue';
     import { useGetProductsCommand } from '@/commands/products/getProductsCommand';
