@@ -1,4 +1,4 @@
-import { ProductType } from "@/api/devbookClient";
+import { ProductType } from '@/api/devbookClient';
 import { tryExecute } from '../utils';
 import { getProductsApi } from '@/plugins/devbookApiClient';
 
