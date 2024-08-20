@@ -6,7 +6,7 @@
         @update:visible="(visible: boolean) => emit('visibilityChanged', visible)"
     >
         <form @submit="onSubmit">
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-3">
                 <div>
                     <label for="name" class="font-semibold after:content-['*'] after:ml-0.5 after:text-red-600"
                         >Name</label
@@ -133,7 +133,7 @@
                         :options="productCategoryOptions"
                         optionLabel="name"
                         placeholder="Select Product Categories"
-                        :maxSelectedLabels="3"
+                        :maxSelectedLabels="6"
                         class="w-full"
                     />
                     <small id="productCategoryIds-help" class="block text-red-600">
@@ -141,13 +141,8 @@
                     </small>
                 </div>
                 <div class="flex justify-end gap-2">
-                    <PrimeButton
-                        type="button"
-                        label="Cancel"
-                        severity="secondary"
-                        @click="() => emit('onCancel')"
-                    ></PrimeButton>
-                    <PrimeButton type="submit" label="Create"></PrimeButton>
+                    <PrimeButton type="button" label="Cancel" severity="secondary" @click="() => emit('onCancel')" />
+                    <PrimeButton type="submit" label="Create" />
                 </div>
             </div>
         </form>
