@@ -29,6 +29,20 @@
                     <PrimeColumn header="Status" class="w-1/6">
                         <template #body><PrimeTag severity="info" value="In Stock" /></template>
                     </PrimeColumn>
+                    <PrimeColumn header="Actions">
+                        <template #body="slotProps">
+                            <div class="flex gap-2">
+                                <!-- TODO - implement ProductCategory edit dialog -->
+                                <PrimeButton icon="pi pi-pencil" aria-label="Edit" outlined />
+                                <PrimeButton
+                                    icon="pi pi-trash"
+                                    aria-label="Delete"
+                                    outlined
+                                    @click="() => confirmBookDeletion(slotProps.data)"
+                                />
+                            </div>
+                        </template>
+                    </PrimeColumn>
                 </template>
             </PaginatedDataTable>
         </template>
@@ -39,20 +53,44 @@
         @onCancel="showCreateBookDialog = false"
         @visibilityChanged="(value: boolean) => (showCreateBookDialog = value)"
     />
+
+    <ConfirmationDialog
+        :visible="showDeleteBookConfirmationDialog"
+        :message="`Delete Book ${bookToDelete?.name}?`"
+        confirmButtonLabel="Delete"
+        @onConfirm="() => onCategoryDeleteConfirmation()"
+        @onCancel="showDeleteBookConfirmationDialog = false"
+        @visibilityChanged="(value: boolean) => (showDeleteBookConfirmationDialog = value)"
+    />
 </template>
 
+<!-- :src="
+                                    slotProps.data.coverImageUrl
+                                        ? slotProps.data.coverImageUrl
+                                        : `https://img.icons8.com/wired/64/book.png`
+                                " -->
 <script setup lang="ts">
     import { ref } from 'vue';
     import { useGetProductsCommand } from '@/commands/products/getProductsCommand';
     import PaginatedDataTable from '@/views/administration/_components/PaginatedDataTable.vue';
     import CreateBookDialog from './CreateBookDialog.vue';
     import { useToastService } from '@/views/_shared/utils/toastHelper';
+    import { BookDto } from '@/api/devbookClient';
+    import { useDeleteProductCommand } from '@/commands/products/deleteProductCommand';
+    import ConfirmationDialog from '@/views/administration/_components/ConfirmationDialog.vue';
 
+    const toastService = useToastService();
     const error = ref('');
     const booksTableKey = ref(0);
     const showCreateBookDialog = ref(false);
-    const toastService = useToastService();
+    const bookToDelete = ref<BookDto>();
+    const showDeleteBookConfirmationDialog = ref(false);
+
     const getProductsCommand = useGetProductsCommand((errorMessage) => (error.value = errorMessage));
+    const deleteProductCommand = useDeleteProductCommand(
+        (errorMessage) => (error.value = errorMessage),
+        () => 'Book sucessfully deleted',
+    );
     const getDataFn = (itemsPerPage: number, offset: number) => getProductsCommand(itemsPerPage, offset, 'Book');
 
     function onCreateBook() {
@@ -63,5 +101,16 @@
 
     function refreshBooksTable() {
         booksTableKey.value += 1;
+    }
+
+    function confirmBookDeletion(book: BookDto) {
+        bookToDelete.value = book;
+        showDeleteBookConfirmationDialog.value = true;
+    }
+
+    async function onCategoryDeleteConfirmation() {
+        await deleteProductCommand(bookToDelete.value?.id!);
+        showDeleteBookConfirmationDialog.value = false;
+        refreshBooksTable();
     }
 </script>
