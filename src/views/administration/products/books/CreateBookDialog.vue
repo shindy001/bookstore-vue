@@ -8,16 +8,17 @@
         <form @submit="onSubmit">
             <div class="flex flex-col gap-2">
                 <div>
-                    <label for="name" class="font-semibold required">Name</label>
+                    <label for="name" class="font-semibold after:content-['*'] after:ml-0.5 after:text-red-600"
+                        >Name</label
+                    >
                     <div>
                         <PrimeInputText
                             v-model="name"
                             aria-describedby="name-help"
                             class="w-full"
                             :class="{ 'p-invalid': errors.name }"
-                            required
                         />
-                        <small id="name-help" class="p-error">
+                        <small id="name-help" class="block text-red-600">
                             {{ errors.name }}
                         </small>
                     </div>
@@ -30,7 +31,7 @@
                         class="w-full"
                         :class="{ 'p-invalid': errors.author }"
                     />
-                    <small id="author-help" class="p-error">
+                    <small id="author-help" class="block text-red-600">
                         {{ errors.author }}
                     </small>
                 </div>
@@ -43,7 +44,7 @@
                         class="w-full"
                         :class="{ 'p-invalid': errors.description }"
                     />
-                    <small id="description-help" class="p-error">
+                    <small id="description-help" class="block text-red-600">
                         {{ errors.description }}
                     </small>
                 </div>
@@ -55,12 +56,14 @@
                         class="w-full"
                         :class="{ 'p-invalid': errors.coverImageUrl }"
                     />
-                    <small id="coverImageUrl-help" class="p-error">
+                    <small id="coverImageUrl-help" class="block text-red-600">
                         {{ errors.coverImageUrl }}
                     </small>
                 </div>
                 <div>
-                    <label for="retailPrice" class="font-semibold required">Retail Price</label>
+                    <label for="retailPrice" class="font-semibold after:content-['*'] after:ml-0.5 after:text-red-600"
+                        >Retail Price</label
+                    >
                     <PrimeInputNumber
                         v-model="retailPrice"
                         aria-describedby="retailPrice-help"
@@ -73,14 +76,15 @@
                         fluid
                         showButtons
                         :min="0"
-                        required
                     />
-                    <small id="retailPrice-help" class="p-error">
+                    <small id="retailPrice-help" class="block text-red-600">
                         {{ errors.retailPrice }}
                     </small>
                 </div>
                 <div>
-                    <label for="price" class="font-semibold required">Price</label>
+                    <label for="price" class="font-semibold after:content-['*'] after:ml-0.5 after:text-red-600"
+                        >Price</label
+                    >
                     <PrimeInputNumber
                         v-model="price"
                         aria-describedby="price-help"
@@ -92,14 +96,17 @@
                         fluid
                         showButtons
                         :min="0.1"
-                        required
                     />
-                    <small id="price-help" class="p-error">
+                    <small id="price-help" class="block text-red-600">
                         {{ errors.price }}
                     </small>
                 </div>
                 <div>
-                    <label for="discountAmmount" class="font-semibold required">Discount Ammount</label>
+                    <label
+                        for="discountAmmount"
+                        class="font-semibold after:content-['*'] after:ml-0.5 after:text-red-600"
+                        >Discount Ammount</label
+                    >
                     <PrimeInputNumber
                         v-model="discountAmmount"
                         aria-describedby="discountAmmount-help"
@@ -111,9 +118,8 @@
                         fluid
                         showButtons
                         :min="0"
-                        required
                     />
-                    <small id="discountAmmount-help" class="p-error">
+                    <small id="discountAmmount-help" class="block text-red-600">
                         {{ errors.discountAmmount }}
                     </small>
                 </div>
@@ -130,7 +136,7 @@
                         :maxSelectedLabels="3"
                         class="w-full"
                     />
-                    <small id="productCategoryIds-help" class="p-error">
+                    <small id="productCategoryIds-help" class="block text-red-600">
                         {{ errors.productCategoryIds }}
                     </small>
                 </div>
@@ -220,15 +226,3 @@
         productCategoryOptions.value = await getProductCategoriesCommand();
     }
 </script>
-
-<style scoped>
-    .required:after {
-        content: '*';
-        color: red;
-    }
-
-    .p-error {
-        display: block;
-        color: red;
-    }
-</style>
