@@ -1,7 +1,7 @@
 import { tryExecute } from '../utils';
 import { getProductCategoriesApi } from '@/plugins/devbookApiClient';
 
-export function createDeleteProductCategoryCommand(onError?: (message: string) => void, onSuccess?: () => void) {
+export function useDeleteProductCategoryCommand(onError?: (message: string) => void, onSuccess?: () => void) {
     const productCategoriesApi = getProductCategoriesApi();
 
     return async (id: string) => {

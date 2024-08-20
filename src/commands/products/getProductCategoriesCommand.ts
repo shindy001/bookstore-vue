@@ -1,7 +1,7 @@
 import { tryExecute } from '../utils';
 import { getProductCategoriesApi } from '@/plugins/devbookApiClient';
 
-export function createGetProductCategoriesCommand(onError?: (message: string) => void) {
+export function useGetProductCategoriesCommand(onError?: (message: string) => void) {
     const productCategoriesApi = getProductCategoriesApi();
 
     return async (pageSize = 100, offset = 0) => {

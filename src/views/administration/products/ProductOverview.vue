@@ -7,7 +7,8 @@
                     <PrimeColumn field="imageUrl" class="w-[64px]">
                         <template #body="slotProps">
                             <img
-                            width="64" height="64" 
+                                width="64"
+                                height="64"
                                 :src="`https://img.icons8.com/wired/64/book.png`"
                                 :alt="slotProps.data.image"
                                 class="min-w-[64px] rounded"
@@ -39,12 +40,12 @@
 
 <script setup lang="ts">
     import { ref } from 'vue';
-    import { createGetProductsCommand } from '@/commands/products/getProductsCommand';
+    import { useGetProductsCommand } from '@/commands/products/getProductsCommand';
     import PaginatedDataTable from '@/views/administration/_components/PaginatedDataTable.vue';
 
     const error = ref('');
     const checkboxCheckedValue = true;
     const checkboxUncheckedValue = false;
-    const getProductsCommand = createGetProductsCommand((errorMessage) => (error.value = errorMessage));
+    const getProductsCommand = useGetProductsCommand((errorMessage) => (error.value = errorMessage));
     const getDataFn = (itemsPerPage: number, offset: number) => getProductsCommand(itemsPerPage, offset);
 </script>

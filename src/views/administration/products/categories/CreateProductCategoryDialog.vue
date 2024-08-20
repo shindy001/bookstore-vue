@@ -34,8 +34,8 @@
 
 <script setup lang="ts">
     import { ref } from 'vue';
-    import { createCreateProductCategoryCommand } from '@/commands/products/createProductCategoryCommand';
-    import { createGetProductCategoriesCommand } from '@/commands/products/getProductCategoriesCommand';
+    import { useCreateProductCategoryCommand } from '@/commands/products/createProductCategoryCommand';
+    import { useGetProductCategoriesCommand } from '@/commands/products/getProductCategoriesCommand';
     import { ProductCategoryDto } from '@/api/devbookClient';
     import { useToastService } from '@/views/_shared/utils/toastHelper';
 
@@ -51,10 +51,10 @@
         (e: 'visibilityChanged', value: boolean): void;
     }>();
 
-    const getProductCategoriesCommand = createGetProductCategoriesCommand((errorMessage) =>
+    const getProductCategoriesCommand = useGetProductCategoriesCommand((errorMessage) =>
         toastService.showError(`Error while fetching categories: ${errorMessage}`),
     );
-    const createProductCategoryCommand = createCreateProductCategoryCommand(
+    const createProductCategoryCommand = useCreateProductCategoryCommand(
         (errorMessage) => toastService.showError(`Error while creating category: ${errorMessage}`),
         () => emit('onCreate'),
     );

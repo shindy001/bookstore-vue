@@ -2,7 +2,7 @@ import { ProductType } from '@/api/devbookClient';
 import { tryExecute } from '../utils';
 import { getProductsApi } from '@/plugins/devbookApiClient';
 
-export function createGetProductsCommand(onError?: (message: string) => void) {
+export function useGetProductsCommand(onError?: (message: string) => void) {
     const productsApi = getProductsApi();
 
     return async (pageSize = 100, offset = 0, productType?: ProductType, categoryId?: string) => {

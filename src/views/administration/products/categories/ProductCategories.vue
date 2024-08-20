@@ -21,7 +21,12 @@
                             <div class="flex gap-2">
                                 <!-- TODO - implement ProductCategory edit dialog -->
                                 <PrimeButton icon="pi pi-pencil" aria-label="Edit" outlined />
-                                <PrimeButton icon="pi pi-trash" aria-label="Delete" outlined @click="() => confirmCategoryDeletion(slotProps.data)" />
+                                <PrimeButton
+                                    icon="pi pi-trash"
+                                    aria-label="Delete"
+                                    outlined
+                                    @click="() => confirmCategoryDeletion(slotProps.data)"
+                                />
                             </div>
                         </template>
                     </PrimeColumn>
@@ -49,8 +54,8 @@
 
 <script setup lang="ts">
     import { ref } from 'vue';
-    import { createGetProductCategoriesCommand } from '@/commands/products/getProductCategoriesCommand';
-    import { createDeleteProductCategoryCommand } from '@/commands/products/deleteProductCategoryCommand';
+    import { useGetProductCategoriesCommand } from '@/commands/products/getProductCategoriesCommand';
+    import { useDeleteProductCategoryCommand } from '@/commands/products/deleteProductCategoryCommand';
     import PaginatedDataTable from '@/views/administration/_components/PaginatedDataTable.vue';
     import CreateProductCategoryDialog from './CreateProductCategoryDialog.vue';
     import { useToastService } from '@/views/_shared/utils/toastHelper';
@@ -64,11 +69,11 @@
     const createProductCategoryDialogKey = ref(0);
     const showCreateProductCategoryDialog = ref(false);
     const toastService = useToastService();
-    const getProductCategoriesCommand = createGetProductCategoriesCommand((errorMessage) =>
+    const getProductCategoriesCommand = useGetProductCategoriesCommand((errorMessage) =>
         toastService.showError(`Error while fetching categories: ${errorMessage}`),
     );
 
-    const deleteProductCategoriesCommand = createDeleteProductCategoryCommand((errorMessage) =>
+    const deleteProductCategoriesCommand = useDeleteProductCategoryCommand((errorMessage) =>
         toastService.showError(`Error while deleting category: ${errorMessage}`),
     );
 
@@ -86,13 +91,15 @@
     }
 
     async function onCategoryDeleteConfirmation() {
-        await deleteProductCategoriesCommand(categoryToDelete.value?.id!).then(() => toastService.showSuccess("Category deleted."));
+        await deleteProductCategoriesCommand(categoryToDelete.value?.id!).then(() =>
+            toastService.showSuccess('Category deleted.'),
+        );
         showDeleteCategoryConfirmationDialog.value = false;
         refreshProductCategoriesTable();
     }
 
     function refreshProductCategoriesTable() {
         productCategoriesTableKey.value += 1;
-        createProductCategoryDialogKey.value +=1;
+        createProductCategoryDialogKey.value += 1;
     }
 </script>
