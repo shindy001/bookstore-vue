@@ -2,11 +2,27 @@
     <div class="mt-6 mb-12 h-[220px] md:h-[420px]">
         <NewsCarousel>
             <template v-slot:swiper-slides>
-                <swiper-slide>Slide 1</swiper-slide>
-                <swiper-slide>Slide 2</swiper-slide>
-                <swiper-slide>Slide 3</swiper-slide>
-                <swiper-slide>Slide 4</swiper-slide>
-                <swiper-slide>Slide 5</swiper-slide>
+                <swiper-slide>
+                    <img :src="posters.bestSellersDiscount20" />
+                </swiper-slide>
+                <swiper-slide>
+                    <img :src="posters.summerReadingTips" />
+                </swiper-slide>
+                <swiper-slide>
+                    <img :src="posters.ebookDiscount50" />
+                </swiper-slide>
+                <swiper-slide>
+                    <img :src="posters.freeShippingSunday" />
+                </swiper-slide>
+                <swiper-slide>
+                    <img :src="posters.bookRankingsOfTheWeek" />
+                </swiper-slide>
+                <swiper-slide>
+                    <img :src="posters.giftToAnyOrderAbove30" />
+                </swiper-slide>
+                <swiper-slide>
+                    <img :src="posters.freeBookmarkToEveryOrder" />
+                </swiper-slide>
             </template>
         </NewsCarousel>
     </div>
@@ -121,4 +137,5 @@
     import { Warehouse, Library, Truck, MessageSquareHeart } from 'lucide-vue-next';
     import NewsCarousel from '@/views/landing/_components/NewsCarousel.vue';
     import BookCarousel from '@/views/landing/_components/BookCarousel.vue';
+    import * as posters from '@/assets/posters/index';
 </script>
