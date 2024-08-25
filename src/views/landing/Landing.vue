@@ -111,6 +111,6 @@
 
 <script setup lang="ts">
     import { Warehouse, Library, Truck, MessageSquareHeart } from 'lucide-vue-next';
-    import NewsCarousel from '@/views/landing/NewsCarousel.vue';
-    import BookCarousel from '@/views/landing/BookCarousel.vue';
+    import NewsCarousel from '@/views/landing/_components/NewsCarousel.vue';
+    import BookCarousel from '@/views/landing/_components/BookCarousel.vue';
 </script>
