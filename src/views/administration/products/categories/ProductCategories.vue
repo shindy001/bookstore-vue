@@ -1,8 +1,8 @@
 <template>
     <PrimeCard class="shadow-none">
         <template #title>
-            <div class="flex justify-between">
-                <span>Product Categories</span>
+            <div class="flex justify-between h-11">
+                <h1>Product Categories</h1>
                 <PrimeButton label="Create Category" @click="() => (showCreateProductCategoryDialog = true)" />
             </div>
         </template>

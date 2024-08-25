@@ -1,5 +1,5 @@
 <template>
-    <PrimeDataTable :value="products" lazy class="h-[calc(100vh-220px)] overflow-y-auto">
+    <PrimeDataTable :value="products" lazy class="h-[calc(100vh-230px)] overflow-y-auto">
         <template #empty>
             <p>No products to show.</p>
         </template>

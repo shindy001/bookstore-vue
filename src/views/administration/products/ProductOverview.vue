@@ -1,6 +1,10 @@
 <template>
     <PrimeCard class="shadow-none">
-        <template #title>Product Overview</template>
+        <template #title>
+            <div class="h-11">
+                <h1>Product Overview</h1>
+            </div>
+        </template>
         <template #content>
             <PaginatedDataTable :getDataFn="getDataFn">
                 <template #columns>
