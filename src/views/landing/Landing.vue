@@ -1,6 +1,14 @@
 <template>
     <div class="mt-6 mb-12 h-[220px] md:h-[420px]">
-        <NewsCarousel />
+        <NewsCarousel>
+            <template v-slot:swiper-slides>
+                <swiper-slide>Slide 1</swiper-slide>
+                <swiper-slide>Slide 2</swiper-slide>
+                <swiper-slide>Slide 3</swiper-slide>
+                <swiper-slide>Slide 4</swiper-slide>
+                <swiper-slide>Slide 5</swiper-slide>
+            </template>
+        </NewsCarousel>
     </div>
 
     <div class="flex flex-col gap-8 mx-auto max-w-screen-xl px-2">
