@@ -1,12 +1,5 @@
 <template>
-    <swiper-container
-        slides-per-view="auto"
-        centered-slides="true"
-        space-between="20"
-        autoplay-delay="3000"
-        loop="true"
-        navigation="true"
-    >
+    <swiper-container slides-per-view="auto" space-between="20" autoplay-delay="5000" loop="true">
         <slot name="swiper-slides" />
     </swiper-container>
 </template>
@@ -15,6 +8,8 @@
     swiper-container {
         width: 100%;
         height: 100%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     :slotted(swiper-slide) {
@@ -27,26 +22,13 @@
         align-items: center;
     }
 
-    swiper-container {
-        &::part(button-next),
-        &::part(button-prev) {
-            box-sizing: border-box;
-            border-radius: 50%;
-            padding: 15px;
-            width: 50px;
-            height: 50px;
-            background-color: #3c3c3c;
-            color: white;
-        }
-    }
-
     @media (max-width: 768px) {
-        swiper-slide {
+        :slotted(swiper-slide) {
             max-width: 330px;
         }
     }
 
-    swiper-slide img {
+    :slotted(swiper-slide) img {
         display: block;
         width: 100%;
         height: 100%;
