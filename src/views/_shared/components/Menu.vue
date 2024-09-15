@@ -5,8 +5,9 @@
                 <div v-for="(topLevelCategory, index) in topLevelProductCategories">
                     <button
                         @mouseenter="menuIndex = index + 1"
-                        :class="[menuIndex === index + 1 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
-                        class="p-6 h-full rounded-none join-item"
+                        :class="[menuIndex === index + 1 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']
+                                && [index === 0 ? '' : 'border-l-[1px] border-gray-200 join-item']"
+                        class="p-6 h-full rounded-none"
                     >
                         <div class="flex items-center content-center justify-center">
                             <Book class="inline h-full w-full mr-2" :stroke-width="1" :size="32" />
