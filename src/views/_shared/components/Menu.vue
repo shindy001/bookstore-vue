@@ -2,84 +2,104 @@
     <div class="relative border-b-[1px] border-gray-200 h-24">
         <div class="mx-auto max-w-screen-xl h-full" @mouseleave="menuIndex = 0">
             <div class="px-4 flex content-center justify-center join h-full">
+                <div v-for="(topLevelCategory, index) in topLevelProductCategories">
+                    <button
+                        @mouseenter="menuIndex = index + 1"
+                        :class="[menuIndex === index + 1 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
+                        class="p-6 h-full rounded-none join-item"
+                    >
+                        <div class="flex items-center content-center justify-center">
+                            <Book class="inline h-full w-full mr-2" :stroke-width="1" :size="32" />
+                            <div class="h-full min-w-24 max-w-fit">{{ topLevelCategory.name }}</div>
+                        </div>
+                    </button>
+                </div>
+
                 <button
-                    @mouseenter="menuIndex = 1"
-                    :class="[menuIndex === 1 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
-                    class="p-6 rounded-none join-item"
-                >
-                    <div class="flex items-center content-center justify-center">
-                        <Book class="inline h-full w-full mr-2" :stroke-width="1" :size="32" />
-                        <div class="h-full w-full">Books</div>
-                    </div>
-                </button>
-                <button
-                    @mouseenter="menuIndex = 2"
-                    :class="[menuIndex === 2 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
-                    class="p-6 rounded-none border-x-[1px] border-gray-200 join-item"
-                >
-                    <div class="flex items-center content-center justify-center">
-                        <Tablet class="inline h-full w-full mr-2" :stroke-width="1" :size="32" />
-                        <div class="h-full w-full">Ebooks</div>
-                    </div>
-                </button>
-                <button
-                    @mouseenter="menuIndex = 3"
-                    :class="[menuIndex === 3 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
-                    class="p-6 rounded-none border-r-[1px] border-gray-200 join-item"
-                >
-                    <div class="flex items-center content-center justify-center">
-                        <BookAudio class="inline h-full w-full mr-2" :stroke-width="1" :size="32" />
-                        <div class="h-full w-full">Audiobooks</div>
-                    </div>
-                </button>
-                <button
-                    @mouseenter="menuIndex = 4"
-                    :class="[menuIndex === 4 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
-                    class="p-6 rounded-none border-r-[1px] border-gray-200 join-item"
-                >
-                    <div class="flex items-center content-center justify-center">
-                        <School class="inline h-full w-full mr-2" :stroke-width="1" :size="32" />
-                        <div class="h-full w-full">Textbooks</div>
-                    </div>
-                </button>
-                <button
-                    @mouseenter="menuIndex = 5"
-                    :class="[menuIndex === 5 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
-                    class="p-6 rounded-none border-r-[1px] border-gray-200 join-item"
-                >
-                    <div class="flex items-center content-center justify-center">
-                        <Pencil class="inline h-full w-full mr-2" :stroke-width="1" :size="32" />
-                        <div class="h-full w-full">Stationery</div>
-                    </div>
-                </button>
-                <button
-                    @mouseenter="menuIndex = 6"
-                    :class="[menuIndex === 6 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
-                    class="p-6 rounded-none border-gray-200 join-item"
-                >
-                    <div class="flex items-center content-center justify-center">
-                        <Gamepad class="inline h-full w-full mr-2" :stroke-width="1" :size="32" />
-                        <div class="h-full w-full">Games</div>
-                    </div>
-                </button>
+                        @mouseenter="menuIndex = 999 "
+                        :class="[menuIndex === 999 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
+                        class="p-6 h-full rounded-none border-l-[1px] border-gray-200 join-item"
+                    >
+                        <div class="flex items-center content-center justify-center">
+                            <Tablet class="inline h-full w-full mr-2" :stroke-width="1" :size="32" />
+                            <div class="h-full min-w-24 max-w-fit">E-books</div>
+                        </div>
+                    </button>
             </div>
-            <div v-if="menuIndex == 1" class="absolute z-10 left-0 w-full h-[400px] bg-red-400">
-                <div class="mx-auto w-full h-full max-w-screen-xl bg-red-200">Books menu</div>
+            
+            <div v-for="(topLevelCategory, index) in topLevelProductCategories" >
+                <div v-if="menuIndex === index + 1" class="absolute z-10 left-0 w-full h-[400px] bg-white">
+                    <div class="mx-auto w-full h-full">
+                        <div class="flex gap-16 h-full">
+                            <div class="w-1/3 bg-ochr-100 h-full">
+                                <div class="flex">
+                                    <div class="w-2/3"></div>
+                                    <div class="w-1/3 min-w-[250px]">
+                                        <p class="text-xl py-6 font-bold">Could interest you</p>
+                                        <div class="flex flex-col pt-4 pr-8 text-lg font-semibold">
+                                            <a href="#" class="p-2 hover:underline hover:underline-offset-4">
+                                                <Box class="inline h-full w-8 mr-2" :stroke-width="1" :size="32" />
+                                                <span>New Releases</span>
+                                            </a>
+                                            <PrimeDivider />
+                                            <a href="#" class="p-2 hover:underline hover:underline-offset-4">
+                                                <div class="flex items-center content-center ">
+                                                    <Star class="inline h-full w-8 mr-2" :stroke-width="1" :size="32" />
+                                                    <span>Bestsellers</span>
+                                                </div>
+                                            </a>
+                                            <PrimeDivider />
+                                            <a href="#" class="p-2 hover:underline hover:underline-offset-4">
+                                                <div class="flex items-center content-center ">
+                                                    <Clock class="inline h-full w-8 mr-2" :stroke-width="1" :size="32" />
+                                                    <span>Pre-orders</span>
+                                                </div>
+                                            </a>
+                                            <PrimeDivider />
+                                            <a href="#" class="p-2 hover:underline hover:underline-offset-4">
+                                                <div class="flex items-center content-center ">
+                                                    <Gift class="inline h-full w-8 mr-2" :stroke-width="1" :size="32" />
+                                                    <span>Gift vouchers</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-xl py-6 font-bold">Categories</p>
+                                <div class="flex gap-4">
+                                    <div class="pt-6 grid grid-rows-4 grid-flow-col gap-4 h-[300px] min-w-[600px] text-lg font-semibold">
+                                        <div v-if="topLevelCategory.subcategories?.length">
+                                            <div v-for="subcategory in topLevelCategory.subcategories">
+                                                <a href="#" class="hover:underline hover:underline-offset-4">
+                                                    <p>{{ subcategory }}</p>
+                                                    <PrimeDivider />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div v-else>
+                                            <div class="flex flex-col w-full h-full items-center justify-center">
+                                                <p class="text-2xl">Sorry, there are no categories yet.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hidden xl:block p-6 w-[500px]">
+                                <img :src="posters.freeBookmarkToEveryOrder" />
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
             </div>
-            <div v-if="menuIndex == 2" class="absolute z-10 left-0 w-full h-[400px] bg-green-400">
-                <div class="mx-auto w-full h-full max-w-screen-xl bg-green-200">E-books menu</div>
-            </div>
-            <div v-if="menuIndex == 3" class="absolute z-10 left-0 w-full h-[400px] bg-blue-200">
-                <div class="mx-auto w-full h-full max-w-screen-xl bg-blue-200">Auditobooks menu</div>
-            </div>
-            <div v-if="menuIndex == 4" class="absolute z-10 left-0 w-full h-[400px] bg-amber-200">
-                <div class="mx-auto w-full h-full max-w-screen-xl bg-amber-200">Textbooks menu</div>
-            </div>
-            <div v-if="menuIndex == 5" class="absolute z-10 left-0 w-full h-[400px] bg-purple-400">
-                <div class="mx-auto w-full h-full max-w-screen-xl bg-purple-200">Stationery menu</div>
-            </div>
-            <div v-if="menuIndex == 6" class="absolute z-10 left-0 w-full h-[400px] bg-indigo-400">
-                <div class="mx-auto w-full h-full max-w-screen-xl bg-indigo-200">Games menu</div>
+            <div v-if="menuIndex == 999" class="absolute z-10 left-0 w-full h-[400px] bg-white">
+                <div class="mx-auto w-full h-full max-w-screen-xl">
+                    <div class="flex flex-col w-full h-full items-center justify-center">
+                        <p class="text-2xl">Sorry, there are no items in this category yet.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -87,7 +107,23 @@
 
 <script setup lang="ts">
     import { ref } from 'vue';
-    import { Book, Tablet, BookAudio, School, Pencil, Gamepad } from 'lucide-vue-next';
+    import { Book, Gift, Box, Star, Clock, Tablet } from 'lucide-vue-next';
+    import { useGetProductCategoriesCommand } from "@/commands/products/getProductCategoriesCommand";
+    import { useToastService } from '@/views/_shared/utils/toastHelper';
+    import { ProductCategoryDto } from "@/api/devbookClient";
+    import * as posters from '@/assets/posters/index';
 
     const menuIndex = ref(0);
+    const topLevelProductCategories = ref<Array<ProductCategoryDto>>();
+    const toastService = useToastService();
+
+    const getProductCategoriesCommand = useGetProductCategoriesCommand((errorMessage) =>
+        toastService.showError(`Error while fetching categories: ${errorMessage}`),
+    );
+
+    initialize();
+
+    async function initialize() {
+        topLevelProductCategories.value = (await getProductCategoriesCommand())?.filter(x => x.isTopLevelCategory);
+    }
 </script>
