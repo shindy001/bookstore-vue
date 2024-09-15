@@ -111,7 +111,7 @@
         await createProductCategoryCommand({
             name: values.name,
             isTopLevelCategory: isTopLevelCategory.value,
-            subcategories: subcategories?.value?.map((x) => x.id),
+            subcategories: (values.productCategories as { id: string }[])?.map((x) => x.id),
         });
     });
 
