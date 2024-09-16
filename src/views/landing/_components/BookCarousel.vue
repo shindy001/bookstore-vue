@@ -64,8 +64,7 @@
 
     :slotted(swiper-slide) {
         text-align: center;
-        font-size: 18px;
-        background: lightpink;
+        background: #fafafa;
         display: flex;
         max-width: 205px;
         justify-content: center;
@@ -91,10 +90,10 @@
         }
     }
 
+    :slotted(swiper-slide div img),
     :slotted(swiper-slide img) {
         display: block;
-        width: 100%;
-        height: 100%;
+        margin: auto;
         object-fit: cover;
     }
 </style>
