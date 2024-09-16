@@ -17,8 +17,8 @@
                                     slotProps.data.coverImageUrl
                                         ? slotProps.data.coverImageUrl
                                             : slotProps.data.productType === 'Book'
-                                                ? `https://img.icons8.com/wired/64/book.png`
-                                                : `https://img.icons8.com/officel/80/product.png`
+                                                ? bookPlaceholder
+                                                : productPlaceholder
                                 "
                                 :alt="slotProps.data.image"
                                 class="min-w-[64px] rounded"
@@ -52,6 +52,8 @@
     import { ref } from 'vue';
     import { useGetProductsCommand } from '@/commands/products/getProductsCommand';
     import PaginatedDataTable from '@/views/administration/_components/PaginatedDataTable.vue';
+    import bookPlaceholder from '@/assets/book_placeholder.png';
+    import productPlaceholder from '@/assets/product_box_placeholder.png';
 
     const error = ref('');
     const checkboxCheckedValue = true;

@@ -73,7 +73,6 @@
     import { useForm } from 'vee-validate';
     import * as yup from 'yup';
 
-    const subcategories = ref<Array<ProductCategoryDto>>();
     const subcategoriesOptions = ref<Array<ProductCategoryDto>>();
     const toastService = useToastService();
 

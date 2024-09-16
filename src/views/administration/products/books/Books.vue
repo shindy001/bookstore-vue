@@ -17,7 +17,7 @@
                                 :src="
                                     slotProps.data.coverImageUrl
                                         ? slotProps.data.coverImageUrl
-                                        : `https://img.icons8.com/wired/64/book.png`
+                                        : bookPlaceholder
                                 "
                                 :alt="slotProps.data.image"
                                 class="min-w-[64px] rounded"
@@ -77,6 +77,7 @@
     import { BookDto } from '@/api/devbookClient';
     import { useDeleteProductCommand } from '@/commands/products/deleteProductCommand';
     import ConfirmationDialog from '@/views/administration/_components/ConfirmationDialog.vue';
+    import bookPlaceholder from '@/assets/book_placeholder.png';
 
     const toastService = useToastService();
     const error = ref('');
