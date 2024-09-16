@@ -5,8 +5,7 @@
                 <div v-for="(topLevelCategory, index) in topLevelProductCategories">
                     <button
                         @mouseenter="menuIndex = index + 1"
-                        :class="[menuIndex === index + 1 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']
-                                && [index === 0 ? '' : 'border-l-[1px] border-gray-200 join-item']"
+                        :class="getMenuItemClasses(index)"
                         class="p-6 h-full rounded-none"
                     >
                         <div class="flex items-center content-center justify-center">
@@ -17,18 +16,18 @@
                 </div>
 
                 <button
-                        @mouseenter="menuIndex = 999 "
-                        :class="[menuIndex === 999 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
-                        class="p-6 h-full rounded-none border-l-[1px] border-gray-200 join-item"
-                    >
-                        <div class="flex items-center content-center justify-center">
-                            <Tablet class="inline h-full w-full mr-2" :stroke-width="1" :size="32" />
-                            <div class="h-full min-w-24 max-w-fit">E-books</div>
-                        </div>
-                    </button>
+                    @mouseenter="menuIndex = 999"
+                    :class="[menuIndex === 999 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
+                    class="p-6 h-full rounded-none border-l-[1px] border-gray-200 join-item"
+                >
+                    <div class="flex items-center content-center justify-center">
+                        <Tablet class="inline h-full w-full mr-2" :stroke-width="1" :size="32" />
+                        <div class="h-full min-w-24 max-w-fit">E-books</div>
+                    </div>
+                </button>
             </div>
-            
-            <div v-for="(topLevelCategory, index) in topLevelProductCategories" >
+
+            <div v-for="(topLevelCategory, index) in topLevelProductCategories">
                 <div v-if="menuIndex === index + 1" class="absolute z-10 left-0 w-full h-[400px] bg-white">
                     <div class="mx-auto w-full h-full">
                         <div class="flex gap-16 h-full">
@@ -44,21 +43,25 @@
                                             </a>
                                             <PrimeDivider />
                                             <a href="#" class="p-2 hover:underline hover:underline-offset-4">
-                                                <div class="flex items-center content-center ">
+                                                <div class="flex items-center content-center">
                                                     <Star class="inline h-full w-8 mr-2" :stroke-width="1" :size="32" />
                                                     <span>Bestsellers</span>
                                                 </div>
                                             </a>
                                             <PrimeDivider />
                                             <a href="#" class="p-2 hover:underline hover:underline-offset-4">
-                                                <div class="flex items-center content-center ">
-                                                    <Clock class="inline h-full w-8 mr-2" :stroke-width="1" :size="32" />
+                                                <div class="flex items-center content-center">
+                                                    <Clock
+                                                        class="inline h-full w-8 mr-2"
+                                                        :stroke-width="1"
+                                                        :size="32"
+                                                    />
                                                     <span>Pre-orders</span>
                                                 </div>
                                             </a>
                                             <PrimeDivider />
                                             <a href="#" class="p-2 hover:underline hover:underline-offset-4">
-                                                <div class="flex items-center content-center ">
+                                                <div class="flex items-center content-center">
                                                     <Gift class="inline h-full w-8 mr-2" :stroke-width="1" :size="32" />
                                                     <span>Gift vouchers</span>
                                                 </div>
@@ -70,7 +73,9 @@
                             <div>
                                 <p class="text-xl py-6 font-bold">Categories</p>
                                 <div class="flex gap-4">
-                                    <div class="pt-6 grid grid-rows-4 grid-flow-col gap-4 h-[300px] min-w-[600px] text-lg font-semibold">
+                                    <div
+                                        class="pt-6 grid grid-rows-4 grid-flow-col gap-4 h-[300px] min-w-[600px] text-lg font-semibold"
+                                    >
                                         <div v-if="topLevelCategory.subcategories?.length">
                                             <div v-for="subcategory in topLevelCategory.subcategories">
                                                 <a href="#" class="hover:underline hover:underline-offset-4">
@@ -91,7 +96,6 @@
                                 <img :src="posters.freeBookmarkToEveryOrder" />
                             </div>
                         </div>
-                        
                     </div>
                 </div>
             </div>
@@ -109,9 +113,9 @@
 <script setup lang="ts">
     import { ref } from 'vue';
     import { Book, Gift, Box, Star, Clock, Tablet } from 'lucide-vue-next';
-    import { useGetProductCategoriesCommand } from "@/commands/products/getProductCategoriesCommand";
+    import { useGetProductCategoriesCommand } from '@/commands/products/getProductCategoriesCommand';
     import { useToastService } from '@/views/_shared/utils/toastHelper';
-    import { ProductCategoryDto } from "@/api/devbookClient";
+    import { ProductCategoryDto } from '@/api/devbookClient';
     import * as posters from '@/assets/posters/index';
 
     const menuIndex = ref(0);
@@ -125,6 +129,13 @@
     initialize();
 
     async function initialize() {
-        topLevelProductCategories.value = (await getProductCategoriesCommand())?.filter(x => x.isTopLevelCategory);
+        topLevelProductCategories.value = (await getProductCategoriesCommand())?.filter((x) => x.isTopLevelCategory);
+    }
+
+    function getMenuItemClasses(currentIndex: number) {
+        let classes = '';
+        classes += menuIndex.value === currentIndex + 1 ? ' bg-black text-white' : ' hover:bg-black hover:text-white';
+        classes += currentIndex == 0 ? '' : ' border-l-[1px] border-gray-200 join-item';
+        return classes;
     }
 </script>
