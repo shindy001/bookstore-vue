@@ -12,11 +12,11 @@ export function useToastService() {
     };
 
     const showWarning = (message: string) => {
-        toast.add({ severity: 'warn', summary: 'Warning', detail: message, life: 5000 });
+        toast.add({ severity: 'warn', summary: 'Warning', detail: message, life: 10000 });
     };
 
     const showError = (message: string) => {
-        toast.add({ severity: 'error', summary: 'Error', detail: message, life: 5000 });
+        toast.add({ severity: 'error', summary: 'Error', detail: message, life: 10000 });
     };
 
     return { showInfo, showSuccess, showWarning, showError };
