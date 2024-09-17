@@ -1670,10 +1670,11 @@ export const BookStoreModuleProductCategoryEndpointsApiAxiosParamCreator = funct
         /**
          * 
          * @param {string} id 
+         * @param {string} [name] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productCategoriesGetById: async (id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        productCategoriesGetById: async (id: string, name?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('productCategoriesGetById', 'id', id)
             const localVarPath = `/bookstore/productCategories/{id}`
@@ -1692,6 +1693,52 @@ export const BookStoreModuleProductCategoryEndpointsApiAxiosParamCreator = funct
             // authentication Bearer required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (name !== undefined) {
+                localVarQueryParameter['Name'] = name;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @param {string} name 
+         * @param {string} [id] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        productCategoriesGetByName: async (name: string, id?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('productCategoriesGetByName', 'name', name)
+            const localVarPath = `/bookstore/productCategories/{name}`
+                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (id !== undefined) {
+                localVarQueryParameter['Id'] = id;
+            }
 
 
     
@@ -1797,13 +1844,27 @@ export const BookStoreModuleProductCategoryEndpointsApiFp = function(configurati
         /**
          * 
          * @param {string} id 
+         * @param {string} [name] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async productCategoriesGetById(id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductCategoryDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.productCategoriesGetById(id, options);
+        async productCategoriesGetById(id: string, name?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductCategoryDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.productCategoriesGetById(id, name, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['BookStoreModuleProductCategoryEndpointsApi.productCategoriesGetById']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * 
+         * @param {string} name 
+         * @param {string} [id] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async productCategoriesGetByName(name: string, id?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProductCategoryDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.productCategoriesGetByName(name, id, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['BookStoreModuleProductCategoryEndpointsApi.productCategoriesGetByName']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1860,11 +1921,22 @@ export const BookStoreModuleProductCategoryEndpointsApiFactory = function (confi
         /**
          * 
          * @param {string} id 
+         * @param {string} [name] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        productCategoriesGetById(id: string, options?: any): AxiosPromise<ProductCategoryDto> {
-            return localVarFp.productCategoriesGetById(id, options).then((request) => request(axios, basePath));
+        productCategoriesGetById(id: string, name?: string, options?: any): AxiosPromise<ProductCategoryDto> {
+            return localVarFp.productCategoriesGetById(id, name, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} name 
+         * @param {string} [id] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        productCategoriesGetByName(name: string, id?: string, options?: any): AxiosPromise<ProductCategoryDto> {
+            return localVarFp.productCategoriesGetByName(name, id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -1923,12 +1995,25 @@ export class BookStoreModuleProductCategoryEndpointsApi extends BaseAPI {
     /**
      * 
      * @param {string} id 
+     * @param {string} [name] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof BookStoreModuleProductCategoryEndpointsApi
      */
-    public productCategoriesGetById(id: string, options?: RawAxiosRequestConfig) {
-        return BookStoreModuleProductCategoryEndpointsApiFp(this.configuration).productCategoriesGetById(id, options).then((request) => request(this.axios, this.basePath));
+    public productCategoriesGetById(id: string, name?: string, options?: RawAxiosRequestConfig) {
+        return BookStoreModuleProductCategoryEndpointsApiFp(this.configuration).productCategoriesGetById(id, name, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} name 
+     * @param {string} [id] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BookStoreModuleProductCategoryEndpointsApi
+     */
+    public productCategoriesGetByName(name: string, id?: string, options?: RawAxiosRequestConfig) {
+        return BookStoreModuleProductCategoryEndpointsApiFp(this.configuration).productCategoriesGetByName(name, id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
