@@ -40,21 +40,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[0]?.[0]?.coverImageUrl
-                                            ? bookChunks[0]?.[0]?.coverImageUrl
-                                            : bookPlaceholder
+                                        newReleases[0]?.coverImageUrl ? newReleases[0]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[0]?.[0]?.name"
+                                    :alt="newReleases[0]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[0]?.[0]?.name }}
+                                    {{ newReleases[0]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[0]?.[0]?.author }}</p>
+                                <p class="text-base">{{ newReleases[0]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[0]?.[0]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[0]?.[0]?.price }}</span>
+                                    <span class="line-through pr-2">${{ newReleases[0]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ newReleases[0]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -67,21 +65,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[0]?.[1]?.coverImageUrl
-                                            ? bookChunks[0]?.[1]?.coverImageUrl
-                                            : bookPlaceholder
+                                        newReleases[1]?.coverImageUrl ? newReleases[1]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[0]?.[1]?.name"
+                                    :alt="newReleases[1]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[0]?.[1]?.name }}
+                                    {{ newReleases[1]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[0]?.[1]?.author }}</p>
+                                <p class="text-base">{{ newReleases[1]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[0]?.[1]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[0]?.[1]?.price }}</span>
+                                    <span class="line-through pr-2">${{ newReleases[1]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ newReleases[1]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -94,21 +90,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[0]?.[2]?.coverImageUrl
-                                            ? bookChunks[0]?.[2]?.coverImageUrl
-                                            : bookPlaceholder
+                                        newReleases[2]?.coverImageUrl ? newReleases[2]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[0]?.[2]?.name"
+                                    :alt="newReleases[2]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[0]?.[2]?.name }}
+                                    {{ newReleases[2]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[0]?.[2]?.author }}</p>
+                                <p class="text-base">{{ newReleases[2]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[0]?.[2]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[0]?.[2]?.price }}</span>
+                                    <span class="line-through pr-2">${{ newReleases[2]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ newReleases[2]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -121,21 +115,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[0]?.[3]?.coverImageUrl
-                                            ? bookChunks[0]?.[3]?.coverImageUrl
-                                            : bookPlaceholder
+                                        newReleases[3]?.coverImageUrl ? newReleases[3]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[0]?.[3]?.name"
+                                    :alt="newReleases[3]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[0]?.[3]?.name }}
+                                    {{ newReleases[3]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[0]?.[3]?.author }}</p>
+                                <p class="text-base">{{ newReleases[3]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[0]?.[3]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[0]?.[3]?.price }}</span>
+                                    <span class="line-through pr-2">${{ newReleases[3]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ newReleases[3]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -148,21 +140,19 @@
                                 <img
                                     width="140px"
                                     :src="
-                                        bookChunks[0]?.[4]?.coverImageUrl
-                                            ? bookChunks[0]?.[4]?.coverImageUrl
-                                            : bookPlaceholder
+                                        newReleases[4]?.coverImageUrl ? newReleases[4]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[0]?.[4]?.name"
+                                    :alt="newReleases[4]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[0]?.[4]?.name }}
+                                    {{ newReleases[4]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[0]?.[4]?.author }}</p>
+                                <p class="text-base">{{ newReleases[4]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[0]?.[4]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[0]?.[4]?.price }}</span>
+                                    <span class="line-through pr-2">${{ newReleases[4]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ newReleases[4]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -175,21 +165,19 @@
                                 <img
                                     width="140px"
                                     :src="
-                                        bookChunks[0]?.[5]?.coverImageUrl
-                                            ? bookChunks[0]?.[5]?.coverImageUrl
-                                            : bookPlaceholder
+                                        newReleases[5]?.coverImageUrl ? newReleases[5]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[0]?.[5]?.name"
+                                    :alt="newReleases[5]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[0]?.[5]?.name }}
+                                    {{ newReleases[5]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[0]?.[5]?.author }}</p>
+                                <p class="text-base">{{ newReleases[5]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[0]?.[5]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[0]?.[5]?.price }}</span>
+                                    <span class="line-through pr-2">${{ newReleases[5]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ newReleases[5]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -202,21 +190,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[0]?.[6]?.coverImageUrl
-                                            ? bookChunks[0]?.[6]?.coverImageUrl
-                                            : bookPlaceholder
+                                        newReleases[6]?.coverImageUrl ? newReleases[6]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[0]?.[6]?.name"
+                                    :alt="newReleases[6]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[0]?.[6]?.name }}
+                                    {{ newReleases[6]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[0]?.[6]?.author }}</p>
+                                <p class="text-base">{{ newReleases[6]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[0]?.[6]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[0]?.[6]?.price }}</span>
+                                    <span class="line-through pr-2">${{ newReleases[6]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ newReleases[6]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -229,21 +215,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[0]?.[7]?.coverImageUrl
-                                            ? bookChunks[0]?.[7]?.coverImageUrl
-                                            : bookPlaceholder
+                                        newReleases[7]?.coverImageUrl ? newReleases[7]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[0]?.[7]?.name"
+                                    :alt="newReleases[7]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[0]?.[7]?.name }}
+                                    {{ newReleases[7]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[0]?.[7]?.author }}</p>
+                                <p class="text-base">{{ newReleases[7]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[0]?.[7]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[0]?.[7]?.price }}</span>
+                                    <span class="line-through pr-2">${{ newReleases[7]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ newReleases[7]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -256,21 +240,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[0]?.[8]?.coverImageUrl
-                                            ? bookChunks[0]?.[8]?.coverImageUrl
-                                            : bookPlaceholder
+                                        newReleases[8]?.coverImageUrl ? newReleases[8]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[0]?.[8]?.name"
+                                    :alt="newReleases[8]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[0]?.[8]?.name }}
+                                    {{ newReleases[8]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[0]?.[8]?.author }}</p>
+                                <p class="text-base">{{ newReleases[8]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[0]?.[8]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[0]?.[8]?.price }}</span>
+                                    <span class="line-through pr-2">${{ newReleases[8]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ newReleases[8]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -283,21 +265,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[0]?.[9]?.coverImageUrl
-                                            ? bookChunks[0]?.[9]?.coverImageUrl
-                                            : bookPlaceholder
+                                        newReleases[9]?.coverImageUrl ? newReleases[9]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[0]?.[9]?.name"
+                                    :alt="newReleases[9]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[0]?.[9]?.name }}
+                                    {{ newReleases[9]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[0]?.[9]?.author }}</p>
+                                <p class="text-base">{{ newReleases[9]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[0]?.[9]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[0]?.[9]?.price }}</span>
+                                    <span class="line-through pr-2">${{ newReleases[9]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ newReleases[9]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -310,21 +290,21 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[0]?.[10]?.coverImageUrl
-                                            ? bookChunks[0]?.[10]?.coverImageUrl
+                                        newReleases[10]?.coverImageUrl
+                                            ? newReleases[10]?.coverImageUrl
                                             : bookPlaceholder
                                     "
-                                    :alt="bookChunks[0]?.[10]?.name"
+                                    :alt="newReleases[10]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[0]?.[10]?.name }}
+                                    {{ newReleases[10]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[0]?.[10]?.author }}</p>
+                                <p class="text-base">{{ newReleases[10]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[0]?.[10]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[0]?.[10]?.price }}</span>
+                                    <span class="line-through pr-2">${{ newReleases[10]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ newReleases[10]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -337,21 +317,21 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[0]?.[11]?.coverImageUrl
-                                            ? bookChunks[0]?.[11]?.coverImageUrl
+                                        newReleases[11]?.coverImageUrl
+                                            ? newReleases[11]?.coverImageUrl
                                             : bookPlaceholder
                                     "
-                                    :alt="bookChunks[0]?.[11]?.name"
+                                    :alt="newReleases[11]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[0]?.[11]?.name }}
+                                    {{ newReleases[11]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[0]?.[11]?.author }}</p>
+                                <p class="text-base">{{ newReleases[11]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[0]?.[11]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[0]?.[11]?.price }}</span>
+                                    <span class="line-through pr-2">${{ newReleases[11]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ newReleases[11]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -372,21 +352,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[1]?.[0]?.coverImageUrl
-                                            ? bookChunks[1]?.[0]?.coverImageUrl
-                                            : bookPlaceholder
+                                        commingSoon[0]?.coverImageUrl ? commingSoon[0]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[1]?.[0]?.name"
+                                    :alt="commingSoon[0]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[1]?.[0]?.name }}
+                                    {{ commingSoon[0]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[1]?.[0]?.author }}</p>
+                                <p class="text-base">{{ commingSoon[0]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[1]?.[0]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[1]?.[0]?.price }}</span>
+                                    <span class="line-through pr-2">${{ commingSoon[0]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ commingSoon[0]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -399,21 +377,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[1]?.[1]?.coverImageUrl
-                                            ? bookChunks[1]?.[1]?.coverImageUrl
-                                            : bookPlaceholder
+                                        commingSoon[1]?.coverImageUrl ? commingSoon[1]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[1]?.[1]?.name"
+                                    :alt="commingSoon[1]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[1]?.[1]?.name }}
+                                    {{ commingSoon[1]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[1]?.[1]?.author }}</p>
+                                <p class="text-base">{{ commingSoon[1]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[1]?.[1]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[1]?.[1]?.price }}</span>
+                                    <span class="line-through pr-2">${{ commingSoon[1]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ commingSoon[1]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -426,21 +402,19 @@
                                 <img
                                     width="140px"
                                     :src="
-                                        bookChunks[1]?.[2]?.coverImageUrl
-                                            ? bookChunks[1]?.[2]?.coverImageUrl
-                                            : bookPlaceholder
+                                        commingSoon[2]?.coverImageUrl ? commingSoon[2]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[1]?.[2]?.name"
+                                    :alt="commingSoon[2]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[1]?.[2]?.name }}
+                                    {{ commingSoon[2]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[1]?.[2]?.author }}</p>
+                                <p class="text-base">{{ commingSoon[2]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[1]?.[2]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[1]?.[2]?.price }}</span>
+                                    <span class="line-through pr-2">${{ commingSoon[2]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ commingSoon[2]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -453,21 +427,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[1]?.[3]?.coverImageUrl
-                                            ? bookChunks[1]?.[3]?.coverImageUrl
-                                            : bookPlaceholder
+                                        commingSoon[3]?.coverImageUrl ? commingSoon[3]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[1]?.[3]?.name"
+                                    :alt="commingSoon[3]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[1]?.[3]?.name }}
+                                    {{ commingSoon[3]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[1]?.[3]?.author }}</p>
+                                <p class="text-base">{{ commingSoon[3]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[1]?.[3]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[1]?.[3]?.price }}</span>
+                                    <span class="line-through pr-2">${{ commingSoon[3]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ commingSoon[3]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -480,21 +452,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[1]?.[4]?.coverImageUrl
-                                            ? bookChunks[1]?.[4]?.coverImageUrl
-                                            : bookPlaceholder
+                                        commingSoon[4]?.coverImageUrl ? commingSoon[4]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[1]?.[4]?.name"
+                                    :alt="commingSoon[4]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[1]?.[4]?.name }}
+                                    {{ commingSoon[4]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[1]?.[4]?.author }}</p>
+                                <p class="text-base">{{ commingSoon[4]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[1]?.[4]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[1]?.[4]?.price }}</span>
+                                    <span class="line-through pr-2">${{ commingSoon[4]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ commingSoon[4]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -507,21 +477,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[1]?.[5]?.coverImageUrl
-                                            ? bookChunks[1]?.[5]?.coverImageUrl
-                                            : bookPlaceholder
+                                        commingSoon[5]?.coverImageUrl ? commingSoon[5]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[1]?.[5]?.name"
+                                    :alt="commingSoon[5]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[1]?.[5]?.name }}
+                                    {{ commingSoon[5]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[1]?.[5]?.author }}</p>
+                                <p class="text-base">{{ commingSoon[5]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[1]?.[5]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[1]?.[5]?.price }}</span>
+                                    <span class="line-through pr-2">${{ commingSoon[5]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ commingSoon[5]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -534,21 +502,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[1]?.[6]?.coverImageUrl
-                                            ? bookChunks[1]?.[6]?.coverImageUrl
-                                            : bookPlaceholder
+                                        commingSoon[6]?.coverImageUrl ? commingSoon[6]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[1]?.[6]?.name"
+                                    :alt="commingSoon[6]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[1]?.[6]?.name }}
+                                    {{ commingSoon[6]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[1]?.[6]?.author }}</p>
+                                <p class="text-base">{{ commingSoon[6]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[1]?.[6]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[1]?.[6]?.price }}</span>
+                                    <span class="line-through pr-2">${{ commingSoon[6]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ commingSoon[6]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -561,21 +527,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[1]?.[7]?.coverImageUrl
-                                            ? bookChunks[1]?.[7]?.coverImageUrl
-                                            : bookPlaceholder
+                                        commingSoon[7]?.coverImageUrl ? commingSoon[7]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[1]?.[7]?.name"
+                                    :alt="commingSoon[7]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[1]?.[7]?.name }}
+                                    {{ commingSoon[7]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[1]?.[7]?.author }}</p>
+                                <p class="text-base">{{ commingSoon[7]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[1]?.[7]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[1]?.[7]?.price }}</span>
+                                    <span class="line-through pr-2">${{ commingSoon[7]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ commingSoon[7]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -588,21 +552,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[1]?.[8]?.coverImageUrl
-                                            ? bookChunks[1]?.[8]?.coverImageUrl
-                                            : bookPlaceholder
+                                        commingSoon[8]?.coverImageUrl ? commingSoon[8]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[1]?.[8]?.name"
+                                    :alt="commingSoon[8]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[1]?.[8]?.name }}
+                                    {{ commingSoon[8]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[1]?.[8]?.author }}</p>
+                                <p class="text-base">{{ commingSoon[8]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[1]?.[8]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[1]?.[8]?.price }}</span>
+                                    <span class="line-through pr-2">${{ commingSoon[8]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ commingSoon[8]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -615,21 +577,19 @@
                                 <img
                                     width="140px"
                                     :src="
-                                        bookChunks[1]?.[9]?.coverImageUrl
-                                            ? bookChunks[1]?.[9]?.coverImageUrl
-                                            : bookPlaceholder
+                                        commingSoon[9]?.coverImageUrl ? commingSoon[9]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[1]?.[9]?.name"
+                                    :alt="commingSoon[9]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[1]?.[9]?.name }}
+                                    {{ commingSoon[9]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[1]?.[9]?.author }}</p>
+                                <p class="text-base">{{ commingSoon[9]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[1]?.[9]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[1]?.[9]?.price }}</span>
+                                    <span class="line-through pr-2">${{ commingSoon[9]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ commingSoon[9]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -642,21 +602,21 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[1]?.[10]?.coverImageUrl
-                                            ? bookChunks[1]?.[10]?.coverImageUrl
+                                        commingSoon[10]?.coverImageUrl
+                                            ? commingSoon[10]?.coverImageUrl
                                             : bookPlaceholder
                                     "
-                                    :alt="bookChunks[1]?.[10]?.name"
+                                    :alt="commingSoon[10]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[1]?.[10]?.name }}
+                                    {{ commingSoon[10]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[1]?.[10]?.author }}</p>
+                                <p class="text-base">{{ commingSoon[10]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[1]?.[10]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[1]?.[10]?.price }}</span>
+                                    <span class="line-through pr-2">${{ commingSoon[10]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ commingSoon[10]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -669,21 +629,21 @@
                                 <img
                                     width="140px"
                                     :src="
-                                        bookChunks[1]?.[11]?.coverImageUrl
-                                            ? bookChunks[1]?.[11]?.coverImageUrl
+                                        commingSoon[11]?.coverImageUrl
+                                            ? commingSoon[11]?.coverImageUrl
                                             : bookPlaceholder
                                     "
-                                    :alt="bookChunks[1]?.[11]?.name"
+                                    :alt="commingSoon[11]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[1]?.[11]?.name }}
+                                    {{ commingSoon[11]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[1]?.[11]?.author }}</p>
+                                <p class="text-base">{{ commingSoon[11]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[1]?.[11]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[1]?.[11]?.price }}</span>
+                                    <span class="line-through pr-2">${{ commingSoon[11]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ commingSoon[11]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -704,21 +664,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[2]?.[0]?.coverImageUrl
-                                            ? bookChunks[2]?.[0]?.coverImageUrl
-                                            : bookPlaceholder
+                                        bestSellers[0]?.coverImageUrl ? bestSellers[0]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[2]?.[0]?.name"
+                                    :alt="bestSellers[0]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[2]?.[0]?.name }}
+                                    {{ bestSellers[0]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[2]?.[0]?.author }}</p>
+                                <p class="text-base">{{ bestSellers[0]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[2]?.[0]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[2]?.[0]?.price }}</span>
+                                    <span class="line-through pr-2">${{ bestSellers[0]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ bestSellers[0]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -731,21 +689,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[2]?.[1]?.coverImageUrl
-                                            ? bookChunks[2]?.[1]?.coverImageUrl
-                                            : bookPlaceholder
+                                        bestSellers[1]?.coverImageUrl ? bestSellers[1]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[2]?.[1]?.name"
+                                    :alt="bestSellers[1]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[2]?.[1]?.name }}
+                                    {{ bestSellers[1]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[2]?.[1]?.author }}</p>
+                                <p class="text-base">{{ bestSellers[1]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[2]?.[1]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[2]?.[1]?.price }}</span>
+                                    <span class="line-through pr-2">${{ bestSellers[1]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ bestSellers[1]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -758,21 +714,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[2]?.[2]?.coverImageUrl
-                                            ? bookChunks[2]?.[2]?.coverImageUrl
-                                            : bookPlaceholder
+                                        bestSellers[2]?.coverImageUrl ? bestSellers[2]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[2]?.[2]?.name"
+                                    :alt="bestSellers[2]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[2]?.[2]?.name }}
+                                    {{ bestSellers[2]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[2]?.[2]?.author }}</p>
+                                <p class="text-base">{{ bestSellers[2]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[2]?.[2]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[2]?.[2]?.price }}</span>
+                                    <span class="line-through pr-2">${{ bestSellers[2]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ bestSellers[2]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -785,21 +739,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[2]?.[3]?.coverImageUrl
-                                            ? bookChunks[2]?.[3]?.coverImageUrl
-                                            : bookPlaceholder
+                                        bestSellers[3]?.coverImageUrl ? bestSellers[3]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[2]?.[3]?.name"
+                                    :alt="bestSellers[3]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[2]?.[3]?.name }}
+                                    {{ bestSellers[3]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[2]?.[3]?.author }}</p>
+                                <p class="text-base">{{ bestSellers[3]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[2]?.[3]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[2]?.[3]?.price }}</span>
+                                    <span class="line-through pr-2">${{ bestSellers[3]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ bestSellers[3]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -812,21 +764,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[2]?.[4]?.coverImageUrl
-                                            ? bookChunks[2]?.[4]?.coverImageUrl
-                                            : bookPlaceholder
+                                        bestSellers[4]?.coverImageUrl ? bestSellers[4]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[2]?.[4]?.name"
+                                    :alt="bestSellers[4]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[2]?.[4]?.name }}
+                                    {{ bestSellers[4]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[2]?.[4]?.author }}</p>
+                                <p class="text-base">{{ bestSellers[4]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[2]?.[4]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[2]?.[4]?.price }}</span>
+                                    <span class="line-through pr-2">${{ bestSellers[4]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ bestSellers[4]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -839,21 +789,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[2]?.[5]?.coverImageUrl
-                                            ? bookChunks[2]?.[5]?.coverImageUrl
-                                            : bookPlaceholder
+                                        bestSellers[5]?.coverImageUrl ? bestSellers[5]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[2]?.[5]?.name"
+                                    :alt="bestSellers[5]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[2]?.[5]?.name }}
+                                    {{ bestSellers[5]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[2]?.[5]?.author }}</p>
+                                <p class="text-base">{{ bestSellers[5]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[2]?.[5]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[2]?.[5]?.price }}</span>
+                                    <span class="line-through pr-2">${{ bestSellers[5]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ bestSellers[5]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -866,21 +814,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[2]?.[6]?.coverImageUrl
-                                            ? bookChunks[2]?.[6]?.coverImageUrl
-                                            : bookPlaceholder
+                                        bestSellers[6]?.coverImageUrl ? bestSellers[6]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[2]?.[6]?.name"
+                                    :alt="bestSellers[6]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[2]?.[6]?.name }}
+                                    {{ bestSellers[6]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[2]?.[6]?.author }}</p>
+                                <p class="text-base">{{ bestSellers[6]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[2]?.[6]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[2]?.[6]?.price }}</span>
+                                    <span class="line-through pr-2">${{ bestSellers[6]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ bestSellers[6]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -893,21 +839,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[2]?.[7]?.coverImageUrl
-                                            ? bookChunks[2]?.[7]?.coverImageUrl
-                                            : bookPlaceholder
+                                        bestSellers[7]?.coverImageUrl ? bestSellers[7]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[2]?.[7]?.name"
+                                    :alt="bestSellers[7]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[2]?.[7]?.name }}
+                                    {{ bestSellers[7]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[2]?.[7]?.author }}</p>
+                                <p class="text-base">{{ bestSellers[7]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[2]?.[7]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[2]?.[7]?.price }}</span>
+                                    <span class="line-through pr-2">${{ bestSellers[7]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ bestSellers[7]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -920,21 +864,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[2]?.[8]?.coverImageUrl
-                                            ? bookChunks[2]?.[8]?.coverImageUrl
-                                            : bookPlaceholder
+                                        bestSellers[8]?.coverImageUrl ? bestSellers[8]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[2]?.[8]?.name"
+                                    :alt="bestSellers[8]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[2]?.[8]?.name }}
+                                    {{ bestSellers[8]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[2]?.[8]?.author }}</p>
+                                <p class="text-base">{{ bestSellers[8]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[2]?.[8]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[2]?.[8]?.price }}</span>
+                                    <span class="line-through pr-2">${{ bestSellers[8]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ bestSellers[8]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -947,21 +889,19 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[2]?.[9]?.coverImageUrl
-                                            ? bookChunks[2]?.[9]?.coverImageUrl
-                                            : bookPlaceholder
+                                        bestSellers[9]?.coverImageUrl ? bestSellers[9]?.coverImageUrl : bookPlaceholder
                                     "
-                                    :alt="bookChunks[2]?.[9]?.name"
+                                    :alt="bestSellers[9]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[2]?.[9]?.name }}
+                                    {{ bestSellers[9]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[2]?.[9]?.author }}</p>
+                                <p class="text-base">{{ bestSellers[9]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[2]?.[9]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[2]?.[9]?.price }}</span>
+                                    <span class="line-through pr-2">${{ bestSellers[9]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ bestSellers[9]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -974,21 +914,21 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[2]?.[10]?.coverImageUrl
-                                            ? bookChunks[2]?.[10]?.coverImageUrl
+                                        bestSellers[10]?.coverImageUrl
+                                            ? bestSellers[10]?.coverImageUrl
                                             : bookPlaceholder
                                     "
-                                    :alt="bookChunks[2]?.[10]?.name"
+                                    :alt="bestSellers[10]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[2]?.[10]?.name }}
+                                    {{ bestSellers[10]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[2]?.[10]?.author }}</p>
+                                <p class="text-base">{{ bestSellers[10]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[2]?.[10]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[2]?.[10]?.price }}</span>
+                                    <span class="line-through pr-2">${{ bestSellers[10]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ bestSellers[10]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -1001,21 +941,21 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[2]?.[11]?.coverImageUrl
-                                            ? bookChunks[2]?.[11]?.coverImageUrl
+                                        bestSellers[11]?.coverImageUrl
+                                            ? bestSellers[11]?.coverImageUrl
                                             : bookPlaceholder
                                     "
-                                    :alt="bookChunks[2]?.[11]?.name"
+                                    :alt="bestSellers[11]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[2]?.[11]?.name }}
+                                    {{ bestSellers[11]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[2]?.[11]?.author }}</p>
+                                <p class="text-base">{{ bestSellers[11]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[2]?.[11]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[2]?.[11]?.price }}</span>
+                                    <span class="line-through pr-2">${{ bestSellers[11]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ bestSellers[11]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -1036,21 +976,21 @@
                                 <img
                                     width="140px"
                                     :src="
-                                        bookChunks[3]?.[0]?.coverImageUrl
-                                            ? bookChunks[3]?.[0]?.coverImageUrl
+                                        justForTheSummer[0]?.coverImageUrl
+                                            ? justForTheSummer[0]?.coverImageUrl
                                             : bookPlaceholder
                                     "
-                                    :alt="bookChunks[3]?.[0]?.name"
+                                    :alt="justForTheSummer[0]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[3]?.[0]?.name }}
+                                    {{ justForTheSummer[0]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[3]?.[0]?.author }}</p>
+                                <p class="text-base">{{ justForTheSummer[0]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[3]?.[0]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[3]?.[0]?.price }}</span>
+                                    <span class="line-through pr-2">${{ justForTheSummer[0]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ justForTheSummer[0]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -1063,21 +1003,21 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[3]?.[1]?.coverImageUrl
-                                            ? bookChunks[3]?.[1]?.coverImageUrl
+                                        justForTheSummer[1]?.coverImageUrl
+                                            ? justForTheSummer[1]?.coverImageUrl
                                             : bookPlaceholder
                                     "
-                                    :alt="bookChunks[3]?.[1]?.name"
+                                    :alt="justForTheSummer[1]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[3]?.[1]?.name }}
+                                    {{ justForTheSummer[1]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[3]?.[1]?.author }}</p>
+                                <p class="text-base">{{ justForTheSummer[1]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[3]?.[1]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[3]?.[1]?.price }}</span>
+                                    <span class="line-through pr-2">${{ justForTheSummer[1]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ justForTheSummer[1]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -1090,21 +1030,21 @@
                                 <img
                                     width="130px"
                                     :src="
-                                        bookChunks[3]?.[2]?.coverImageUrl
-                                            ? bookChunks[3]?.[2]?.coverImageUrl
+                                        justForTheSummer[2]?.coverImageUrl
+                                            ? justForTheSummer[2]?.coverImageUrl
                                             : bookPlaceholder
                                     "
-                                    :alt="bookChunks[3]?.[2]?.name"
+                                    :alt="justForTheSummer[2]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[3]?.[2]?.name }}
+                                    {{ justForTheSummer[2]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[3]?.[2]?.author }}</p>
+                                <p class="text-base">{{ justForTheSummer[2]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[3]?.[2]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[3]?.[2]?.price }}</span>
+                                    <span class="line-through pr-2">${{ justForTheSummer[2]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ justForTheSummer[2]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -1117,21 +1057,21 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[3]?.[3]?.coverImageUrl
-                                            ? bookChunks[3]?.[3]?.coverImageUrl
+                                        justForTheSummer[3]?.coverImageUrl
+                                            ? justForTheSummer[3]?.coverImageUrl
                                             : bookPlaceholder
                                     "
-                                    :alt="bookChunks[3]?.[3]?.name"
+                                    :alt="justForTheSummer[3]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[3]?.[3]?.name }}
+                                    {{ justForTheSummer[3]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[3]?.[3]?.author }}</p>
+                                <p class="text-base">{{ justForTheSummer[3]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[3]?.[3]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[3]?.[3]?.price }}</span>
+                                    <span class="line-through pr-2">${{ justForTheSummer[3]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ justForTheSummer[3]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -1144,21 +1084,21 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[3]?.[4]?.coverImageUrl
-                                            ? bookChunks[3]?.[4]?.coverImageUrl
+                                        justForTheSummer[4]?.coverImageUrl
+                                            ? justForTheSummer[4]?.coverImageUrl
                                             : bookPlaceholder
                                     "
-                                    :alt="bookChunks[3]?.[4]?.name"
+                                    :alt="justForTheSummer[4]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[3]?.[4]?.name }}
+                                    {{ justForTheSummer[4]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[3]?.[4]?.author }}</p>
+                                <p class="text-base">{{ justForTheSummer[4]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[3]?.[4]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[3]?.[4]?.price }}</span>
+                                    <span class="line-through pr-2">${{ justForTheSummer[4]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ justForTheSummer[4]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -1171,21 +1111,21 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[3]?.[5]?.coverImageUrl
-                                            ? bookChunks[3]?.[5]?.coverImageUrl
+                                        justForTheSummer[5]?.coverImageUrl
+                                            ? justForTheSummer[5]?.coverImageUrl
                                             : bookPlaceholder
                                     "
-                                    :alt="bookChunks[3]?.[5]?.name"
+                                    :alt="justForTheSummer[5]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[3]?.[5]?.name }}
+                                    {{ justForTheSummer[5]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[3]?.[5]?.author }}</p>
+                                <p class="text-base">{{ justForTheSummer[5]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[3]?.[5]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[3]?.[5]?.price }}</span>
+                                    <span class="line-through pr-2">${{ justForTheSummer[5]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ justForTheSummer[5]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -1198,21 +1138,21 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[3]?.[6]?.coverImageUrl
-                                            ? bookChunks[3]?.[6]?.coverImageUrl
+                                        justForTheSummer[6]?.coverImageUrl
+                                            ? justForTheSummer[6]?.coverImageUrl
                                             : bookPlaceholder
                                     "
-                                    :alt="bookChunks[3]?.[6]?.name"
+                                    :alt="justForTheSummer[6]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[3]?.[6]?.name }}
+                                    {{ justForTheSummer[6]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[3]?.[6]?.author }}</p>
+                                <p class="text-base">{{ justForTheSummer[6]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[3]?.[6]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[3]?.[6]?.price }}</span>
+                                    <span class="line-through pr-2">${{ justForTheSummer[6]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ justForTheSummer[6]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -1225,21 +1165,21 @@
                                 <img
                                     width="130px"
                                     :src="
-                                        bookChunks[3]?.[7]?.coverImageUrl
-                                            ? bookChunks[3]?.[7]?.coverImageUrl
+                                        justForTheSummer[7]?.coverImageUrl
+                                            ? justForTheSummer[7]?.coverImageUrl
                                             : bookPlaceholder
                                     "
-                                    :alt="bookChunks[3]?.[7]?.name"
+                                    :alt="justForTheSummer[7]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[3]?.[7]?.name }}
+                                    {{ justForTheSummer[7]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[3]?.[7]?.author }}</p>
+                                <p class="text-base">{{ justForTheSummer[7]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[3]?.[7]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[3]?.[7]?.price }}</span>
+                                    <span class="line-through pr-2">${{ justForTheSummer[7]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ justForTheSummer[7]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -1252,21 +1192,21 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[3]?.[8]?.coverImageUrl
-                                            ? bookChunks[3]?.[8]?.coverImageUrl
+                                        justForTheSummer[8]?.coverImageUrl
+                                            ? justForTheSummer[8]?.coverImageUrl
                                             : bookPlaceholder
                                     "
-                                    :alt="bookChunks[3]?.[8]?.name"
+                                    :alt="justForTheSummer[8]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[3]?.[8]?.name }}
+                                    {{ justForTheSummer[8]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[3]?.[8]?.author }}</p>
+                                <p class="text-base">{{ justForTheSummer[8]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[3]?.[8]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[3]?.[8]?.price }}</span>
+                                    <span class="line-through pr-2">${{ justForTheSummer[8]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ justForTheSummer[8]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -1279,21 +1219,21 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[3]?.[9]?.coverImageUrl
-                                            ? bookChunks[3]?.[9]?.coverImageUrl
+                                        justForTheSummer[9]?.coverImageUrl
+                                            ? justForTheSummer[9]?.coverImageUrl
                                             : bookPlaceholder
                                     "
-                                    :alt="bookChunks[3]?.[9]?.name"
+                                    :alt="justForTheSummer[9]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[3]?.[9]?.name }}
+                                    {{ justForTheSummer[9]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[3]?.[9]?.author }}</p>
+                                <p class="text-base">{{ justForTheSummer[9]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[3]?.[9]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[3]?.[9]?.price }}</span>
+                                    <span class="line-through pr-2">${{ justForTheSummer[9]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ justForTheSummer[9]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -1306,21 +1246,21 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[3]?.[10]?.coverImageUrl
-                                            ? bookChunks[3]?.[10]?.coverImageUrl
+                                        justForTheSummer[10]?.coverImageUrl
+                                            ? justForTheSummer[10]?.coverImageUrl
                                             : bookPlaceholder
                                     "
-                                    :alt="bookChunks[3]?.[10]?.name"
+                                    :alt="justForTheSummer[10]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[3]?.[10]?.name }}
+                                    {{ justForTheSummer[10]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[3]?.[10]?.author }}</p>
+                                <p class="text-base">{{ justForTheSummer[10]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[3]?.[10]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[3]?.[10]?.price }}</span>
+                                    <span class="line-through pr-2">${{ justForTheSummer[10]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ justForTheSummer[10]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -1333,21 +1273,21 @@
                                 <img
                                     width="135px"
                                     :src="
-                                        bookChunks[3]?.[11]?.coverImageUrl
-                                            ? bookChunks[3]?.[11]?.coverImageUrl
+                                        justForTheSummer[11]?.coverImageUrl
+                                            ? justForTheSummer[11]?.coverImageUrl
                                             : bookPlaceholder
                                     "
-                                    :alt="bookChunks[3]?.[11]?.name"
+                                    :alt="justForTheSummer[11]?.name"
                                 />
                             </div>
                             <div>
                                 <p class="font-semibold hover:underline hover:underline-offset-2">
-                                    {{ bookChunks[3]?.[11]?.name }}
+                                    {{ justForTheSummer[11]?.name }}
                                 </p>
-                                <p class="text-base">{{ bookChunks[3]?.[11]?.author }}</p>
+                                <p class="text-base">{{ justForTheSummer[11]?.author }}</p>
                                 <p>
-                                    <span class="line-through pr-2">${{ bookChunks[3]?.[11]?.retailPrice }}</span>
-                                    <span class="font-semibold">${{ bookChunks[3]?.[11]?.price }}</span>
+                                    <span class="line-through pr-2">${{ justForTheSummer[11]?.retailPrice }}</span>
+                                    <span class="font-semibold">${{ justForTheSummer[11]?.price }}</span>
                                 </p>
                             </div>
                         </div>
@@ -1390,32 +1330,39 @@
     import { BookDto } from '@/api/devbookClient';
     import bookPlaceholder from '@/assets/book_placeholder.png';
     import { ref } from 'vue';
+    import { useGetProductCategoriesCommand } from '@/commands/products/getProductCategoriesCommand';
 
     //TODO - save cover images to local DB or server, so it can be fastly load on page load
     //TODO2 - correct swiper and use v-for insted of direct bookChunks indexes for covers
     const error = ref('');
-    const bookChunks = ref<BookDto[][]>([]);
-    const chunkSize = 12;
+    const newReleases = ref<BookDto[]>([]);
+    const commingSoon = ref<BookDto[]>([]);
+    const bestSellers = ref<BookDto[]>([]);
+    const justForTheSummer = ref<BookDto[]>([]);
 
     const getProductsCommand = useGetProductsCommand((errorMessage) => (error.value = errorMessage));
+    const getProductCategories = useGetProductCategoriesCommand((errorMessage) => (error.value = errorMessage));
 
     initialize();
 
     async function initialize() {
-        const bookDtos = await getProductsCommand(48, 0, 'Book');
-        bookChunks.value = chunkenize(chunkSize, bookDtos);
-    }
+        const productCategories = await getProductCategories();
+        const newReleasesCategory = productCategories?.find((x) => x.name === 'New Releases');
+        const preOrdersCategory = productCategories?.find((x) => x.name === 'Pre-orders');
+        const bestSellersCategory = productCategories?.find((x) => x.name === 'Bestsellers');
 
-    function chunkenize<T>(chunkSize: number, arr?: T[]): T[][] {
-        if (!arr) {
-            return [];
+        if (newReleasesCategory) {
+            newReleases.value = (await getProductsCommand(12, 0, 'Book', newReleasesCategory?.id)) ?? [];
         }
 
-        const result: T[][] = [];
-
-        for (let i = 0; i < arr.length; i += chunkSize) {
-            result.push(arr.slice(i, i + chunkSize));
+        if (preOrdersCategory) {
+            commingSoon.value = (await getProductsCommand(12, 0, 'Book', preOrdersCategory?.id)) ?? [];
         }
-        return result;
+
+        if (bestSellersCategory) {
+            bestSellers.value = (await getProductsCommand(12, 0, 'Book', bestSellersCategory?.id)) ?? [];
+        }
+
+        justForTheSummer.value = (await getProductsCommand(12, 36, 'Book')) ?? [];
     }
 </script>
