@@ -34,7 +34,7 @@
                 },
             }"
         >
-            <slot name="swiper-slides" />
+            <slot />
         </swiper-container>
     </div>
 </template>
