@@ -3,8 +3,8 @@
         :item="{
             name: 'Dashboard',
             icon: 'pi-th-large',
-            isActive: () => isActivePage(AppRoute.AdminDashboard),
-            onClick: () => goToRoute(AppRoute.AdminDashboard),
+            isActive: () => isActivePage(AppRoutes.adminDashboard.path),
+            onClick: () => goToRoute(AppRoutes.adminDashboard.path),
         }"
     />
     <SidenavItem
@@ -15,18 +15,18 @@
         :submenuItems="[
             {
                 name: 'Overview',
-                isActive: () => isActivePage(AppRoute.AdminProductOverview),
-                onClick: () => goToRoute(AppRoute.AdminProductOverview),
+                isActive: () => isActivePage(AppRoutes.adminProductOverview.path),
+                onClick: () => goToRoute(AppRoutes.adminProductOverview.path),
             },
             {
                 name: 'Categories',
-                isActive: () => isActivePage(AppRoute.AdminProductCategories),
-                onClick: () => goToRoute(AppRoute.AdminProductCategories),
+                isActive: () => isActivePage(AppRoutes.adminProductCategories.path),
+                onClick: () => goToRoute(AppRoutes.adminProductCategories.path),
             },
             {
                 name: 'Books',
-                isActive: () => isActivePage(AppRoute.AdminProductBooks),
-                onClick: () => goToRoute(AppRoute.AdminProductBooks),
+                isActive: () => isActivePage(AppRoutes.adminProductBooks.path),
+                onClick: () => goToRoute(AppRoutes.adminProductBooks.path),
             },
         ]"
     />
@@ -34,16 +34,16 @@
         :item="{
             name: 'Invoices',
             icon: 'pi-receipt',
-            isActive: () => isActivePage(AppRoute.AdminInvoices),
-            onClick: () => goToRoute(AppRoute.AdminInvoices),
+            isActive: () => isActivePage(AppRoutes.adminInvoices.path),
+            onClick: () => goToRoute(AppRoutes.adminInvoices.path),
         }"
     />
     <SidenavItem
         :item="{
             name: 'Messages',
             icon: 'pi-comments',
-            isActive: () => isActivePage(AppRoute.AdminMessages),
-            onClick: () => goToRoute(AppRoute.AdminMessages),
+            isActive: () => isActivePage(AppRoutes.adminMessages.path),
+            onClick: () => goToRoute(AppRoutes.adminMessages.path),
         }"
     />
 </template>
@@ -52,18 +52,18 @@
     import { ref } from 'vue';
     import { useRoute, useRouter } from 'vue-router';
     import SidenavItem from './SidenavItem.vue';
-    import { AppRoute } from '@/plugins/router';
+    import { AppRoutes } from '@/plugins/router';
 
     const route = useRoute();
     const router = useRouter();
-    const activePage = ref(AppRoute.AdminDashboard);
+    const activePage = ref(AppRoutes.adminDashboard.path);
 
-    function goToRoute(appRoute: AppRoute) {
+    function goToRoute(appRoute: string) {
         activePage.value = appRoute;
         router.push(activePage.value);
     }
 
-    function isActivePage(appRoute: AppRoute) {
+    function isActivePage(appRoute: string) {
         return route.path.toLowerCase().startsWith(appRoute);
     }
 </script>

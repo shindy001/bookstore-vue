@@ -24,60 +24,66 @@ import { default as ProductBooks } from '@/views/administration/products/books/B
 import { default as AdminInvoices } from '@/views/administration/invoices/Invoices.vue';
 import { default as AdminMessages } from '@/views/administration/messages/Messages.vue';
 
-export enum AppRoute {
-    Root = '/',
-    Books = '/books',
-    BookDetail = '/books/:id',
-    Forbidden = '/forbidden',
-    SignIn = '/signin',
-    Register = '/register',
-    Administration = '/administration',
-    AdminDashboard = '/administration/dashboard',
-    AdminProductOverview = '/administration/product-overview',
-    AdminProductCategories = '/administration/product-categories',
-    AdminProductBooks = '/administration/product-books',
-    AdminInvoices = '/administration/invoices',
-    AdminMessages = '/administration/messages',
+export const AppRoutes = {
+    root: { path: '/', name: "root" },
+    books: { path: '/books', name: "books" },
+    bookDetail: { path: '/books/:id', name: "bookDetail" },
+    forbidden: { path: '/forbidden', name: "forbidden" },
+    signIn: { path: '/signin', name: "signIn" },
+    register: { path: '/register', name: "register" },
+    administration: { path: '/administration', name: "administration" },
+    adminDashboard: { path: '/administration/dashboard', name: "adminDashboard" },
+    adminProductOverview: { path: '/administration/product-overview', name: "adminProductOverview" },
+    adminProductCategories: { path: '/administration/product-categories', name: "adminProductCategories" },
+    adminProductBooks: { path: '/administration/product-books', name: "adminProductBooks" },
+    adminInvoices: { path: '/administration/invoices', name: "adminInvoices" },
+    adminMessages: { path: '/administration/messages', name: "adminMessages" },
 }
 
 const routes = [
     {
-        path: AppRoute.Root,
+        path: AppRoutes.root.path,
+        name: AppRoutes.root.name,
         component: Landing,
         meta: {
             layout: LandingLayout,
         },
     },
     {
-        path: AppRoute.Books,
+        path: AppRoutes.books.path,
+        name: AppRoutes.books.name,
         component: Books,
         meta: {
             layout: AppLayout,
         },
     },
     {
-        path: AppRoute.BookDetail,
+        path: AppRoutes.bookDetail.path,
+        name: AppRoutes.bookDetail.name,
         component: BookDetail,
         meta: {
             layout: AppLayout,
         },
     },
     {
-        path: AppRoute.SignIn,
+        path: AppRoutes.signIn.path,
+        name: AppRoutes.signIn.name,
         component: SignIn,
         meta: {
             layout: EmptyLayout,
         },
     },
     {
-        path: AppRoute.Register,
+        path: AppRoutes.register.path,
+        name: AppRoutes.register.name,
         component: Register,
         meta: {
             layout: EmptyLayout,
         },
     },
     {
-        path: AppRoute.Administration,
+        path: AppRoutes.administration.path,
+        name: AppRoutes.administration.name,
         component: Administration,
         meta: {
             layout: AdministrationLayout,
@@ -87,36 +93,44 @@ const routes = [
         children: [
             {
                 path: '',
-                redirect: AppRoute.AdminDashboard,
+                name: 'administrationRedirect',
+                redirect: AppRoutes.adminDashboard.path,
             },
             {
-                path: AppRoute.AdminDashboard,
+                path: AppRoutes.adminDashboard.path,
+                name: AppRoutes.adminDashboard.name,
                 component: AdministrationDashboard,
             },
             {
-                path: AppRoute.AdminProductOverview,
+                path: AppRoutes.adminProductOverview.path,
+                name: AppRoutes.adminProductOverview.name,
                 component: ProductOverview,
             },
             {
-                path: AppRoute.AdminProductCategories,
+                path: AppRoutes.adminProductCategories.path,
+                name: AppRoutes.adminProductCategories.name,
                 component: ProductCategories,
             },
             {
-                path: AppRoute.AdminProductBooks,
+                path: AppRoutes.adminProductBooks.path,
+                name: AppRoutes.adminProductBooks.name,
                 component: ProductBooks,
             },
             {
-                path: AppRoute.AdminInvoices,
+                path: AppRoutes.adminInvoices.path,
+                name: AppRoutes.adminInvoices.name,
                 component: AdminInvoices,
             },
             {
-                path: AppRoute.AdminMessages,
+                path: AppRoutes.adminMessages.path,
+                name: AppRoutes.adminMessages.name,
                 component: AdminMessages,
             },
         ],
     },
     {
-        path: AppRoute.Forbidden,
+        path: AppRoutes.forbidden.path,
+        name: AppRoutes.forbidden.name,
         component: Forbidden,
         meta: {
             layout: EmptyLayout,
@@ -142,7 +156,7 @@ router.beforeEach(async (to, _, next) => {
         if (result.success) {
             verifyRoleAndContinue(to.meta.requiredRole as string, result.data, next);
         } else {
-            next(AppRoute.SignIn);
+            next(AppRoutes.signIn.path);
         }
     } else {
         next();
@@ -153,7 +167,7 @@ function verifyRoleAndContinue(requiredRole: string, userInfo: InfoResponse | un
     if (requiredRole && userInfo?.roles.includes(requiredRole)) {
         next();
     } else {
-        next(AppRoute.Forbidden);
+        next(AppRoutes.forbidden.path);
     }
 }
 
