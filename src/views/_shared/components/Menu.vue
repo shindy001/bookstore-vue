@@ -7,6 +7,7 @@
                         @mouseenter="menuIndex = index + 1"
                         :class="getMenuItemClasses(index)"
                         class="p-6 h-full rounded-none"
+                        :onclick="() => goToCategoryProducts(topLevelCategory.id)"
                     >
                         <div class="flex items-center content-center justify-center">
                             <Book class="inline h-full w-full mr-2" :stroke-width="1" :size="32" />
@@ -117,11 +118,14 @@
     import { useToastService } from '@/views/_shared/utils/toastHelper';
     import { ProductCategoryDto } from '@/api/devbookClient';
     import * as posters from '@/assets/posters/index';
+    import { useRouter } from 'vue-router';
+    import { AppRoutes } from '@/plugins/router';
 
     const menuIndex = ref(0);
     const topLevelProductCategories = ref<Array<ProductCategoryDto>>();
     const toastService = useToastService();
 
+    const router = useRouter();
     const getProductCategoriesCommand = useGetProductCategoriesCommand((errorMessage) =>
         toastService.showError(`Error while fetching categories: ${errorMessage}`),
     );
@@ -137,5 +141,9 @@
         classes += menuIndex.value === currentIndex + 1 ? ' bg-black text-white' : ' hover:bg-black hover:text-white';
         classes += currentIndex == 0 ? '' : ' border-l-[1px] border-gray-200 join-item';
         return classes;
+    }
+
+    function goToCategoryProducts(categoryId: string) {
+        router.push({ name: AppRoutes.products.name, params: { id: categoryId } });
     }
 </script>
