@@ -35,6 +35,7 @@
                     <swiper-slide>
                         <div
                             class="p-2 w-full flex flex-col justify-center items-center gap-2 text-lg rounded-lg cursor-pointer hover:bg-ochr-500/10"
+                            :onclick="() => goToDetail(book.id)"
                         >
                             <div class="h-[250px] pt-2 content-center">
                                 <img
@@ -66,6 +67,7 @@
                     <swiper-slide>
                         <div
                             class="p-2 w-full flex flex-col justify-center items-center gap-2 text-lg rounded-lg cursor-pointer hover:bg-ochr-500/10"
+                            :onclick="() => goToDetail(book.id)"
                         >
                             <div class="h-[250px] pt-2 content-center">
                                 <img
@@ -97,6 +99,7 @@
                     <swiper-slide>
                         <div
                             class="p-2 w-full flex flex-col justify-center items-center gap-2 text-lg rounded-lg cursor-pointer hover:bg-ochr-500/10"
+                            :onclick="() => goToDetail(book.id)"
                         >
                             <div class="h-[250px] pt-2 content-center">
                                 <img
@@ -128,6 +131,7 @@
                     <swiper-slide>
                         <div
                             class="p-2 w-full flex flex-col justify-center items-center gap-2 text-lg rounded-lg cursor-pointer hover:bg-ochr-500/10"
+                            :onclick="() => goToDetail(book.id)"
                         >
                             <div class="h-[250px] pt-2 content-center">
                                 <img
@@ -186,7 +190,9 @@
     import { BookDto } from '@/api/devbookClient';
     import bookPlaceholder from '@/assets/book_placeholder.png';
     import { ref } from 'vue';
+    import { useRouter } from 'vue-router';
     import { useGetProductCategoriesCommand } from '@/commands/products/getProductCategoriesCommand';
+    import { AppRoutes } from '@/plugins/router';
 
     //TODO - save cover images to local DB or server, so it can be fastly load on page load
     //TODO2 - correct swiper and use v-for insted of direct bookChunks indexes for covers
@@ -196,6 +202,7 @@
     const bestSellers = ref<BookDto[]>([]);
     const justForTheSummer = ref<BookDto[]>([]);
 
+    const router = useRouter();
     const getProductsCommand = useGetProductsCommand((errorMessage) => (error.value = errorMessage));
     const getProductCategories = useGetProductCategoriesCommand((errorMessage) => (error.value = errorMessage));
 
@@ -220,5 +227,9 @@
         }
 
         justForTheSummer.value = (await getProductsCommand(12, 36, 'Book')) ?? [];
+    }
+
+    function goToDetail(id: string) {
+        router.push({ name: AppRoutes.bookDetail.name, params: { id: id } });
     }
 </script>
