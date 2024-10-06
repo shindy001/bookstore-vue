@@ -230,6 +230,6 @@
     }
 
     function goToDetail(id: string) {
-        router.push({ name: AppRoutes.bookDetail.name, params: { id: id } });
+        router.push({ name: AppRoutes.productDetail.name, params: { id: id } });
     }
 </script>

@@ -9,8 +9,8 @@ import Forbidden from '@/views/errors/Forbidden.vue';
 import NotFound from '@/views/errors/NotFound.vue';
 
 import Landing from '@/views/landing/Landing.vue';
-import Books from "@/views/books/Books.vue";
-import BookDetail from "@/views/books/BookDetail.vue";
+import Products from "@/views/products/Products.vue";
+import ProductDetail from "@/views/products/ProductDetail.vue";
 import EmptyLayout from '@/views/layouts/EmptyLayout.vue';
 import AppLayout from "@/views/layouts/AppLayout.vue";
 import LandingLayout from '@/views/layouts/LandingLayout.vue';
@@ -26,8 +26,8 @@ import { default as AdminMessages } from '@/views/administration/messages/Messag
 
 export const AppRoutes = {
     root: { path: '/', name: "root" },
-    books: { path: '/books', name: "books" },
-    bookDetail: { path: '/books/:id', name: "bookDetail" },
+    products: { path: '/categories/:id/products', name: "categoryProducts" },
+    productDetail: { path: '/products/:id', name: "productDetail" },
     forbidden: { path: '/forbidden', name: "forbidden" },
     signIn: { path: '/signin', name: "signIn" },
     register: { path: '/register', name: "register" },
@@ -50,17 +50,17 @@ const routes = [
         },
     },
     {
-        path: AppRoutes.books.path,
-        name: AppRoutes.books.name,
-        component: Books,
+        path: AppRoutes.products.path,
+        name: AppRoutes.products.name,
+        component: Products,
         meta: {
             layout: AppLayout,
         },
     },
     {
-        path: AppRoutes.bookDetail.path,
-        name: AppRoutes.bookDetail.name,
-        component: BookDetail,
+        path: AppRoutes.productDetail.path,
+        name: AppRoutes.productDetail.name,
+        component: ProductDetail,
         meta: {
             layout: AppLayout,
         },

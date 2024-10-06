@@ -1,10 +1,10 @@
 <template>
-    <h1>This is a book {{ bookId }} detail</h1>
+    <h1>This is a product {{ productId }} detail</h1>
 </template>
 
 <script setup lang="ts">
     import { useRoute } from 'vue-router';
 
     const route = useRoute();
-    const bookId = route.params.id as string;
+    const productId = route.params.id as string;
 </script>
