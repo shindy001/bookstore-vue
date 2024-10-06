@@ -3,12 +3,16 @@ import { getIdentityApi } from '@/plugins/devbookApiClient';
 import { tryExecute } from '@/commands/utils';
 import { InfoResponse } from '@/api/devbookClient';
 
-import Landing from '@/views/landing/Landing.vue';
 import SignIn from '@/views/account/SignIn.vue';
-import Forbidden from '@/views/account/Forbidden.vue';
-import NotFound from '@/views/account/NotFound.vue';
-import EmptyLayout from '@/views/layouts/EmptyLayout.vue';
 import Register from '@/views/account/Register.vue';
+import Forbidden from '@/views/errors/Forbidden.vue';
+import NotFound from '@/views/errors/NotFound.vue';
+
+import Landing from '@/views/landing/Landing.vue';
+import Books from "@/views/books/Books.vue";
+import BookDetail from "@/views/books/BookDetail.vue";
+import EmptyLayout from '@/views/layouts/EmptyLayout.vue';
+import AppLayout from "@/views/layouts/AppLayout.vue";
 import LandingLayout from '@/views/layouts/LandingLayout.vue';
 
 import AdministrationLayout from '@/views/layouts/AdministrationLayout.vue';
@@ -22,6 +26,8 @@ import { default as AdminMessages } from '@/views/administration/messages/Messag
 
 export enum AppRoute {
     Root = '/',
+    Books = '/books',
+    BookDetail = '/books/:id',
     Forbidden = '/forbidden',
     SignIn = '/signin',
     Register = '/register',
@@ -40,6 +46,20 @@ const routes = [
         component: Landing,
         meta: {
             layout: LandingLayout,
+        },
+    },
+    {
+        path: AppRoute.Books,
+        component: Books,
+        meta: {
+            layout: AppLayout,
+        },
+    },
+    {
+        path: AppRoute.BookDetail,
+        component: BookDetail,
+        meta: {
+            layout: AppLayout,
         },
     },
     {
