@@ -5,12 +5,7 @@
                 <AppBar />
                 <Menu />
             </header>
-
-            <div>
-                <div class="mx-auto max-w-screen-xl px-2">
-                    <slot></slot>
-                </div>
-            </div>
+            <slot></slot>
         </div>
         <div class="mt-12">
             <Footer />

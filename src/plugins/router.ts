@@ -13,7 +13,6 @@ import Products from "@/views/products/Products.vue";
 import ProductDetail from "@/views/products/ProductDetail.vue";
 import EmptyLayout from '@/views/layouts/EmptyLayout.vue';
 import AppLayout from "@/views/layouts/AppLayout.vue";
-import LandingLayout from '@/views/layouts/LandingLayout.vue';
 
 import AdministrationLayout from '@/views/layouts/AdministrationLayout.vue';
 import Administration from '@/views/administration/Administration.vue';
@@ -46,7 +45,7 @@ const routes = [
         name: AppRoutes.root.name,
         component: Landing,
         meta: {
-            layout: LandingLayout,
+            layout: AppLayout,
         },
     },
     {
