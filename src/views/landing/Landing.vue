@@ -223,7 +223,6 @@
 
     async function initialize() {
         const productCategories = await getProductCategories();
-        console.log(productCategories);
         bookCategory.value = productCategories?.find((x) => x.name === 'Books' && x.isTopLevelCategory === true);
         newReleasesCategory.value = productCategories?.find((x) => x.name === 'New Releases');
         preOrdersCategory.value = productCategories?.find((x) => x.name === 'Pre-orders');
