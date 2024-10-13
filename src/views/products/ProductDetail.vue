@@ -18,7 +18,7 @@
         <div class="flex mx-auto max-w-screen-lg px-2 gap-24">
             <div class="w-3/5 flex flex-col gap-4">
                 <p class="text-4xl font-bold">{{ product?.name }}</p>
-                <p v-if="(product as BookDto).author" class="">
+                <p v-if="product && (product as BookDto).author">
                     Author: <span class="text-ochr-500">{{ (product as BookDto)?.author }}</span>
                 </p>
                 <p class="">{{ product?.description }}</p>
