@@ -187,7 +187,7 @@
     import BookCarousel from '@/views/landing/_components/BookCarousel.vue';
     import * as posters from '@/assets/posters/index';
     import { useGetProductsCommand } from '@/commands/products/getProductsCommand';
-    import { BookDto } from '@/api/devbookClient';
+    import { BookDto, ProductCategoryDto } from '@/api/devbookClient';
     import bookPlaceholder from '@/assets/book_placeholder.png';
     import { ref } from 'vue';
     import { useRouter } from 'vue-router';
@@ -197,6 +197,7 @@
     //TODO - save cover images to local DB or server, so it can be fastly load on page load
     //TODO2 - correct swiper and use v-for insted of direct bookChunks indexes for covers
     const error = ref('');
+    const bookCategory = ref<ProductCategoryDto>();
     const newReleases = ref<BookDto[]>([]);
     const commingSoon = ref<BookDto[]>([]);
     const bestSellers = ref<BookDto[]>([]);
@@ -210,6 +211,7 @@
 
     async function initialize() {
         const productCategories = await getProductCategories();
+        bookCategory.value = productCategories?.find((x) => x.name === 'Books' && x.isTopLevelCategory === true);
         const newReleasesCategory = productCategories?.find((x) => x.name === 'New Releases');
         const preOrdersCategory = productCategories?.find((x) => x.name === 'Pre-orders');
         const bestSellersCategory = productCategories?.find((x) => x.name === 'Bestsellers');
@@ -230,6 +232,10 @@
     }
 
     function goToDetail(id: string) {
-        router.push({ name: AppRoutes.productDetail.name, params: { id: id } });
+        router.push({
+            name: AppRoutes.productDetail.name,
+            params: { id: id },
+            query: { categoryId: bookCategory.value?.id, categoryName: bookCategory.value?.name },
+        });
     }
 </script>
