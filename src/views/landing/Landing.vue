@@ -29,13 +29,15 @@
 
     <div class="flex flex-col gap-8 mx-auto max-w-screen-xl px-2">
         <div class="card p-4 bg-ochr-100 rounded-lg">
-            <h2 class="text-xl font-bold p-4">New Releases</h2>
+            <a :href="'/categories/' + newReleasesCategory?.id + '/products'">
+                <h2 class="text-xl font-bold p-4">New Releases</h2>
+            </a>
             <BookCarousel>
                 <template v-for="book in newReleases">
                     <swiper-slide>
                         <div
                             class="p-2 w-full flex flex-col justify-center items-center gap-2 text-lg rounded-lg cursor-pointer hover:bg-ochr-500/10"
-                            :onclick="() => goToDetail(book.id)"
+                            :onclick="() => goToProductDetail(book.id)"
                         >
                             <div class="h-[250px] pt-2 content-center">
                                 <img
@@ -61,13 +63,15 @@
         </div>
 
         <div class="card p-4 bg-ochr-100 rounded-lg">
-            <h2 class="text-xl font-bold p-4">Comming soon</h2>
+            <a :href="'/categories/' + preOrdersCategory?.id + '/products'">
+                <h2 class="text-xl font-bold p-4">Comming soon</h2>
+            </a>
             <BookCarousel>
-                <template v-for="book in commingSoon">
+                <template v-for="book in preOrders">
                     <swiper-slide>
                         <div
                             class="p-2 w-full flex flex-col justify-center items-center gap-2 text-lg rounded-lg cursor-pointer hover:bg-ochr-500/10"
-                            :onclick="() => goToDetail(book.id)"
+                            :onclick="() => goToProductDetail(book.id)"
                         >
                             <div class="h-[250px] pt-2 content-center">
                                 <img
@@ -93,13 +97,15 @@
         </div>
 
         <div class="card p-4 bg-ochr-100 rounded-lg">
-            <h2 class="text-xl font-bold p-4">Bestsellers</h2>
+            <a :href="'/categories/' + bestSellersCategory?.id + '/products'">
+                <h2 class="text-xl font-bold p-4">Bestsellers</h2>
+            </a>
             <BookCarousel>
                 <template v-for="book in bestSellers">
                     <swiper-slide>
                         <div
                             class="p-2 w-full flex flex-col justify-center items-center gap-2 text-lg rounded-lg cursor-pointer hover:bg-ochr-500/10"
-                            :onclick="() => goToDetail(book.id)"
+                            :onclick="() => goToProductDetail(book.id)"
                         >
                             <div class="h-[250px] pt-2 content-center">
                                 <img
@@ -125,13 +131,15 @@
         </div>
 
         <div class="card p-4 bg-ochr-100 rounded-lg">
-            <h2 class="text-xl font-bold p-4">Just For the Summer</h2>
+            <a :href="'/categories/' + justForTheSummerCategory?.id + '/products'">
+                <h2 class="text-xl font-bold p-4">Just For the Summer</h2>
+            </a>
             <BookCarousel>
                 <template v-for="book in justForTheSummer">
                     <swiper-slide>
                         <div
                             class="p-2 w-full flex flex-col justify-center items-center gap-2 text-lg rounded-lg cursor-pointer hover:bg-ochr-500/10"
-                            :onclick="() => goToDetail(book.id)"
+                            :onclick="() => goToProductDetail(book.id)"
                         >
                             <div class="h-[250px] pt-2 content-center">
                                 <img
@@ -198,9 +206,13 @@
     //TODO2 - correct swiper and use v-for insted of direct bookChunks indexes for covers
     const error = ref('');
     const bookCategory = ref<ProductCategoryDto>();
+    const newReleasesCategory = ref<ProductCategoryDto>();
     const newReleases = ref<BookDto[]>([]);
-    const commingSoon = ref<BookDto[]>([]);
+    const preOrdersCategory = ref<ProductCategoryDto>();
+    const preOrders = ref<BookDto[]>([]);
+    const bestSellersCategory = ref<ProductCategoryDto>();
     const bestSellers = ref<BookDto[]>([]);
+    const justForTheSummerCategory = ref<ProductCategoryDto>();
     const justForTheSummer = ref<BookDto[]>([]);
 
     const router = useRouter();
@@ -211,27 +223,32 @@
 
     async function initialize() {
         const productCategories = await getProductCategories();
+        console.log(productCategories);
         bookCategory.value = productCategories?.find((x) => x.name === 'Books' && x.isTopLevelCategory === true);
-        const newReleasesCategory = productCategories?.find((x) => x.name === 'New Releases');
-        const preOrdersCategory = productCategories?.find((x) => x.name === 'Pre-orders');
-        const bestSellersCategory = productCategories?.find((x) => x.name === 'Bestsellers');
+        newReleasesCategory.value = productCategories?.find((x) => x.name === 'New Releases');
+        preOrdersCategory.value = productCategories?.find((x) => x.name === 'Pre-orders');
+        bestSellersCategory.value = productCategories?.find((x) => x.name === 'Bestsellers');
+        justForTheSummerCategory.value = productCategories?.find((x) => x.name === 'Just For The Summer');
 
         if (newReleasesCategory) {
-            newReleases.value = (await getProductsCommand(12, 0, 'Book', newReleasesCategory?.id)) ?? [];
+            newReleases.value = (await getProductsCommand(12, 0, 'Book', newReleasesCategory?.value?.id)) ?? [];
         }
 
         if (preOrdersCategory) {
-            commingSoon.value = (await getProductsCommand(12, 0, 'Book', preOrdersCategory?.id)) ?? [];
+            preOrders.value = (await getProductsCommand(12, 0, 'Book', preOrdersCategory?.value?.id)) ?? [];
         }
 
         if (bestSellersCategory) {
-            bestSellers.value = (await getProductsCommand(12, 0, 'Book', bestSellersCategory?.id)) ?? [];
+            bestSellers.value = (await getProductsCommand(12, 0, 'Book', bestSellersCategory?.value?.id)) ?? [];
         }
 
-        justForTheSummer.value = (await getProductsCommand(12, 36, 'Book')) ?? [];
+        if (justForTheSummerCategory) {
+            justForTheSummer.value =
+                (await getProductsCommand(12, 0, 'Book', justForTheSummerCategory?.value?.id)) ?? [];
+        }
     }
 
-    function goToDetail(id: string) {
+    function goToProductDetail(id: string) {
         router.push({
             name: AppRoutes.productDetail.name,
             params: { id: id },
