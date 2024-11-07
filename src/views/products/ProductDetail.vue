@@ -24,7 +24,7 @@
                 <p>{{ product?.description }}</p>
                 <div class="flex flex-col">
                     <div
-                        class="w-48 h-20 flex flex-col pt-2 content-center text-center relative top-[1px] z-10 bg-ochr-100 border-x border-t border-gray-300 border-t-gray-300 rounded-t-md"
+                        class="w-48 h-20 flex flex-col pt-2 content-center text-center relative top-[1px] z-[1] bg-ochr-100 border-x border-t border-gray-300 border-t-gray-300 rounded-t-md"
                     >
                         <p class="text-md font-bold"><BookMarked :size="18" class="inline mr-1 text-amber-700" /></p>
                         <p class="text-md font-bold">{{ product?.productType }}</p>
