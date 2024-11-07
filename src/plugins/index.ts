@@ -10,6 +10,7 @@ import { registerPinia } from './pinia';
 import { registerPrimeVue } from './primevue';
 import { registerSwiper } from './swiper';
 import { initializeDevbookClientApis } from './devbookApiClient';
+import { registerAuthenticationInterceptors } from "./authentication";
 
 export function registerPlugins(app: App) {
     app.use(router);
@@ -17,4 +18,5 @@ export function registerPlugins(app: App) {
     registerPrimeVue(app);
     registerSwiper();
     initializeDevbookClientApis();
+    registerAuthenticationInterceptors();
 }
