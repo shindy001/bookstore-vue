@@ -7,6 +7,7 @@ import {
     Configuration,
 } from '../api/devbookClient/index';
 import { createSignOutCommand } from '@/commands/account/signOutCommand';
+import router, { AppRoutes } from './router';
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
 const signOutCommand = createSignOutCommand;
@@ -24,6 +25,13 @@ axios.interceptors.response.use(
     (response) => response,
     async (error) => {
         const originalRequest = error.config;
+        const requestUrl = new URL(originalRequest.url ?? '');
+        
+        // Do not retry on login action
+        if (requestUrl.pathname.toLocaleLowerCase().endsWith(AppRoutes.signIn.path)) {
+            Promise.reject(error);
+        }
+
         if (error.response.status === 401 && !refreshingToken) {
             refreshingToken = true;
             try {
@@ -55,7 +63,7 @@ axios.interceptors.response.use(
     (response) => response,
     async (error) => {
         if (error.response.status === 403) {
-            window.location.href = '/forbidden';
+            router.push(AppRoutes.forbidden.path);
         }
         return Promise.reject(error);
     },

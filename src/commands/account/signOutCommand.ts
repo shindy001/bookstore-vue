@@ -7,6 +7,5 @@ export function createSignOutCommand() {
         localStorage.removeItem(AuthTokenLocalStorageKey);
         localStorage.removeItem(RefreshTokenLocalStorageKey);
         userStore.logout();
-        window.location.href = '/signin';
     };
 }
