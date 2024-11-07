@@ -7,4 +7,8 @@
 
     const route = useRoute();
     const productCategoryId = route.params.id as string;
+
+    // TODO
+    // 1. Get product category info
+    // 2. Get products for category and display them
 </script>
