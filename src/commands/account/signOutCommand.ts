@@ -1,11 +1,12 @@
-import { AuthTokenLocalStorageKey, RefreshTokenLocalStorageKey } from '@/plugins/devbookApiClient';
 import { useUserInfoStore } from '@/stores/userInfoStore';
+import { useUserTokenStore } from "@/stores/userTokenStore";
 
 export function createSignOutCommand() {
+    const userTokenStore = useUserTokenStore();
+    
     return async () => {
-        const userStore = useUserInfoStore();
-        localStorage.removeItem(AuthTokenLocalStorageKey);
-        localStorage.removeItem(RefreshTokenLocalStorageKey);
-        userStore.logout();
+        const userInfoStore = useUserInfoStore();
+        userTokenStore.removeTokens();
+        userInfoStore.logout();
     };
 }
