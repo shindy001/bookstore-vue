@@ -30,7 +30,7 @@
     <div class="flex flex-col gap-8 mx-auto max-w-screen-xl px-2">
         <div class="card p-4 bg-ochr-100 rounded-lg">
             <a :href="'/categories/' + newReleasesCategory?.id + '/products'">
-                <h2 class="text-3xl font-bold p-4">New Releases</h2>
+                <h2 class="text-3xl font-bold p-4 hover:underline hover:underline-offset-2">New Releases</h2>
             </a>
             <BookCarousel>
                 <template v-for="product in newReleases">
@@ -42,11 +42,11 @@
         </div>
 
         <div class="card p-4 bg-ochr-100 rounded-lg">
-            <a :href="'/categories/' + preOrdersCategory?.id + '/products'">
-                <h2 class="text-3xl font-bold p-4">Comming soon</h2>
+            <a :href="'/categories/' + commingSoonCategory?.id + '/products'">
+                <h2 class="text-3xl font-bold p-4 hover:underline hover:underline-offset-2">Comming Soon</h2>
             </a>
             <BookCarousel>
-                <template v-for="product in preOrders">
+                <template v-for="product in commingSoon">
                     <swiper-slide>
                         <ProductCard :product="product" :go-to-product-detail-fn="goToProductDetail" />
                     </swiper-slide>
@@ -56,7 +56,7 @@
 
         <div class="card p-4 bg-ochr-100 rounded-lg">
             <a :href="'/categories/' + bestSellersCategory?.id + '/products'">
-                <h2 class="text-3xl font-bold p-4">Bestsellers</h2>
+                <h2 class="text-3xl font-bold p-4 hover:underline hover:underline-offset-2">Bestsellers</h2>
             </a>
             <BookCarousel>
                 <template v-for="product in bestSellers">
@@ -69,7 +69,7 @@
 
         <div class="card p-4 bg-ochr-100 rounded-lg">
             <a :href="'/categories/' + justForTheSummerCategory?.id + '/products'">
-                <h2 class="text-3xl font-bold p-4">Just For the Summer</h2>
+                <h2 class="text-3xl font-bold p-4 hover:underline hover:underline-offset-2">Just For the Summer</h2>
             </a>
             <BookCarousel>
                 <template v-for="product in justForTheSummer">
@@ -123,8 +123,8 @@
     const bookCategory = ref<ProductCategoryDto>();
     const newReleasesCategory = ref<ProductCategoryDto>();
     const newReleases = ref<ProductDto[]>([]);
-    const preOrdersCategory = ref<ProductCategoryDto>();
-    const preOrders = ref<ProductDto[]>([]);
+    const commingSoonCategory = ref<ProductCategoryDto>();
+    const commingSoon = ref<ProductDto[]>([]);
     const bestSellersCategory = ref<ProductCategoryDto>();
     const bestSellers = ref<ProductDto[]>([]);
     const justForTheSummerCategory = ref<ProductCategoryDto>();
@@ -140,7 +140,7 @@
         const productCategories = await getProductCategories();
         bookCategory.value = productCategories?.find((x) => x.name === 'Books' && x.isTopLevelCategory === true);
         newReleasesCategory.value = productCategories?.find((x) => x.name === 'New Releases');
-        preOrdersCategory.value = productCategories?.find((x) => x.name === 'Pre-orders');
+        commingSoonCategory.value = productCategories?.find((x) => x.name === 'Comming Soon');
         bestSellersCategory.value = productCategories?.find((x) => x.name === 'Bestsellers');
         justForTheSummerCategory.value = productCategories?.find((x) => x.name === 'Just For The Summer');
 
@@ -148,8 +148,8 @@
             newReleases.value = (await getProductsCommand(12, 0, 'Book', newReleasesCategory?.value?.id)) ?? [];
         }
 
-        if (preOrdersCategory) {
-            preOrders.value = (await getProductsCommand(12, 0, 'Book', preOrdersCategory?.value?.id)) ?? [];
+        if (commingSoonCategory) {
+            commingSoon.value = (await getProductsCommand(12, 0, 'Book', commingSoonCategory?.value?.id)) ?? [];
         }
 
         if (bestSellersCategory) {
