@@ -19,6 +19,7 @@ import Administration from '@/views/administration/Administration.vue';
 import { default as AdministrationDashboard } from '@/views/administration/dashboard/Dashboard.vue';
 import ProductOverview from '@/views/administration/products/ProductOverview.vue';
 import ProductCategories from '@/views/administration/products/categories/ProductCategories.vue';
+import GiftVouchers from "@/views/products/GiftVouchers.vue";
 import { default as ProductBooks } from '@/views/administration/products/books/Books.vue';
 import { default as AdminInvoices } from '@/views/administration/invoices/Invoices.vue';
 import { default as AdminMessages } from '@/views/administration/messages/Messages.vue';
@@ -27,6 +28,7 @@ export const AppRoutes = {
     root: { path: '/', name: "root" },
     products: { path: '/categories/:id/products', name: "categoryProducts" },
     productDetail: { path: '/products/:id', name: "productDetail" },
+    giftVouchers: {path : '/gift-vouchers', name: "giftVouchers"},
     forbidden: { path: '/forbidden', name: "forbidden" },
     signIn: { path: '/signin', name: "signIn" },
     register: { path: '/register', name: "register" },
@@ -60,6 +62,14 @@ const routes = [
         path: AppRoutes.productDetail.path,
         name: AppRoutes.productDetail.name,
         component: ProductDetail,
+        meta: {
+            layout: AppLayout,
+        },
+    },
+    {
+        path: AppRoutes.giftVouchers.path,
+        name: AppRoutes.giftVouchers.name,
+        component: GiftVouchers,
         meta: {
             layout: AppLayout,
         },
