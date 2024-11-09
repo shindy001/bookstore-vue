@@ -38,35 +38,47 @@
                                     <div class="w-1/3 min-w-[250px]">
                                         <p class="text-xl py-6 font-bold">Could interest you</p>
                                         <div class="flex flex-col pt-4 pr-8 text-lg font-semibold">
-                                            <a href="#" class="p-2 hover:underline hover:underline-offset-4">
+                                            <a
+                                                :href="'/categories/' + newReleasesCategory?.id + '/products'"
+                                                class="p-2 hover:underline hover:underline-offset-4"
+                                            >
                                                 <Box class="inline h-full w-8 mr-2" :stroke-width="1" :size="32" />
-                                                <span>New Releases</span>
+                                                <span>{{ newReleasesCategory?.name }}</span>
                                             </a>
                                             <PrimeDivider />
-                                            <a href="#" class="p-2 hover:underline hover:underline-offset-4">
+                                            <a
+                                                :href="'/categories/' + bestSellersCategory?.id + '/products'"
+                                                class="p-2 hover:underline hover:underline-offset-4"
+                                            >
                                                 <div class="flex items-center content-center">
                                                     <Star class="inline h-full w-8 mr-2" :stroke-width="1" :size="32" />
-                                                    <span>Bestsellers</span>
+                                                    <span>{{ bestSellersCategory?.name }}</span>
                                                 </div>
                                             </a>
                                             <PrimeDivider />
-                                            <a href="#" class="p-2 hover:underline hover:underline-offset-4">
+                                            <a
+                                                :href="'/categories/' + commingSoonCategory?.id + '/products'"
+                                                class="p-2 hover:underline hover:underline-offset-4"
+                                            >
                                                 <div class="flex items-center content-center">
                                                     <Clock
                                                         class="inline h-full w-8 mr-2"
                                                         :stroke-width="1"
                                                         :size="32"
                                                     />
-                                                    <span>Pre-orders</span>
+                                                    <span>{{ commingSoonCategory?.name }}</span>
                                                 </div>
                                             </a>
                                             <PrimeDivider />
-                                            <a href="#" class="p-2 hover:underline hover:underline-offset-4">
+                                            <router-link
+                                                to="/gift-vouchers"
+                                                class="p-2 hover:underline hover:underline-offset-4"
+                                            >
                                                 <div class="flex items-center content-center">
                                                     <Gift class="inline h-full w-8 mr-2" :stroke-width="1" :size="32" />
-                                                    <span>Gift vouchers</span>
+                                                    <span>Gift Vouchers</span>
                                                 </div>
-                                            </a>
+                                            </router-link>
                                         </div>
                                     </div>
                                 </div>
@@ -79,7 +91,14 @@
                                     >
                                         <div v-if="topLevelCategory.subcategories?.length">
                                             <div v-for="subcategory in topLevelCategory.subcategories">
-                                                <a href="#" class="hover:underline hover:underline-offset-4">
+                                                <a
+                                                    :href="
+                                                        '/categories/' +
+                                                        getProductCategory(subcategory)?.id +
+                                                        '/products'
+                                                    "
+                                                    class="hover:underline hover:underline-offset-4"
+                                                >
                                                     <p>{{ subcategory }}</p>
                                                     <PrimeDivider />
                                                 </a>
@@ -122,7 +141,12 @@
     import { AppRoutes } from '@/plugins/router';
 
     const menuIndex = ref(0);
+    const productCategories = ref<Array<ProductCategoryDto>>();
     const topLevelProductCategories = ref<Array<ProductCategoryDto>>();
+    const newReleasesCategory = ref<ProductCategoryDto>();
+    const commingSoonCategory = ref<ProductCategoryDto>();
+    const bestSellersCategory = ref<ProductCategoryDto>();
+
     const toastService = useToastService();
 
     const router = useRouter();
@@ -133,7 +157,15 @@
     initialize();
 
     async function initialize() {
-        topLevelProductCategories.value = (await getProductCategoriesCommand())?.filter((x) => x.isTopLevelCategory);
+        productCategories.value = (await getProductCategoriesCommand()) ?? [];
+        topLevelProductCategories.value = productCategories.value?.filter((x) => x.isTopLevelCategory);
+        newReleasesCategory.value = getProductCategory('New Releases');
+        commingSoonCategory.value = getProductCategory('Comming Soon');
+        bestSellersCategory.value = getProductCategory('Bestsellers');
+    }
+
+    function getProductCategory(categoryName: string) {
+        return productCategories.value?.find((x) => x.name === categoryName);
     }
 
     function getMenuItemClasses(currentIndex: number) {
