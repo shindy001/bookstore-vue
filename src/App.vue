@@ -1,6 +1,6 @@
 <template>
     <component :is="layout">
-        <RouterView />
+        <RouterView :key="route.fullPath" />
     </component>
     <PrimeToast position="top-right" />
 </template>
