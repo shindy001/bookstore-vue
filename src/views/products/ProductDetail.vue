@@ -3,7 +3,7 @@
         <div class="py-2 bg-ochr-100">
             <div class="flex mx-auto max-w-screen-xl px-4">
                 <a href="/"><House :size="24" class="inline mr-1" /></a>
-                <div>
+                <div v-if="categoryId">
                     &gt;<a
                         :href="'/categories/' + categoryId + '/products'"
                         class="mx-1 hover:underline hover:underline-offset-4"
