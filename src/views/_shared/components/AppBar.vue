@@ -9,6 +9,7 @@
             <div class="md:w-[250px] xl:w-[300px] text-black">
                 <div class="relative w-full items-center">
                     <input
+                        ref="searchInputRef"
                         id="search"
                         type="search"
                         placeholder="Search..."
@@ -38,6 +39,7 @@
                     </div>
 
                     <div
+                        ref="searchResultsBoxRef"
                         class="z-20 absolute -left-[185px] top-10 py-4 w-[600px] lg:w-[800px] lg:-left-[285px]"
                         :class="shouldShowFoundProducts ? '' : 'hidden'"
                     >
@@ -97,6 +99,7 @@
     import { useSearchProductsCommand } from '@/commands/products/searchProductsCommand';
     import { ProductDto } from '@/api/devbookClient';
     import { refDebounced } from '@vueuse/core';
+    import { onClickOutside } from '@vueuse/core';
 
     const getUserInfoCommand = useGetUserInfoCommand();
     const signOutCommand = useSignOutCommand();
@@ -108,6 +111,12 @@
     const router = useRouter();
     const searchTerm = ref<string>('');
     const throttledSearchTermInput = refDebounced(searchTerm, 500);
+    const searchResultsBoxRef = ref();
+    const searchInputRef = ref();
+
+    if (!userStore.email) {
+        getUserInfo();
+    }
 
     watch(throttledSearchTermInput, async () => {
         await searchProducts(searchTerm.value);
@@ -115,9 +124,7 @@
         shouldShowFoundProducts.value = true;
     });
 
-    if (!userStore.email) {
-        getUserInfo();
-    }
+    onClickOutside(searchResultsBoxRef, (_) => (shouldShowFoundProducts.value = false), { ignore: [searchInputRef] });
 
     async function getUserInfo() {
         const infoResponse = await getUserInfoCommand();
