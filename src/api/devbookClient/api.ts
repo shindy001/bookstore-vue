@@ -2164,6 +2164,46 @@ export const BookStoreModuleProductEndpointsApiAxiosParamCreator = function (con
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * 
+         * @param {string} searchTerm 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        productsSearch: async (searchTerm: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'searchTerm' is not null or undefined
+            assertParamExists('productsSearch', 'searchTerm', searchTerm)
+            const localVarPath = `/bookstore/products/search`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Bearer required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (searchTerm !== undefined) {
+                localVarQueryParameter['searchTerm'] = searchTerm;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -2213,6 +2253,18 @@ export const BookStoreModuleProductEndpointsApiFp = function(configuration?: Con
             const localVarOperationServerBasePath = operationServerMap['BookStoreModuleProductEndpointsApi.productsGetById']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
+        /**
+         * 
+         * @param {string} searchTerm 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async productsSearch(searchTerm: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProductsGetAll200ResponseInner>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.productsSearch(searchTerm, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['BookStoreModuleProductEndpointsApi.productsSearch']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
     }
 };
 
@@ -2252,6 +2304,15 @@ export const BookStoreModuleProductEndpointsApiFactory = function (configuration
          */
         productsGetById(id: string, options?: any): AxiosPromise<ProductsGetAll200ResponseInner> {
             return localVarFp.productsGetById(id, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @param {string} searchTerm 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        productsSearch(searchTerm: string, options?: any): AxiosPromise<Array<ProductsGetAll200ResponseInner>> {
+            return localVarFp.productsSearch(searchTerm, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -2297,6 +2358,17 @@ export class BookStoreModuleProductEndpointsApi extends BaseAPI {
      */
     public productsGetById(id: string, options?: RawAxiosRequestConfig) {
         return BookStoreModuleProductEndpointsApiFp(this.configuration).productsGetById(id, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @param {string} searchTerm 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BookStoreModuleProductEndpointsApi
+     */
+    public productsSearch(searchTerm: string, options?: RawAxiosRequestConfig) {
+        return BookStoreModuleProductEndpointsApiFp(this.configuration).productsSearch(searchTerm, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
