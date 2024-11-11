@@ -2,7 +2,7 @@ import { useUserTokenStore } from "@/stores/userTokenStore";
 import { tryExecute } from '../utils';
 import { getIdentityApi } from '@/plugins/devbookApiClient';
 
-export function createSignInCommand(onError?: (message: string) => void) {
+export function useSignInCommand(onError?: (message: string) => void) {
     const identityApi = getIdentityApi();
     const userTokenStore = useUserTokenStore();
 

@@ -1,5 +1,5 @@
-import { createRefreshTokenCommand } from '@/commands/account/refreshTokenCommand';
-import { createSignOutCommand } from '@/commands/account/signOutCommand';
+import { useRefreshTokenCommand } from '@/commands/account/refreshTokenCommand';
+import { useSignOutCommand } from '@/commands/account/signOutCommand';
 import { useUserTokenStore } from '@/stores/userTokenStore';
 import axios, { AxiosRequestHeaders, InternalAxiosRequestConfig } from 'axios';
 import router, { AppRoutes } from './router';
@@ -20,8 +20,8 @@ function registerBearerTokenInterceptor() {
 }
 
 function registerRefreshTokenInterceptor() {
-    const signOutCommand = createSignOutCommand();
-    const refreshTokenCommand = createRefreshTokenCommand();
+    const signOutCommand = useSignOutCommand();
+    const refreshTokenCommand = useRefreshTokenCommand();
     const userTokenStore = useUserTokenStore();
     let refreshingToken: boolean = false;
 

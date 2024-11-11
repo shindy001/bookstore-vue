@@ -5,7 +5,7 @@ import { tryExecute } from '../utils';
 /**
  * Creates refresh token command handler
  */
-export function createRefreshTokenCommand() {
+export function useRefreshTokenCommand() {
     const identityApi = getIdentityApi();
     const userTokenStore = useUserTokenStore();
 

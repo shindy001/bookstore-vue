@@ -59,10 +59,10 @@
     import { LibraryBig } from 'lucide-vue-next';
     import { ref } from 'vue';
     import { useRouter } from 'vue-router';
-    import { createSignInCommand } from '@/commands/account/signInCommand';
+    import { useSignInCommand } from '@/commands/account/signInCommand';
 
     const router = useRouter();
-    const signInCommand = createSignInCommand((errorMessage) => (error.value = errorMessage));
+    const signInCommand = useSignInCommand((errorMessage) => (error.value = errorMessage));
     const email = ref();
     const password = ref();
     const error = ref();

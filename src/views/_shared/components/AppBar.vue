@@ -38,15 +38,17 @@
 <script setup lang="ts">
     import { LibraryBig, Search } from 'lucide-vue-next';
     import { RouterLink, useRouter } from 'vue-router';
-    import { createGetUserInfoCommand } from '@/commands/account/getUserInfoCommand';
-    import { createSignOutCommand } from '@/commands/account/signOutCommand';
+    import { useGetUserInfoCommand } from '@/commands/account/getUserInfoCommand';
+    import { useSignOutCommand } from '@/commands/account/signOutCommand';
     import { useUserInfoStore } from '@/stores/userInfoStore';
-    import { AppRoutes } from "@/plugins/router";
+    import { AppRoutes } from '@/plugins/router';
+    import { ref } from 'vue';
 
-    const getUserInfoCommand = createGetUserInfoCommand();
-    const signOutCommand = createSignOutCommand();
+    const getUserInfoCommand = useGetUserInfoCommand();
+    const signOutCommand = useSignOutCommand();
     const userStore = useUserInfoStore();
     const router = useRouter();
+    const searchTerm = ref<string>();
 
     if (!userStore.email) {
         getUserInfo();
@@ -59,6 +61,6 @@
 
     async function signOut() {
         await signOutCommand();
-        router.push(AppRoutes.signIn.path)
+        router.push(AppRoutes.signIn.path);
     }
 </script>

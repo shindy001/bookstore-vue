@@ -1,7 +1,7 @@
 import { useUserInfoStore } from '@/stores/userInfoStore';
 import { useUserTokenStore } from "@/stores/userTokenStore";
 
-export function createSignOutCommand() {
+export function useSignOutCommand() {
     const userTokenStore = useUserTokenStore();
     
     return async () => {

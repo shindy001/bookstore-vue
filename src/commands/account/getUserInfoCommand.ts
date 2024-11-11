@@ -1,7 +1,7 @@
 import { tryExecute } from '../utils';
 import { getIdentityApi } from '@/plugins/devbookApiClient';
 
-export function createGetUserInfoCommand(onError?: (message: string) => void) {
+export function useGetUserInfoCommand(onError?: (message: string) => void) {
     const identityApi = getIdentityApi();
 
     return async () => {
