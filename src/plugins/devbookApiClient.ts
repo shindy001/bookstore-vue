@@ -6,7 +6,7 @@ import {
     Configuration,
 } from '../api/devbookClient/index';
 
-const baseUrl = import.meta.env.VITE_BASE_URL;
+const baseUrl = import.meta.env.VITE_DEVBOOK_API_URL;
 const configuration = new Configuration({ basePath: baseUrl });
 
 let identityApi: AccountModuleIdentityEndpointsApi;
