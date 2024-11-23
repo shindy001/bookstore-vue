@@ -58,12 +58,13 @@
 <script setup lang="ts">
     import { LibraryBig } from 'lucide-vue-next';
     import { ref } from 'vue';
-    import { useRouter } from 'vue-router';
+    import {useRoute, useRouter} from 'vue-router';
     import { useSignInCommand } from '@/commands/account/signInCommand';
 
     const router = useRouter();
+    const route = useRoute();
     const signInCommand = useSignInCommand((errorMessage) => (error.value = errorMessage));
-    const email = ref();
+    const email = ref(route.query.email as string ?? "");
     const password = ref();
     const error = ref();
 
