@@ -12,6 +12,6 @@ export function useDeleteProductCommand(onError?: (message: string) => void, onS
             return;
         }
 
-        onError?.(result.error);
+        onError?.(JSON.stringify(result.errors));
     };
 }

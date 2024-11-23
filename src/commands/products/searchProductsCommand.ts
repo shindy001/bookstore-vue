@@ -11,6 +11,6 @@ export function useSearchProductsCommand(onError?: (message: string) => void) {
             return result.data;
         }
 
-        onError?.(result.error);
+        onError?.(JSON.stringify(result.errors));
     };
 }

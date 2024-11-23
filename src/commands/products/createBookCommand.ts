@@ -13,6 +13,6 @@ export function useCreateBookCommand(onError?: (message: string) => void, onSucc
             return;
         }
 
-        onError?.(result.error);
+        onError?.(JSON.stringify(result.errors));
     };
 }

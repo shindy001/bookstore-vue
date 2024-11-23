@@ -12,6 +12,6 @@ export function useDeleteProductCategoryCommand(onError?: (message: string) => v
             return;
         }
 
-        onError?.(result.error);
+        onError?.(JSON.stringify(result.errors));
     };
 }

@@ -11,6 +11,6 @@ export function useGetProductCategoryByIdCommand(onError?: (message: string) => 
             return result.data;
         }
 
-        onError?.(result.error);
+        onError?.(JSON.stringify(result.errors));
     };
 }

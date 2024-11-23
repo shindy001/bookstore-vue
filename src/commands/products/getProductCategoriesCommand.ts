@@ -11,6 +11,6 @@ export function useGetProductCategoriesCommand(onError?: (message: string) => vo
             return result.data;
         }
 
-        onError?.(result.error);
+        onError?.(JSON.stringify(result.errors));
     };
 }
