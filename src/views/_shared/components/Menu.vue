@@ -32,7 +32,7 @@
                 <div v-if="menuIndex === index + 1" class="absolute z-10 left-0 w-full h-[400px] bg-white">
                     <div class="mx-auto w-full h-full">
                         <div class="flex gap-16 h-full">
-                            <div class="w-1/3 bg-ochr-100 h-full">
+                            <div class="w-1/3 bg-ocher-100 h-full">
                                 <div class="flex">
                                     <div class="w-2/3"></div>
                                     <div class="w-1/3 min-w-[250px]">

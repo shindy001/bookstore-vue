@@ -47,7 +47,7 @@
                             <div v-if="foundProducts.length > 0">
                                 <div v-for="product in foundProducts.slice(0, 5)">
                                     <button
-                                        class="flex gap-4 p-2 items-center w-full hover:bg-ochr-500/20 rounded-lg"
+                                        class="flex gap-4 p-2 items-center w-full hover:bg-ocher-500/20 rounded-lg"
                                         @click="() => goToProductDetail(product.id)"
                                     >
                                         <img

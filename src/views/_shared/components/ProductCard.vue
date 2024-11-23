@@ -1,6 +1,6 @@
 <template>
     <div
-        class="p-2 w-full flex flex-col items-center gap-2 text-lg rounded-lg cursor-pointer hover:bg-ochr-500/10"
+        class="p-2 w-full flex flex-col items-center gap-2 text-lg rounded-lg cursor-pointer hover:bg-ocher-500/10"
         :onclick="() => goToProductDetailFn?.(product.id)"
     >
         <div class="h-[250px] pt-2 content-center">

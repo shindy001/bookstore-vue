@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'ochr': {
+        'ocher': {
           100: '#fcf9f5',
           500: '#cc7722',
         }

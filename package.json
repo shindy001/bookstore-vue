@@ -2,7 +2,7 @@
     "name": "bookstore-vue",
     "version": "0.0.0",
     "scripts": {
-        "dev": "vite",
+        "dev": "vite --host",
         "build": "vue-tsc --noEmit && vite build",
         "preview": "vite preview",
         "generate-devbook-client": "openapi-generator-cli generate -i ./src/api/devbook.api.yaml -o ./src/api/devbookClient -g typescript-axios --additional-properties=supportsES6=true --ignore-file-override ./src/api/devbookClient/.openapi-generator-ignore"

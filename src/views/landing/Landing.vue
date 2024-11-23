@@ -28,7 +28,7 @@
     </div>
 
     <div class="flex flex-col gap-8 mx-auto max-w-screen-xl px-2">
-        <div class="card p-4 bg-ochr-100 rounded-lg">
+        <div class="card p-4 bg-ocher-100 rounded-lg">
             <a :href="'/categories/' + newReleasesCategory?.id + '/products'">
                 <h2 class="text-3xl font-bold p-4 hover:underline hover:underline-offset-2">New Releases</h2>
             </a>
@@ -41,7 +41,7 @@
             </BookCarousel>
         </div>
 
-        <div class="card p-4 bg-ochr-100 rounded-lg">
+        <div class="card p-4 bg-ocher-100 rounded-lg">
             <a :href="'/categories/' + commingSoonCategory?.id + '/products'">
                 <h2 class="text-3xl font-bold p-4 hover:underline hover:underline-offset-2">Comming Soon</h2>
             </a>
@@ -54,7 +54,7 @@
             </BookCarousel>
         </div>
 
-        <div class="card p-4 bg-ochr-100 rounded-lg">
+        <div class="card p-4 bg-ocher-100 rounded-lg">
             <a :href="'/categories/' + bestSellersCategory?.id + '/products'">
                 <h2 class="text-3xl font-bold p-4 hover:underline hover:underline-offset-2">Bestsellers</h2>
             </a>
@@ -67,7 +67,7 @@
             </BookCarousel>
         </div>
 
-        <div class="card p-4 bg-ochr-100 rounded-lg">
+        <div class="card p-4 bg-ocher-100 rounded-lg">
             <a :href="'/categories/' + justForTheSummerCategory?.id + '/products'">
                 <h2 class="text-3xl font-bold p-4 hover:underline hover:underline-offset-2">Just For the Summer</h2>
             </a>
@@ -81,7 +81,7 @@
         </div>
     </div>
 
-    <div class="p-4 mt-8 w-full flex content-center justify-center bg-ochr-100 gap-4">
+    <div class="p-4 mt-8 w-full flex content-center justify-center bg-ocher-100 gap-4">
         <div class="flex flex-col gap-2 p-4 items-center">
             <Warehouse :size="32" />
             <p class="text-xl font-bold">Free pickup</p>
@@ -100,7 +100,7 @@
         <div class="flex flex-col gap-2 p-4 items-center">
             <MessageSquareHeart :size="32" />
             <p class="text-xl font-bold">We love books</p>
-            <p>Check out our recommandations</p>
+            <p>Check out our recommendations</p>
         </div>
     </div>
 </template>
@@ -118,7 +118,7 @@
     import { AppRoutes } from '@/plugins/router';
     import ProductCard from '@/views/_shared/components/ProductCard.vue';
 
-    //TODO - save cover images to local DB or server, so it can be fastly load on page load
+    //TODO - save cover images to local DB or server, so it can be quickly load on page load
     const error = ref('');
     const bookCategory = ref<ProductCategoryDto>();
     const newReleasesCategory = ref<ProductCategoryDto>();
@@ -140,7 +140,7 @@
         const productCategories = await getProductCategories();
         bookCategory.value = productCategories?.find((x) => x.name === 'Books' && x.isTopLevelCategory === true);
         newReleasesCategory.value = productCategories?.find((x) => x.name === 'New Releases');
-        commingSoonCategory.value = productCategories?.find((x) => x.name === 'Comming Soon');
+        commingSoonCategory.value = productCategories?.find((x) => x.name === 'Coming Soon');
         bestSellersCategory.value = productCategories?.find((x) => x.name === 'Bestsellers');
         justForTheSummerCategory.value = productCategories?.find((x) => x.name === 'Just For The Summer');
 

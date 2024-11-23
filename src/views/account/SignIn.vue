@@ -1,5 +1,5 @@
 <template>
-    <div class="h-full bg-ochr-100 mb-6">
+    <div class="h-full bg-ocher-100 mb-6">
         <div class="pt-8 flex flex-col items-center gap-4">
             <RouterLink to="/" class="h-16 w-16">
                 <LibraryBig :size="64" :stroke-width="1.5" class="inline mr-1" />
@@ -69,7 +69,7 @@
 
     async function signin(): Promise<void> {
         if (await signInCommand(email.value, password.value)) {
-            router.push('/');
+            await router.push('/');
         }
     }
 </script>

@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col gap-12">
-        <div class="py-2 bg-ochr-100">
+        <div class="py-2 bg-ocher-100">
             <div class="flex mx-auto max-w-screen-xl px-4">
                 <a href="/"><House :size="24" class="inline mr-1" /></a>
                 <div v-if="categoryId">
@@ -25,12 +25,12 @@
                     <p>{{ product?.description }}</p>
                     <div class="flex flex-col">
                         <div
-                            class="w-48 h-20 flex flex-col pt-2 content-center text-center relative top-[1px] z-[1] bg-ochr-100 border-x border-t border-gray-300 border-t-gray-300 rounded-t-md"
+                            class="w-48 h-20 flex flex-col pt-2 content-center text-center relative top-[1px] z-[1] bg-ocher-100 border-x border-t border-gray-300 border-t-gray-300 rounded-t-md"
                         >
                             <p class="text-md font-bold"><BookMarked :size="18" class="inline mr-1 text-amber-700" /></p>
                             <p class="text-md font-bold">{{ product?.productType }}</p>
                         </div>
-                        <div class="p-8 w-full h-80 bg-ochr-100 border border-gray-300 rounded-b-md text-xl">
+                        <div class="p-8 w-full h-80 bg-ocher-100 border border-gray-300 rounded-b-md text-xl">
                             <p class="font-semibold flex content-center align-middle">
                                 <p>Price in eshop</p>
                                 <p class="font-bold px-3 text-2xl">${{ product?.price }}</p>
