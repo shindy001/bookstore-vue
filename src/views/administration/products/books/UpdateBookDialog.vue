@@ -1,7 +1,7 @@
 <template>
     <PrimeDialog
         modal
-        header="Create Book"
+        header="Update Book"
         :style="{ width: '35rem' }"
         @update:visible="(visible: boolean) => emit('visibilityChanged', visible)"
     >
@@ -188,7 +188,7 @@
         () => emit('onUpdate'),
     );
 
-    const createBookFormSchema = yup.object({
+    const updateBookFormSchema = yup.object({
         name: yup.string().required().label('Name'),
         retailPrice: yup.number().required().label('Retail Price'),
         price: yup.number().required().label('Price'),
@@ -200,7 +200,7 @@
     });
 
     const { defineField, handleSubmit, errors } = useForm({
-        validationSchema: createBookFormSchema,
+        validationSchema: updateBookFormSchema,
     });
 
     const [name] = defineField('name');
