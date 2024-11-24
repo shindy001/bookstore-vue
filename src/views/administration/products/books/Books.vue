@@ -36,8 +36,16 @@
                     <PrimeColumn header="Actions">
                         <template #body="slotProps">
                             <div class="flex gap-2">
-                                <!-- TODO - implement ProductCategory edit dialog -->
-                                <PrimeButton icon="pi pi-pencil" aria-label="Edit" outlined />
+                                <PrimeButton
+                                    icon="pi pi-pencil"
+                                    aria-label="Edit"
+                                    outlined
+                                    @click="() => {
+                                      bookIdToUpdate = slotProps.data.id;
+                                      updateBookDialogKey += 1;
+                                      showUpdateBookDialog = true;
+                                    }"
+                                />
                                 <PrimeButton
                                     icon="pi pi-trash"
                                     aria-label="Delete"
@@ -52,10 +60,20 @@
         </template>
     </PrimeCard>
     <CreateBookDialog
+        :key="createBookDialogKey"
         :visible="showCreateBookDialog"
         @onCreate="() => onCreateBook()"
         @onCancel="showCreateBookDialog = false"
         @visibilityChanged="(value: boolean) => (showCreateBookDialog = value)"
+    />
+
+    <UpdateBookDialog
+        :id="bookIdToUpdate"
+        :key="updateBookDialogKey"
+        :visible="showUpdateBookDialog"
+        @onUpdate="() => onUpdateBook()"
+        @onCancel="showUpdateBookDialog = false"
+        @visibilityChanged="(value: boolean) => (showUpdateBookDialog = value)"
     />
 
     <ConfirmationDialog
@@ -70,21 +88,27 @@
 
 <script setup lang="ts">
     import { ref } from 'vue';
+    import { useToastService } from '@/views/_shared/utils/toastHelper';
     import { useGetProductsCommand } from '@/commands/products/getProductsCommand';
+    import { useDeleteProductCommand } from '@/commands/products/deleteProductCommand';
+    import { BookDto } from '@/api/devbookClient';
     import PaginatedDataTable from '@/views/administration/_components/PaginatedDataTable.vue';
     import CreateBookDialog from './CreateBookDialog.vue';
-    import { useToastService } from '@/views/_shared/utils/toastHelper';
-    import { BookDto } from '@/api/devbookClient';
-    import { useDeleteProductCommand } from '@/commands/products/deleteProductCommand';
+    import UpdateBookDialog from './UpdateBookDialog.vue';
     import ConfirmationDialog from '@/views/administration/_components/ConfirmationDialog.vue';
     import bookPlaceholder from '@/assets/book_placeholder.png';
 
     const toastService = useToastService();
     const error = ref('');
     const booksTableKey = ref(0);
+    const createBookDialogKey = ref(0);
+    const updateBookDialogKey = ref(0);
+    
     const showCreateBookDialog = ref(false);
-    const bookToDelete = ref<BookDto>();
+    const showUpdateBookDialog = ref(false);
     const showDeleteBookConfirmationDialog = ref(false);
+    const bookToDelete = ref<BookDto>();
+    const bookIdToUpdate = ref<string>("");
 
     const getProductsCommand = useGetProductsCommand((errorMessage) => (error.value = errorMessage));
     const deleteProductCommand = useDeleteProductCommand(
@@ -99,8 +123,10 @@
         refreshBooksTable();
     }
 
-    function refreshBooksTable() {
-        booksTableKey.value += 1;
+    function onUpdateBook() {
+      toastService.showSuccess('Book successfully updated.');
+      showUpdateBookDialog.value = false;
+      refreshBooksTable();
     }
 
     function confirmBookDeletion(book: BookDto) {
@@ -112,5 +138,11 @@
         await deleteProductCommand(bookToDelete.value?.id!);
         showDeleteBookConfirmationDialog.value = false;
         refreshBooksTable();
+    }
+
+    function refreshBooksTable() {
+      booksTableKey.value += 1;
+      createBookDialogKey.value += 1;
+      updateBookDialogKey.value += 1;
     }
 </script>
