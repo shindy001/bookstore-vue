@@ -101,7 +101,7 @@
         productCategories: yup.array().label('Product Categories'),
     });
 
-    const { defineField, handleSubmit, setFieldValue, errors } = useForm({
+    const { defineField, handleSubmit, errors } = useForm({
         validationSchema: updateProductCategoryFormSchema,
     });
 
@@ -123,12 +123,12 @@
 
     async function initialize() {
       if (props.id) {
-        const productCategories = await getProductCategoriesCommand();
-        subcategoriesOptions.value = productCategories?.filter((x) => !x.isTopLevelCategory) ?? [];
-        selectedProductCategory.value = productCategories?.find(x => x.id === props.id);
-        setFieldValue("name", selectedProductCategory?.value?.name);
-        setFieldValue("isTopLevelCategory", selectedProductCategory?.value?.isTopLevelCategory);
-        setFieldValue("productCategories", getSubcategories(selectedProductCategory?.value?.subcategories ?? []));
+        const categories = await getProductCategoriesCommand();
+        subcategoriesOptions.value = categories?.filter((x) => !x.isTopLevelCategory) ?? [];
+        selectedProductCategory.value = categories?.find(x => x.id === props.id);
+        name.value = selectedProductCategory?.value?.name;
+        isTopLevelCategory.value = selectedProductCategory?.value?.isTopLevelCategory;
+        productCategories.value = getSubcategories(selectedProductCategory?.value?.subcategories ?? []);
       }
     }
     
