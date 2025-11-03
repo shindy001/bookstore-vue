@@ -31,14 +31,14 @@
                             <p class="text-md font-bold">{{ product?.productType }}</p>
                         </div>
                         <div class="p-8 w-full h-80 bg-ocher-100 border border-gray-300 rounded-b-md text-xl">
-                            <p class="font-semibold flex content-center align-middle">
+                            <div class="font-semibold flex content-center align-middle">
                                 <p>Price in eshop</p>
                                 <p class="font-bold px-3 text-2xl">${{ product?.price }}</p>
                                 <div class="flex justify-center">
                                     <p class="line-through text-base font-thin text-amber-800 leading-7"
                                     >${{ product?.retailPrice }}</p>
                                 </div>
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>
