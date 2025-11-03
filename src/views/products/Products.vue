@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col gap-12">
         <div class="py-2 bg-ocher-100">
-            <div class="flex mx-auto max-w-screen-xl px-4">
+            <div class="flex mx-auto max-w-(--breakpoint-xl) px-4">
                 <a href="/"><House :size="24" class="inline mr-1" /></a>
 
                 <div>
@@ -10,7 +10,7 @@
             </div>
         </div>
         <div>
-            <div class="mx-auto max-w-screen-xl px-4">
+            <div class="mx-auto max-w-(--breakpoint-xl) px-4">
                 <div class="card p-4 bg-ocher-100 rounded-lg">
                     <p class="text-4xl font-bold p-4">{{ productCategory?.name }}</p>
 

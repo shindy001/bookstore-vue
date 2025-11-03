@@ -17,7 +17,7 @@ export const tryExecute = async <T>(fn: () => Promise<AxiosResponse<T>>): Promis
         return {
             success: false,
             status: axiosError.response?.status,
-            errors: data.errors,
+            errors: data?.errors,
         };
     }
 };

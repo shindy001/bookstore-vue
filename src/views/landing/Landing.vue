@@ -27,7 +27,7 @@
         </NewsCarousel>
     </div>
 
-    <div class="flex flex-col gap-8 mx-auto max-w-screen-xl px-2">
+    <div class="flex flex-col gap-8 mx-auto max-w-(--breakpoint-xl) px-2">
         <div class="card p-4 bg-ocher-100 rounded-lg">
             <a :href="'/categories/' + newReleasesCategory?.id + '/products'">
                 <h2 class="text-3xl font-bold p-4 hover:underline hover:underline-offset-2">New Releases</h2>

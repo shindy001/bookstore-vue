@@ -1,6 +1,6 @@
 <template>
-    <div class="relative border-b-[1px] border-gray-200 h-24">
-        <div class="mx-auto max-w-screen-xl h-full" @mouseleave="menuIndex = 0">
+    <div class="relative border-b border-gray-200 h-24">
+        <div class="mx-auto max-w-(--breakpoint-xl) h-full" @mouseleave="menuIndex = 0">
             <div class="px-4 flex content-center justify-center join h-full">
                 <div v-for="(topLevelCategory, index) in topLevelProductCategories">
                     <button
@@ -19,7 +19,7 @@
                 <button
                     @mouseenter="menuIndex = 999"
                     :class="[menuIndex === 999 ? 'bg-black text-white' : 'hover:bg-black hover:text-white']"
-                    class="p-6 h-full rounded-none border-l-[1px] border-gray-200 join-item"
+                    class="p-6 h-full rounded-none border-l border-gray-200 join-item"
                 >
                     <div class="flex items-center content-center justify-center">
                         <Tablet class="inline h-full w-full mr-2" :stroke-width="1" :size="32" />
@@ -120,7 +120,7 @@
                 </div>
             </div>
             <div v-if="menuIndex == 999" class="absolute z-10 left-0 w-full h-[400px] bg-white">
-                <div class="mx-auto w-full h-full max-w-screen-xl">
+                <div class="mx-auto w-full h-full max-w-(--breakpoint-xl)">
                     <div class="flex flex-col w-full h-full items-center justify-center">
                         <p class="text-2xl">Sorry, there are no items in this category yet.</p>
                     </div>
@@ -171,7 +171,7 @@
     function getMenuItemClasses(currentIndex: number) {
         let classes = '';
         classes += menuIndex.value === currentIndex + 1 ? ' bg-black text-white' : ' hover:bg-black hover:text-white';
-        classes += currentIndex == 0 ? '' : ' border-l-[1px] border-gray-200 join-item';
+        classes += currentIndex == 0 ? '' : ' border-l border-gray-200 join-item';
         return classes;
     }
 

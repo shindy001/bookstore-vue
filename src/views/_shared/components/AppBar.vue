@@ -1,6 +1,6 @@
 <template>
     <div class="w-full bg-black text-white">
-        <div class="mx-auto w-full max-w-screen-xl flex justify-between p-2 px-4 items-center">
+        <div class="mx-auto w-full max-w-(--breakpoint-xl) flex justify-between p-2 px-4 items-center">
             <RouterLink to="/" class="flex items-center space-x-3">
                 <LibraryBig :size="32" class="inline mr-1" />
                 <span class="text-2xl font-semibold">Book Store</span>

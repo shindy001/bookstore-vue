@@ -1,6 +1,6 @@
 <template>
     <footer class="bg-black text-white shadow">
-        <div class="mx-auto flex justify-between p-4 max-w-screen-xl">
+        <div class="mx-auto flex justify-between p-4 max-w-(--breakpoint-xl)">
             <span>© 2024 <a href="#" class="hover:underline">BookStore™</a>. All Rights Reserved.</span>
             <ul class="flex flex-wrap items-center font-medium">
                 <li>
